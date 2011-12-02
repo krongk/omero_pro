@@ -1,0 +1,27 @@
+#encoding: utf-8
+zh-CN:
+  activerecord:
+    models:
+      shop: '分店'
+    attributes:
+      shop:
+        name: '名称'
+        region: '省份'
+        city: '城市'
+        district: '地区'
+        short_address: '具体地址'
+        full_address: '完整地址'
+        tel_phone: '电话'
+        mobile_phone: '手机'
+        fax: '传真'
+        email: '电子邮件'
+        qq: 'QQ'
+        bus_list: '公交路线'
+        description: '其它描述'
+        id: 编号
+        created_at: 添加时间
+        updated_at: 更新时间
+    errors:
+      shop: !!null 
+  helpers:
+    shop: !!null 

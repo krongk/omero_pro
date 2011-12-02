@@ -1,0 +1,163 @@
+site:
+  site_name: 欧美龙洗衣连锁
+  site_domain: www.omero-china.com
+  site_email: master@omero-china.com
+  site_phone: 400-123-800
+  admin_email: admin@omero-china.com
+  admin_confirm_email: omero.china@gmail.com
+meta:
+  keywords: 加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁
+  description: 欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%
+menu:
+    about:
+      title: '关于欧美龙'
+      menu_match: 'about'
+      menu:
+        about_us:
+          title: 背景介绍
+          menu_match: 'about:us'
+        culture:
+          title: 企业文化
+          menu_match: 'about:culture'
+        brand:
+          title: 品牌定位
+          menu_match: 'about:brand'
+        address:
+          title: 公司地址
+          menu_match: 'about:address'
+        history:
+          title: 发展历程
+          menu_match: 'about:history'
+        honor:
+          title: 资质荣誉
+          menu_match: 'about:honor'
+        vision:
+          title: 总部风采
+          menu_match: 'about:vision'
+        career:
+          title: 人才招聘
+          menu_match: 'about:career'
+    join:
+      title: 加盟政策
+      menu_match: join
+      menu:
+        join_standard:
+          title: 加盟标准
+          menu_match: 'join:standard'
+        join_process:
+          title: 加盟流程
+          menu_match: 'join:process'
+        join_franchise:
+          title: 特许经营
+          menu_match: 'join:franchise'
+        join_advantage:
+          title: 特许优势
+          menu_match: 'join:advantage'
+        join_support:
+          title: 总部支持
+          menu_match: 'join:support'
+        join_service:
+          title: 服务特色
+          menu_match: 'join:service'
+        about_laundry:
+          title: 行业分析
+          menu_match: 'join:laundry'
+        quora:
+          title: 问题解答
+          menu_match: 'join:quora'
+    ensure:
+      title: 保障体系
+      menu_match: 'ensure'
+      menu:
+        branch_store_system:
+          title: 分店形象系统
+          menu_match: 'ensure:branch_store_system'
+        join_investment:
+          title: 投资回报
+          menu_match: 'ensure:investment'
+        training:
+          title: 技术培训
+          menu_match: 'ensure:training'
+        download:
+          title: 资料下载
+          menu_match: 'ensure:download'
+        join_guide:
+          title: 运营指导
+          menu_match: 'ensure:join_guide'
+        after_sale_service:
+          title: 售后服务
+          menu_match: 'ensure:after_sale_service'
+    stores:
+      title: 全国加盟店分布
+      menu_match: 'stores'
+      menu:
+        store_search:
+          title: 分店查询
+          menu_match: 'store:search'
+        store_gallery:
+          title: 分店展示
+          menu_match: 'store:gallery'
+    product:
+      title: 产品中心
+      menu:
+        washing_eqipment:
+          title: 洗涤设备
+          menu_match: 'product:washing_eqipment'
+          show_in_menu: 1
+        dry_cleaning_supplies:
+          title: 干洗用品
+          menu_match: 'product:dry_cleaning_supplies'
+          show_in_menu: 1
+        washing_supplies:
+          title: 水洗用品
+          menu_match: 'product:washing_supplies'
+        auxiliaries:
+          title: 辅助设备
+          menu_match: 'product:auxiliaries'
+        chemical:
+          title: 家用化工
+          menu_match: 'product:chemical'
+        leather_service:
+          title: 皮衣保养
+          menu_match: 'product:leather'
+    customer:
+      title: 我要洗衣
+      menu:
+        store_search:
+          title: 分店查询
+          menu_match: 'store:search'
+        store_news:
+          title: 最新活动
+          menu_match: 'store:news'
+        product_knowledge:
+          title: 日化产品使用常识
+          menu_match: 'customer:product_knowledge'
+        laundry_knowledge:
+          title: 洗衣常识
+          menu_match: 'customer:laundry_knowledge'
+        online_order:
+          title: 在线洗衣预约
+          enu_match: 'customer:online_order'
+    english:
+      title: English
+      menu:
+        about_us: 
+          title: 'About Us'
+          menu_match: 'english:about_us'
+          show_in_menu: 1
+        franchise:
+          title: 'Franchise'
+          menu_match: 'english:franchise'
+          show_in_menu: 1
+        consumer:
+          title: 'Consumer'
+          menu_match: 'english:consumer'
+          show_in_menu: 1
+        stories:
+          title: 'Stories'
+          menu_match: 'english:stories'
+          show_in_menu: 1
+        contact_us:
+          title: 'Contact Us'
+          menu_match: 'english:contact_us'
+          show_in_menu: 1

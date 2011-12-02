@@ -1,0 +1,24 @@
+---
+en:
+  active_record:
+    models:
+      shop: Shop
+    attributes:
+      shop:
+        name: Name
+        region: Region
+        city: City
+        district: District
+        short_address: Short address
+        full_address: Full address
+        tel_phone: Tel phone
+        mobile_phone: Mobile phone
+        fax: Fax
+        email: Email
+        qq: Qq
+        bus_list: Bus list
+        description: Description
+    errors:
+      shop: !!null 
+  helpers:
+    shop: !!null 

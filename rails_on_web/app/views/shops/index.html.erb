@@ -1,0 +1,47 @@
+<h1>Listing shops</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Region</th>
+    <th>City</th>
+    <th>District</th>
+    <th>Short address</th>
+    <th>Full address</th>
+    <th>Tel phone</th>
+    <th>Mobile phone</th>
+    <th>Fax</th>
+    <th>Email</th>
+    <th>Qq</th>
+    <th>Bus list</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shops.each do |shop| %>
+  <tr>
+    <td><%= shop.name %></td>
+    <td><%= shop.region %></td>
+    <td><%= shop.city %></td>
+    <td><%= shop.district %></td>
+    <td><%= shop.short_address %></td>
+    <td><%= shop.full_address %></td>
+    <td><%= shop.tel_phone %></td>
+    <td><%= shop.mobile_phone %></td>
+    <td><%= shop.fax %></td>
+    <td><%= shop.email %></td>
+    <td><%= shop.qq %></td>
+    <td><%= shop.bus_list %></td>
+    <td><%= shop.description %></td>
+    <td><%= link_to 'Show', shop %></td>
+    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+    <td><%= link_to 'Destroy', shop, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Shop', new_shop_path %>

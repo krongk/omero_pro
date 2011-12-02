@@ -1,0 +1,96 @@
+<pre>
+ 参考： 
+   http://www.jeremymartin.name/projects.php?project=kwicks#
+   http://www.jeremymartin.name/examples/kwicks.php?example=1
+ 引用：
+    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="js/jquery.kwicks-1.5.1.pack.js" type="text/javascript"></script>
+    ==> 添加到了assets/javascripts/
+</pre>
+<hr/>
+
+<style>
+/* defaults for all examples */
+.kwicks {
+    /* recommended styles for kwicks ul container */
+    list-style: none;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    margin-left: 300px;
+}
+.kwicks li{
+    /* these are required, but the values are up to you (must be pixel) */
+    width: 150px;
+    height: 85px;
+    /*do not change these */
+    display: block;
+    overflow: hidden;
+    padding: 0;  /* if you need padding, do so with an inner div (or implement your own box-model hack) */
+}
+.kwicks.horizontal li {
+    /* This is optional and will be disregarded by the script.  However, it should be provided for non-JS enabled browsers. */
+    margin-right: 5px; /*Set to same as spacing option. */  
+    float: left;
+}
+.kwicks.vertical  li{
+    /* This is optional and will be disregarded by the script.  However, it should be provided for non-JS enabled browsers. */
+    margin-bottom: 5px; /*Set to same as spacing option. */ 
+}
+
+#example1 #kwick1 { 
+    background-color: #53b388;
+    background-image: url('http://jmar777.googlecode.com/svn/trunk/images/kwicks/meet.gif');
+}
+#example1 #kwick2 {
+    background-color: #5a69a9;
+    background-image: url('http://jmar777.googlecode.com/svn/trunk/images/kwicks/kwicks.gif');
+}
+#example1 #kwick3 {
+    background-color: #c26468;
+    background-image: url('http://jmar777.googlecode.com/svn/trunk/images/kwicks/for.gif');
+}
+#example1 #kwick4 { 
+    background-color: #bf7cc7;
+    background-image: url('http://jmar777.googlecode.com/svn/trunk/images/kwicks/jquery.gif');
+    margin-right: none;
+}
+.kwicks.horizontal #kwick_4 {
+    margin-right: none; /* cancel margin on last kiwck (if you set a margin above) */
+}
+.kwicks.vertical #kwick_4 {
+    margin-bottom: none; /* cancel margin on last kiwck (if you set a margin above) */
+}
+
+.kwicks li a{
+    color: #000;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 30px 0 0 10px;
+    display: block;
+    text-decoration: none;
+}
+.kwicks li a span{
+    color: #ddd;
+    font-size: 10px;
+    font-weight: 600;
+    display: block;
+}
+</style>
+
+
+<script>
+    $().ready(function() {  
+        $('.kwicks').kwicks({  
+            max : 200,  
+            spacing : 5  
+        });
+    
+    });  
+</script>
+
+
+
+
+
