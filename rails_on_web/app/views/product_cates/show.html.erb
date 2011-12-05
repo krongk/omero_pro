@@ -1,10 +1,82 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
+<% title @product_cate.name %>
+<h2>
   <%= @product_cate.name %>
-</p>
+</h2>
 
+<style>
+/**list layout**/
+  *{padding:0; margin:0; list-style:none; text-decoration:none;}
+  .box{width:100%; overflow:hidden;}
+  .item_li{float:left; margin-right:10px; margin-bottom:10px; width:200px; height:200px; display:block;}
+/**图片大图tips预览效果**/
+#tip   {position:absolute;color:#333;display:none;}
+#tip s   {position:absolute;top:40px;left:-20px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #BBA transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
+#tip s i   {position:absolute;top:-10px;left:-8px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #fff transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
+#tip .t_box   {position:relative;background-color:#CCC;filter:alpha(opacity=50);-moz-opacity:0.5;bottom:-3px;right:-3px;}
+#tip .t_box div  {position:relative;background-color:#FFF;border:1px solid #ACA899;background:#FFF;padding:1px;top:-3px;left:-3px;}
 
-<%= link_to 'Edit', edit_product_cate_path(@product_cate) %> |
-<%= link_to 'Back', product_cates_path %>
+/************************************************************************************
+将图片设置为背景，以得到边框圆滑的效果
+*************************************************************************************/
+.image-wrap {
+  margin-right: 10px;
+}
+.box {
+  margin: 0 0 50px;
+  border-top: solid 1px #ccc;
+}
+/************************************************************************************
+NORMAL
+*************************************************************************************/
+.normal img {
+  border: solid 5px #ff448f;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
+  -moz-box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
+  box-shadow: inset 0 1px 5px rgba(0,0,0,.5);
+}
+
+/************************************************************************************
+CIRCLE
+*************************************************************************************/
+.circle .image-wrap {
+  -webkit-border-radius: 20em;
+  -moz-border-radius: 20em;
+  border-radius: 20em;
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function(){
+   //图片大图tips预览效果
+   $('.tip').mouseover(function(){
+      var $tip=$('<div id="tip"><div class="t_box"><div><s><i></i></s><img src="'+this.src+'" width="400px"/></div></div></div>');
+      $('body').append($tip);
+      $('#tip').show('fast');
+   }).mouseout(function(){
+      $('#tip').remove();
+   }).mousemove(function(e){
+      $('#tip').css({"top":(e.pageY-60)+"px","left":(e.pageX+30)+"px"})
+   })
+
+   //将图片设置为背景，以得到边框圆滑的效果
+  $("#demo img").load(function() {
+    $(this).wrap(function(){
+      return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
+    });
+    $(this).css("opacity","0");
+  });
+})
+</script>
+
+<div class="box normal">
+  <ul>
+	<% @product_cate.product_items.limit(5).each do |item|%>
+	  <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")), :height =>"160px", :class => "tip"), product_item_path(item.id)%><br/>
+	  <%= link_to item.title, product_item_path(item.id) %>
+	  </li>
+	<% end %>
+  </ul>
+</div>

@@ -1,14 +1,22 @@
 #encoding: utf-8
 ActiveAdmin.register ProductItem do
+  scope :"洗涤设备"
+  scope :"干洗用品"
+  scope :"水洗用品"
+  scope :"辅助设备"
+  scope :"家用化工"
+  scope :"皮衣保养"
   
   index do
     column :id
+    column :'分类' do |item|
+      item.product_cate.name
+    end
     column :title do |item|
       link_to item.title, admin_product_item_path(item)
     end
     column :price
     column :image_path
-    column :is_visible
     column :updated_at
     default_actions
   end

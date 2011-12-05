@@ -76,26 +76,26 @@ namespace :rails_on_web do
   end
 #========================================================================
   desc "generate all pages"
-  task :generate_all_page => [:load_page, :generate_site_map, :generate_layout_page]
+  task :generate_all_page => [:load_page, :generate_site_map]
   
   desc "load pages"
   task :load_page => :environment do
     puts 'loading pages'
-    @site_map_path = "#{Rails.root}/app/views/home/site_map.html.erb"
+    @site_map_path = "#{Rails.root}/app/views/layouts/_site_map.html.erb"
     @layout_path = "#{Rails.root}/app/views/layouts/application.html.erb"
   end
 
   desc "generate site_map page"
   task :generate_site_map do
     site_map_page = File.open(@site_map_path, "w")
-    str_html_arr = ["<ul>"]
-    Page.where(:parent_id => 0).each do |parent_menu|
-      str_html_arr << "<li><a href='/pages/#{parent_menu.path_name}'>#{parent_menu.title}</a></li>"
-      sub_str_arr = ["<ul>"]
-      Page.where(:parent_id => parent_menu.id).each do |sub_menu|
-        sub_str_arr << "<li><a href='/pages/#{sub_menu.path_name}'>#{sub_menu.title}</a></li>"
+    str_html_arr = ["<ul id='top_ul'>"]
+    Page.where(:parent_id => 0).each_with_index do |parent_menu, index|
+      str_html_arr << "\n\t<li id='top_#{parent_menu.id}_#{index}' class='top_li'>\n\t\t<a id='top_a_#{parent_menu.id}_#{index}' class='top_a' href='/pages/#{parent_menu.path_name}'>#{parent_menu.title}</a>"
+      sub_str_arr = ["\n\t<ul id='sub_ul'>"]
+      Page.where(:parent_id => parent_menu.id).each_with_index do |sub_menu, index|
+        sub_str_arr << "\n\t\t\t<li id='sub_#{sub_menu.id}_#{index}' class='sub_li'>\n\t\t\t\t<a id='sub_a_#{sub_menu.id}_#{index}' class='sub_a' href='/pages/#{sub_menu.path_name}'>#{sub_menu.title}</a></li>"
       end
-      sub_str_arr << "</ul>"
+      sub_str_arr << "</ul></li>"
       str_html_arr << sub_str_arr.join('') if sub_str_arr.size > 2
       str_html_arr << "\n"
     end

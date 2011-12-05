@@ -17,7 +17,7 @@ development:
   port: 3306
   username: root
   password: dev
-  database: rails_on_web_dev
+  database: omero_pro_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -31,7 +31,7 @@ test:
   port: 3306
   username: root
   password: dev
-  database: rails_on_web_test
+  database: omero_pro_test
 
 production:
   adapter: mysql2
@@ -42,4 +42,4 @@ production:
   port: 3306
   username: root
   password: dev
-  database: rails_on_web
+  database: omero_pro

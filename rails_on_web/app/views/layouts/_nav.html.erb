@@ -7,33 +7,75 @@
 	});
   });
   function show_kwich(index){
-	$(".kwicks ul >li").hide('fast');
-	$("li#sub_kwick"+ index).slideToggle("slow");
+	$(".kwicks ul >li").addClass('.hide').hide('fast');
+	$("li#sub_kwick"+ index).show("fast");
   }
 </script>
 
 <ul class="kwicks" >
-    <li id="kwick1"  class="main_kwick" onmouseover = "javascript: show_kwich(1);"> <a href="/pages/1"></a></li>
-    <li id="kwick2"  class="main_kwick" onmouseover = "javascript: show_kwich(2);"> <a href="/pages/2"></a></li>
-    <li id="kwick3"  class="main_kwick" onmouseover = "javascript: show_kwich(3);"> <a href="/pages/3"></a></li>
-    <li id="kwick4"  class="main_kwick" onmouseover = "javascript: show_kwich(4);"> <a href="/pages/4"></a></li>
-    <li id="kwick5"  class="main_kwick" onmouseover = "javascript: show_kwich(5);"> <a href="/pages/1"></a></li>
-    <li id="kwick6"  class="main_kwick" onmouseover = "javascript: show_kwich(6);"> <a href="/pages/1"></a></li>
-    <li id="kwick7"  class="main_kwick" onmouseover = "javascript: show_kwich(7);"> <a href="/pages/1"></a></li>
+    <li id="kwick1"  class="main_kwick" onmouseover = "javascript: show_kwich(1);"> <a title="关于欧美龙" href="/pages/about"></a></li>
+    <li id="kwick2"  class="main_kwick" onmouseover = "javascript: show_kwich(2);"> <a title="加盟政策" href="/pages/join"></a></li>
+    <li id="kwick3"  class="main_kwick" onmouseover = "javascript: show_kwich(3);"> <a title="保障体系" href="/pages/ensure"></a></li>
+    <li id="kwick4"  class="main_kwick" onmouseover = "javascript: show_kwich(4);"> <a title="分店查询" href="/shops"></a></li>
+    <li id="kwick5"  class="main_kwick" onmouseover = "javascript: show_kwich(5);"> <a title="产品中心" href="/pages/product"></a></li>
+    <li id="kwick6"  class="main_kwick" onmouseover = "javascript: show_kwich(6);"> <a title="我要洗衣" href="/pages/customer"></a></li>
+    <li id="kwick7"  class="main_kwick" onmouseover = "javascript: show_kwich(7);"> <a title="English" href="/pages/english"></a></li>
     <ul class="sub_kwicks">
 	  <li id="sub_kwick1" class="sub_kwick">
-<a href="#">1背景介绍</a><a href="#">企业文化</a><a href="#">品牌定位</a><a href="#">公司地址</a><a href="#">发展历程</a><a href="#">资质荣誉</a><a href="#">总部风采</a><a href="#">人才招聘</a>
+	    <a id='sub_a_2_0' class='sub_a' href='/pages/about:about_us'>背景介绍</a>
+		<a id='sub_a_3_1' class='sub_a' href='/pages/about:culture'>企业文化</a>
+		<a id='sub_a_4_2' class='sub_a' href='/pages/about:brand'>品牌定位</a>
+		<a id='sub_a_5_3' class='sub_a' href='/pages/about:address'>公司地址</a>
+		<a id='sub_a_6_4' class='sub_a' href='/pages/about:history'>发展历程</a>
+		<a id='sub_a_7_5' class='sub_a' href='/pages/about:honor'>资质荣誉</a>
+		<a id='sub_a_8_6' class='sub_a' href='/pages/about:vision'>总部风采</a>
+		<a id='sub_a_9_7' class='sub_a' href='/pages/about:career'>人才招聘</a>
+
 	  </li>
 	  <li id="sub_kwick2" class="sub_kwick">
-<a href="#">2背景介绍</a><a href="#">企业文化</a><a href="#">品牌定位</a><a href="#">公司地址</a><a href="#">发展历程</a><a href="#">资质荣誉</a><a href="#">总部风采</a><a href="#">人才招聘</a>
+		<a id='sub_a_11_0' class='sub_a' href='/pages/join:join_standard'>加盟标准</a>
+		<a id='sub_a_12_1' class='sub_a' href='/pages/join:join_process'>加盟流程</a>
+		<a id='sub_a_13_2' class='sub_a' href='/pages/join:join_franchise'>特许经营</a>
+		<a id='sub_a_14_3' class='sub_a' href='/pages/join:join_advantage'>特许优势</a>
+		<a id='sub_a_15_4' class='sub_a' href='/pages/join:join_support'>总部支持</a>
+		<a id='sub_a_16_5' class='sub_a' href='/pages/join:join_service'>服务特色</a>
+		<a id='sub_a_17_6' class='sub_a' href='/pages/join:about_laundry'>行业分析</a>
+		<a id='sub_a_18_7' class='sub_a' href='/pages/join:quora'>问题解答</a>
 	  </li>
 	  <li id="sub_kwick3" class="sub_kwick">
-<a href="#">背景介绍</a><a href="#">企业文化</a><a href="#">品牌定位</a><a href="#">公司地址</a><a href="#">发展历程</a><a href="#">资质荣誉</a><a href="#">总部风采</a><a href="#">人才招聘</a>
+		<a id='sub_a_20_0' class='sub_a' href='/pages/ensure:branch_store_system'>分店形象系统</a>
+		<a id='sub_a_21_1' class='sub_a' href='/pages/ensure:join_investment'>投资回报</a>
+		<a id='sub_a_22_2' class='sub_a' href='/pages/ensure:training'>技术培训</a>
+		<a id='sub_a_23_3' class='sub_a' href='/pages/ensure:download'>资料下载</a>
+		<a id='sub_a_24_4' class='sub_a' href='/pages/ensure:join_guide'>运营指导</a>
+		<a id='sub_a_25_5' class='sub_a' href='/pages/ensure:after_sale_service'>售后服务</a>
 	  </li>
-	  <li id="sub_kwick4" class="sub_kwick">4加盟标准  加盟流程  特许经营  特许优势  总部支持  服务特色  行业分析  问题解答</li>
-	  <li id="sub_kwick5" class="sub_kwick">5加盟标准  加盟流程  特许经营  特许优势  总部支持  服务特色  行业分析  问题解答</li>
-	  <li id="sub_kwick6" class="sub_kwick">6加盟标准  加盟流程  特许经营  特许优势  总部支持  服务特色  行业分析  问题解答</li>
-	   <li id="sub_kwick7" class="sub_kwick">6加盟标准  加盟流程  特许经营  特许优势  总部支持  服务特色  行业分析  问题解答</li>
+	  <li id="sub_kwick4" class="sub_kwick">
+		<a id='sub_a_27_0' class='sub_a' href='/pages/stores:store_search'>分店查询</a>
+		<a id='sub_a_28_1' class='sub_a' href='/pages/stores:store_gallery'>分店展示</a>
+	  </li>
+	  <li id="sub_kwick5" class="sub_kwick">
+		<a id='sub_a_30_0' class='sub_a' href='/product_cates/1'>洗涤设备</a>
+		<a id='sub_a_31_1' class='sub_a' href='/product_cates/2'>干洗用品</a>
+		<a id='sub_a_32_2' class='sub_a' href='/product_cates/3'>水洗用品</a>
+		<a id='sub_a_33_3' class='sub_a' href='/product_cates/4'>辅助设备</a>
+		<a id='sub_a_34_4' class='sub_a' href='/product_cates/5'>家用化工</a>
+		<a id='sub_a_35_5' class='sub_a' href='/product_cates/6'>皮衣保养</a>
+	  </li>
+	  <li id="sub_kwick6" class="sub_kwick">
+		<a id='sub_a_37_0' class='sub_a' href='/pages/customer:store_search'>分店查询</a>
+		<a id='sub_a_38_1' class='sub_a' href='/pages/customer:store_news'>最新活动</a>
+		<a id='sub_a_39_2' class='sub_a' href='/pages/customer:product_knowledge'>日化产品使用常识</a>
+		<a id='sub_a_40_3' class='sub_a' href='/pages/customer:laundry_knowledge'>洗衣常识</a>
+		<a id='sub_a_41_4' class='sub_a' href='/pages/customer:online_order'>在线洗衣预约</a>
+	  </li>
+	   <li id="sub_kwick7" class="sub_kwick">
+		<a id='sub_a_43_0' class='sub_a' href='/pages/english:about_us'>About Us</a>
+		<a id='sub_a_44_1' class='sub_a' href='/pages/english:franchise'>Franchise</a>
+		<a id='sub_a_45_2' class='sub_a' href='/pages/english:consumer'>Consumer</a>
+		<a id='sub_a_46_3' class='sub_a' href='/pages/english:stories'>Stories</a>
+		<a id='sub_a_47_4' class='sub_a' href='/pages/english:contact_us'>Contact Us</a>
+	   </li>
 	</ul>
 </ul>
 

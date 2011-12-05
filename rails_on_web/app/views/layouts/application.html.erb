@@ -12,11 +12,22 @@
     
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
+  <!--[if lte IE 8]>
+    <link href="yaml/patches/patch_layout_draft.css" rel="stylesheet" type="text/css" />
+  <![endif]-->
   <%= csrf_meta_tags %>
 
   <script type="text/javascript">
+    $(document).ready(function(){
+      $(".top_banner_flip").mouseover(function(){
+        $(".top_banner").slideToggle("slow");
+      });
 
-    </script>
+      //corner
+      $("div.side_bar").corner();
+      $("div#col1_content").corner();
+    });
+  </script>
 
 </head> 
  
@@ -30,7 +41,8 @@
 <div id="top_banner" role="banner">
   <div class="page_margins">
     <div class="page">
-      <center><%=image_tag "top_banner.jpg", :width=>"100%" %></center>
+      <div class="top_banner" style="height:220px; display:none; overflow:hidden;"><%=image_tag "top_banner.jpg", :width=>"100%" %></div>
+      <div class="top_banner_flip" style="color:#fff;background:#D01A55;padding:5px;">欢迎您，来自中国.成都的用户!</div>
     </div>
   </div>
 </div>
@@ -39,13 +51,15 @@
   <div class="page_margins">
     <div class="page">
       <div id="topnav" role="contentinfo">
-        <span><%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= render 'devise/menu/login_items' %>
-         &nbsp;&nbsp;|&nbsp;&nbsp; <a href="#">联系我们</a></span>
+        <span><%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a onclick="AddFavorite(window.location,document.title)" style="cursor:hand">收藏</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+          <a onclick="SetHome(this,window.location)" style="cursor:hand">设为首页</a></span>
+         </span>
       </div>
 
         <div id="col1" role="complementary">
         <div id="col1_content" class="clearfix">
-          <%=image_tag asset_path("logo.jpg") %>
+          <%=image_tag asset_path("logo.jpg"), :height => "200px" %>
         </div></div>
         <div id="col3" role="complementary">
         <div id="col3_content" class="clearfix">
@@ -56,12 +70,12 @@
 </div>
 <!-- end: main navigation -->
 <!-- begin: main content area #main -->
-<div id="main">
+<div id="main" style="background-color:#E8E6DA;">
   <div class="page_margins">
     <div class="page">
       <!-- begin: #col1 - first float column -->
       <div id="col1" role="complementary">
-        <div id="col1_content" class="clearfix">
+        <div id="col1_content" class="clearfix" style="background-color:#fff;">
           <% if notice %><p class="notice"><%= notice %></p><% end %>
             <% if alert %><p class="alert"><%= alert %></p><% end %>
             <%= yield %>
@@ -78,8 +92,16 @@
       <!-- begin: #col3 static column -->
       <div id="col3" role="main">
         <div id="col3_content" class="clearfix">
-          Column #col3
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam malesuada suscipit pede. Nullam ipsum lacus, varius vel, nonummy in, consequat ut, neque. Vivamus viverra. Duis dolor arcu, lacinia sit amet, sollicitudin sed.
+        <div id="side_bar_1" class="side_bar">
+          <%= yield :side_bar %>
+        </div>
+        <div id="side_bar_2" class="side_bar">
+          <%= image_tag asset_path("side_banner.jpg"), :width => "265x" %><br/>
+          <%= image_tag asset_path("side_banner1.jpg"), :width => "265px" %><br/>
+          <%= image_tag asset_path("side_banner2.jpg"), :width => "265px" %><br/>
+          <%= image_tag asset_path("side_banner3.jpg"), :width => "265px" %><br/>
+        </div>
+
         </div>
         <div id="ie_clearing">&nbsp;</div>
         <!-- End: IE Column Clearing -->
@@ -94,11 +116,14 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nullam malesuada susci
 <div id="footer" role="contentinfo">
   <div class="page_margins">
     <div class="page">
-      [footer]
+      <div style="height:20px;"></div>
+      <h1>网站导航</h1>
+      <hr />
+      <%= render :partial => 'layouts/site_map' %>
     </div>
   </div>
 </div>
 <!-- full skiplink functionality in webkit browsers -->
-<script src="../../yaml/core/js/yaml-focusfix.js" type="text/javascript"></script>
+<script src="/yaml/core/js/yaml-focusfix.js" type="text/javascript"></script>
 </body>
 </html>

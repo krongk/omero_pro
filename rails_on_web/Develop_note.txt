@@ -163,14 +163,45 @@ rails g controller home index help site_map
       |-resource_item
 
 15. 
- - 省市区联动数据库
  - 我要洗衣、网上预约表单设计
  - shop表设计
    C:\Sites\rails_on_web>rails g scaffold shop name:string region:references city:references district:references short_address:string full_address:string tel_phone:string mobile_phone:string fax:string email:string qq.integer bus_list:string description:string
  - member表设计
    rails g scaffold member email:string password:string activation_code:string activated_at:time 
- 
- 16. IP to Location
+   => 废除了，直接采用devise+active_admin提供的user 和admin_user
+
+15. 省市区联动数据库
+  下载gem:https://github.com/flyerhzm/chinese_regions
+  将region/city/district三个db/migration拷贝到项目的db/migration
+  如果要用到chinese_pinyin将中文的名字翻译为英文，方便IP_locaiton Gem转换的话：
+   1. 用正则把初始化数据中的’省‘，‘市’，‘区’，‘县’删掉（其实删除‘省’，‘市’就可以，ip-location 无法找到县）
+   2. 添加一列“en_name"用于保存英文名
+   3. chinese_pinyin gem的用法：
+      > rails c
+        require 'rubygems'
+        require 'chinese_pinyin'
+        Region.find_each do |r|
+          en_name = Pinyin.t(r.name)
+          en_name = en_name.split(' ').map{|r| r.capitalize}.join
+          r.en_name = en_name
+          r.save
+        end;nil
+
+        City.find_each do |r|
+          en_name = Pinyin.t(r.name)
+          en_name = en_name.split(' ').map{|r| r.capitalize}.join
+          r.en_name = en_name
+          r.save
+        end;nil
+
+        District.find_each do |r|
+          en_name = Pinyin.t(r.name)
+          en_name = en_name.split(' ').map{|r| r.capitalize}.join
+          r.en_name = en_name
+          r.save
+        end;nil
+
+16. IP to Location
    1. #http://www.ip2locationapi.com/geoip-location-api/index.php
       User name: inruby
       API Key:220248ff44f096b92220ff728f7385224598276a
@@ -182,11 +213,12 @@ rails g controller home index help site_map
    =＝> 就这个了！
      http://www.hostip.info/ => 免费
      http://www.maxmind.com/app/city =>这个需要付费
+
 17. Add 'admin' model to devise
    => no need
    aready have 'user' and 'admin_user'
 
 18. CSS 图片处理
   
-
+19. js 导航
    <% if params[:action] == "en" %><ul><li><a href='/'>Home</a></li><li><a href='/en/english:about_us'>About Us</a></li><li><a href='/en/english:consumer'>Consumer</a></li><li><a href='/en/english:contact_us'>Contact Us</a></li><li><a href='/en/english:franchise'>Franchise</a></li><li><a href='/en/english:stories'>Stories</a></li></ul><% else %><ul><li><a href='/'>首页</a></li><li><a href='/news_cates/'>新闻资讯</a></li><li><a href='/pages/about'>关于欧美龙</a></li><li><a href='/pages/join'>加盟政策</a></li><li><a href='/pages/ensure'>保障体系</a></li><li><a href='/pages/stores'>全国加盟店分布</a></li><li><a href='/pages/product'>产品中心</a></li><li><a href='/pages/customer'>我要洗衣</a></li><li><a href='/pages/english'>English</a></li></ul><% end %>

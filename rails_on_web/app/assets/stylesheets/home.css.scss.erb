@@ -10,7 +10,10 @@
 
  /* This css file serves as a template for styling your kwicks.  Feel free to modify, but please make note of the comments - some of them are important. */
 
-/* defaults for all examples */
+.hide{display: none;}
+.side_bar{background-color: #F52969; margin-bottom: 10px;}
+
+/*******header nav start*******/
 .kwicks {
 	list-style: none;
 	position: relative;
@@ -39,35 +42,38 @@
 }
 
 #kwick1 { 
-	background-color: #53b388;
-	background-image: url('<%=asset_path("menu_1.gif")%>');
+	background-color: #F52969;
+	background-image: url('<%=asset_path("menu_about.gif")%>');
+	margin-right: none;
 }
 #kwick2 {
-	background-color: #5a69a9;
-	background-image: url('<%=asset_path("menu_2.gif")%>');
+	background-color: #FCB3D0;
+	background-image: url('<%=asset_path("menu_join.gif")%>');
+	margin-right: none;
 }
 #kwick3 {
-	background-color: #c26468;
-	background-image: url('<%=asset_path("menu_1.gif")%>');
+	background-color: #585947;
+	background-image: url('<%=asset_path("menu_ensure.gif")%>');
+	margin-right: none;
 }
 #kwick4 { 
-	background-color: #bf7cc7;
-	background-image: url('menu_2.gif');
+	background-color: #E8E6DA;
+	background-image: url('<%=asset_path("menu_searching.gif")%>');
 	margin-right: none;
 }
 #kwick5 { 
-	background-color: #bf7cc7;
-	background-image: url('menu_1.gif');
+	background-color: #CCCEA9;
+	background-image: url('<%=asset_path("menu_products.gif")%>');
 	margin-right: none;
 }
 #kwick6 { 
-	background-color: #bf7cc7;
-	background-image: url('menu_2.gif');
+	background-color: #A6AF7A;
+	background-image: url('<%=asset_path("menu_customer.gif")%>');
 	margin-right: none;
 }
 #kwick7 { 
-	background-color: #bf7cc7;
-	background-image: url('menu_1.gif');
+	background-color: #F52969;
+	background-image: url('<%=asset_path("menu_english.gif")%>');
 	margin-right: none;
 }
 
@@ -105,3 +111,58 @@
 	margin-bottom: 10px;
 	margin-left: 10px;
 }
+/*******header nav end*******/
+
+/*******footer site map start*******/
+#footer {
+	background-color: #585947;
+/** 	
+    background-image: url(<%= asset_path("footer_bg.png")%> );
+	background-repeat: no-repeat;
+	background-position: center top; **/
+}
+#footer a:hover{ color:#F52969; }
+#footer h1{
+	font-size: 28px;
+	font-family: "微软雅黑";
+	font-weight: bolder;
+	color: #888;
+}
+#footer  #top_ul {
+	list-style-type: none;
+}
+#footer li.top_li {
+	margin: 10px;
+	padding: 10px;
+	float: left;
+	border: 1px solid #FFF;
+	display: block;
+	height: 225px;
+	width: 126px;
+}
+#footer a.top_a {
+	font-size: 18px;
+	font-family: "微软雅黑";
+	font-weight: bolder;
+	color: #eee;
+	text-decoration: none;
+}
+#footer  #sub_ul {
+	list-style-type: none;
+	padding: 0px;
+	margin-top: 20px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+#footer .sub_li {
+	margin-top: 3px;
+}
+#footer a.sub_a {
+	font-size: 12px;
+	font-family: "微软雅黑";
+	font-weight: bold;
+	color: #FFF;
+	text-decoration: none;
+}
+/*******footer site map end*******/

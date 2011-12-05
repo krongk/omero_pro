@@ -6,9 +6,11 @@ class HomeController < ApplicationController
 
   #It's a location tip, you can set lawyer => nil, and modify 'views/home/location.html.erb' to 'view/home/_location.html.erb'
   def location
-  	#@ip = request.remote_id
-  	@ip = '118.113.226.34'
-  	@location = Rails.cache.read(@ip)
+  	# #@ip = request.remote_id
+  	# @ip = '222.200.90.100'
+  	# @location = Rails.cache.read(@ip)
+    render "/home/location", :layout => nil
+
   end
 
   def site_map

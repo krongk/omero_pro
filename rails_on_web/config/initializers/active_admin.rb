@@ -102,6 +102,7 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
   config.register_javascript 'tinymce.js'
   config.register_javascript 'active_admin_tinymce.js'
+  config.register_javascript 'jquery.rest.js'
 end
 
 

@@ -11,7 +11,7 @@ class CreateShops < ActiveRecord::Migration
       t.string :mobile_phone
       t.string :fax
       t.string :email
-      t.integer :qq
+      t.string :qq
       t.string :bus_list
       t.string :description
 

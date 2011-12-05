@@ -1,5 +1,14 @@
 RailsOnWeb::Application.routes.draw do
-
+  resources :regions do
+    resources :cities do
+      resources :districts
+    end
+  end
+  resources :cities do
+    resources :districts
+  end
+  resources :districts
+  
   resources :shops
 
   resources :resource_items
