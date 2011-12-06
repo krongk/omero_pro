@@ -42,7 +42,7 @@
   <div class="page_margins">
     <div class="page">
       <div class="top_banner" style="height:220px; display:none; overflow:hidden;"><%=image_tag "top_banner.jpg", :width=>"100%" %></div>
-      <div class="top_banner_flip" style="color:#fff;background:#D01A55;padding:5px;">欢迎您，来自中国.成都的用户!</div>
+      <div class="top_banner_flip" style="color:#fff;background:#ff448f;padding:5px;">欢迎您，来自中国.成都的用户!</div>
     </div>
   </div>
 </div>
@@ -70,15 +70,16 @@
 </div>
 <!-- end: main navigation -->
 <!-- begin: main content area #main -->
-<div id="main" style="background-color:#E8E6DA;">
+<div id="main">
   <div class="page_margins">
     <div class="page">
       <!-- begin: #col1 - first float column -->
       <div id="col1" role="complementary">
-        <div id="col1_content" class="clearfix" style="background-color:#fff;">
+        <div id="col1_content" class="clearfix">
           <% if notice %><p class="notice"><%= notice %></p><% end %>
-            <% if alert %><p class="alert"><%= alert %></p><% end %>
-            <%= yield %>
+          <% if alert %><p class="alert"><%= alert %></p><% end %>
+          <div id="nav_bar"><%= yield :nav_bar %></div>
+          <%= yield %>
         </div>
       </div>
       <!-- end: #col1 -->
@@ -93,10 +94,13 @@
       <div id="col3" role="main">
         <div id="col3_content" class="clearfix">
         <div id="side_bar_1" class="side_bar">
+          <% if @page %>
+            <%= image_tag asset_path("menu_side_#{@page.path_name}.jpg") %><br/>
+          <% end %>
           <%= yield :side_bar %>
         </div>
         <div id="side_bar_2" class="side_bar">
-          <%= image_tag asset_path("side_banner.jpg"), :width => "265x" %><br/>
+          <br/>
           <%= image_tag asset_path("side_banner1.jpg"), :width => "265px" %><br/>
           <%= image_tag asset_path("side_banner2.jpg"), :width => "265px" %><br/>
           <%= image_tag asset_path("side_banner3.jpg"), :width => "265px" %><br/>

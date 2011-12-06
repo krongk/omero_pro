@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
+        <title>采集坐标 </title>
         <!--[if IE 6]>
             <script type="text/javascript" src="http://dev.baidu.com/wiki/static/map/tuan/js/DD_belatedPNG_0.0.8a-min.js"></script>
             <script>DD_belatedPNG.fix("#float_search_bar");</script>
@@ -9,12 +10,12 @@
        <style>
             #preview{
                 border: 1px solid #bfd2e1;
-                width: 100%;
-                height: 400px;
+                width: 490px;
+                height: 368px;
                 font-family: Arial, Helvetica, sans-serif,"宋体";
             }
             #map_container{
-                height: 400px;
+                height: 368px;
             }
             #float_search_bar{
                 z-index: 2012;
@@ -77,21 +78,21 @@
             return para;
         }
         var para = getUrlParas(),
-            center = para.address?decodeURIComponent(para.address) : "春熙路",
-            city = para.city?decodeURIComponent(para.city) : "成都市";
+            center = para.address?decodeURIComponent(para.address) : "百度大厦",
+            city = para.city?decodeURIComponent(para.city) : "北京市";
     
-        document.getElementById("keyword").value = city +' ' + center;
+        document.getElementById("keyword").value = center;
     
         var marker_trick = false;
         var map = new BMap.Map("map_container");
         map.enableScrollWheelZoom();
     
-   //      var marker = new BMap.Marker(new BMap.Point(104.07401, 30.654148), {
-   //          enableMassClear: false,
-   //          raiseOnDrag: false
-   //       });
-   //      marker.enableDragging();
-   //      map.addOverlay(marker);
+        var marker = new BMap.Marker(new BMap.Point(116.404, 39.915), {
+            enableMassClear: false,
+            raiseOnDrag: true
+         });
+        marker.enableDragging();
+        map.addOverlay(marker);
     
         map.addEventListener("click", function(e){
             if(!(e.overlay)){
@@ -107,14 +108,14 @@
     
         var local = new BMap.LocalSearch(map, {
             renderOptions:{map: map},
-			 pageCapacity: 12
+             pageCapacity: 1
         });
         local.setSearchCompleteCallback(function(results){
             if(local.getStatus() !== BMAP_STATUS_SUCCESS){
                 alert("无结果");
             } else {
-			     marker.hide();
-			 }
+                 marker.hide();
+             }
         });
         local.setMarkersSetCallback(function(pois){
             for(var i=pois.length; i--; ){

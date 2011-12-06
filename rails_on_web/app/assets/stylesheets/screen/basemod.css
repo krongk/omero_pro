@@ -48,7 +48,7 @@
   /* (de) Layout: Breite, Hintergrund, Rahmen */
   /*.page_margins { max-width: 80em; }*/
   .page_margins { max-width: 85em; }
-  #header, #nav, #main, #footer { overflow:hidden; min-width: 800px; }
+  #header, #nav, #main, #footer { overflow:hidden; min-width: 888px; }
 
   /* (en) Designing main layout elements */
   /* (de) Gestaltung der Hauptelemente des Layouts */
