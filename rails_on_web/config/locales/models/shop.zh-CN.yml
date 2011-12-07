@@ -10,7 +10,7 @@ zh-CN:
         city: '城市'
         district: '地区'
         short_address: '具体地址'
-        full_address: '完整地址'
+        point: '经纬度'
         tel_phone: '电话'
         mobile_phone: '手机'
         fax: '传真'

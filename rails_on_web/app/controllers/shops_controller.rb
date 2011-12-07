@@ -31,6 +31,12 @@ class ShopsController < InheritedResources::Base
     # end
   end
 
+  def update
+    super do |format|
+      format.html { redirect_to admin_shops_path}
+    end
+  end
+
   private
   #{"utf8"=>"✓", "shop"=>{"region_id"=>"6", "city_id"=>"43", "district_id"=>"482"}, "x"=>"55", "y"=>"28", "action"=>"search", "controller"=>"shops"}
   def search

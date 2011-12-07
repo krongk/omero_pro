@@ -97,6 +97,8 @@
           <% if @page %>
             <%= image_tag asset_path("menu_side_#{@page.path_name}.jpg") %><br/>
           <% end %>
+          <%= yield :menu_side %>
+
           <%= yield :side_bar %>
         </div>
         <div id="side_bar_2" class="side_bar">

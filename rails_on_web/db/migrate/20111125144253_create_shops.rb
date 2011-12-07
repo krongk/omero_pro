@@ -6,7 +6,7 @@ class CreateShops < ActiveRecord::Migration
       t.references :city
       t.references :district
       t.string :short_address
-      t.string :full_address
+      t.string :point, :default => '104.072019,30.664474'
       t.string :tel_phone
       t.string :mobile_phone
       t.string :fax

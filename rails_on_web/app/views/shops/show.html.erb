@@ -1,49 +1,31 @@
 <% title "门店查询" %>
 
-<p id="notice"><%= notice %></p>
+<% content_for :menu_side do %>
+  <%=image_tag asset_path("menu_side_search.jpg") %>
+<% end %>
+
 
 <p>
-  <b>Name:</b>
-  <%= @shop.name %>
+  <b><%= @shop.name %></b>
 </p>
 
 <p>
-  <b>Region:</b>
-  <%= @shop.region %>
+  <b>地址:</b>
+  <%= @shop.region.name %> <%= @shop.city.name %><%= @shop.district.name %> <%= @shop.short_address %>
 </p>
 
 <p>
-  <b>City:</b>
-  <%= @shop.city %>
-</p>
-
-<p>
-  <b>District:</b>
-  <%= @shop.district %>
-</p>
-
-<p>
-  <b>Short address:</b>
-  <%= @shop.short_address %>
-</p>
-
-<p>
-  <b>Full address:</b>
-  <%= @shop.full_address %>
-</p>
-
-<p>
-  <b>Tel phone:</b>
+  <b>电话:</b>
   <%= @shop.tel_phone %>
 </p>
 
 <p>
-  <b>Mobile phone:</b>
+  <b>手机:</b>
   <%= @shop.mobile_phone %>
 </p>
 
 <p>
-  <b>Fax:</b>
+  <b>传真:</b>
   <%= @shop.fax %>
 </p>
 
@@ -53,18 +35,18 @@
 </p>
 
 <p>
-  <b>Qq:</b>
+  <b>QQ:</b>
   <%= @shop.qq %>
 </p>
 
 <p>
-  <b>Bus list:</b>
+  <b>公交路线:</b>
   <%= @shop.bus_list %>
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @shop.description %>
+  <b>分店描述:</b>
+  <%= simple_format @shop.description %>
 </p>
 
-<iframe src="/home/location?city=<%=@shop.city.name%>&address=<%=@shop.short_address%>" width="100%" height="450px"></iframe>
+<iframe src="/home/location?shop_ids=<%= [@shop.id] %>" width="100%" height="450px" scrolling="no"></iframe>
