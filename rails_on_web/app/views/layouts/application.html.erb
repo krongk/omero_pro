@@ -95,7 +95,13 @@
         <div id="col3_content" class="clearfix">
         <div id="side_bar_1" class="side_bar">
           <% if @page %>
-            <%= image_tag asset_path("menu_side_#{@page.path_name}.jpg") %><br/>
+            <%= image_tag asset_path("menu_side_#{@page.path_name.sub(/:.*/, '')}.jpg") %><br/>
+            <!--显示该页的所有子页-->
+            <ul>
+            <% Page.where(:parent_id => @page.id).each do |page| %>
+               <li><%= link_to page.title, page.id%></li>
+            <% end %>
+            </ul>
           <% end %>
           <%= yield :menu_side %>
 

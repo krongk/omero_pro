@@ -1,6 +1,6 @@
 /*
   * see: https://github.com/lyconic/jquery.rest
-  * Jquery通过Restful方式处理AJAX的插件
+  * Jquery通过Restful方式处理AJAX的插件， 负责城市、省份下拉框的处理
   *
  * Copyright (c) 2011 Lyconic, LLC.
  *

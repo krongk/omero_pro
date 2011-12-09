@@ -9,6 +9,8 @@ module ApplicationHelper
   def meta_description(meta_description)
   	content_for(:meta_description){ meta_description}
   end
+  
+  #链接菜单导航，如：首页/关于我们
   #input: nav_bar [['首页', '/'], ['关于', '/about']]
   def nav_bar(bar_arr)
   	strs = []
@@ -20,4 +22,20 @@ module ApplicationHelper
     	  str.html_safe
     	}
   end
+
+  #显示10条新闻，根据传入的分类，如果找不到则显示最新10条
+  def side_news(cate_name)
+    news_cate = NewsCate.find_by_name(cate_name)
+    cate_id = news_cate.nil? ? 0 : news_cate.id
+    news_items = NewsItem.recent(10, cate_id)
+    str_arr = ["<ul>"]
+    content_for(:side_bar) do
+      news_items.each do |item|
+        str_arr << "<li><a href='/news_items/#{item.id}' target='_blank'>#{item.title}</a></li>"
+      end
+      str_arr << "</ul>"
+      str_arr.join.html_safe
+    end
+  end
+
 end

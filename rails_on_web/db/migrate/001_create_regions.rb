@@ -1,11 +1,12 @@
 #encoding: utf-8
 class CreateRegions < ActiveRecord::Migration
-  def change
+  def self.up
+     puts 'create regions'
     create_table :regions, :options=>'charset=utf8' do |t|
       t.string :name
 	  t.string :en_name
     end
-
+    puts "finised..."
     Region.create(:name => '北京')
     Region.create(:name => '天津')
     Region.create(:name => '河北')

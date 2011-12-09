@@ -2,6 +2,7 @@
 <% meta_keywords @page.meta_keywords %>
 <% meta_description @page.meta_description %>
 <% nav_bar [['首页', '/'],[@page.title, '/pages/'+ @page.path_name]] %>
+<% side_news @page.title %>
 
 <div id="page">
   <%= simple_format @page.body %>

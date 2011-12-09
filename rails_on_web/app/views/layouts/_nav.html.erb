@@ -5,21 +5,25 @@
 		max: 205,
 		spacing:  5
 	});
+	//显示二级菜单
+	$(".kwicks > li").each(function(){
+       $(this).hover(function(){
+           $(".sub_kwicks > li").hide();
+           $("li#sub_"+$(this).attr("id")).show();
+       }); 
+    });
   });
-  function show_kwich(index){
-	$(".kwicks ul >li").addClass('.hide').hide('fast');
-	$("li#sub_kwick"+ index).show("fast");
-  }
+ 
 </script>
 
 <ul class="kwicks" >
-    <li id="kwick1"  class="main_kwick" onmouseover = "javascript: show_kwich(1);"> <a title="关于欧美龙" href="/pages/about"></a></li>
-    <li id="kwick2"  class="main_kwick" onmouseover = "javascript: show_kwich(2);"> <a title="加盟政策" href="/pages/join"></a></li>
-    <li id="kwick3"  class="main_kwick" onmouseover = "javascript: show_kwich(3);"> <a title="保障体系" href="/pages/ensure"></a></li>
-    <li id="kwick4"  class="main_kwick" onmouseover = "javascript: show_kwich(4);"> <a title="分店查询" href="/shops"></a></li>
-    <li id="kwick5"  class="main_kwick" onmouseover = "javascript: show_kwich(5);"> <a title="产品中心" href="/pages/product"></a></li>
-    <li id="kwick6"  class="main_kwick" onmouseover = "javascript: show_kwich(6);"> <a title="我要洗衣" href="/pages/customer"></a></li>
-    <li id="kwick7"  class="main_kwick" onmouseover = "javascript: show_kwich(7);"> <a title="English" href="/pages/english"></a></li>
+    <li id="kwick1"  class="main_kwick"> <a title="关于欧美龙" href="/pages/about"></a></li>
+    <li id="kwick2"  class="main_kwick"> <a title="加盟政策" href="/pages/join"></a></li>
+    <li id="kwick3"  class="main_kwick"> <a title="保障体系" href="/pages/ensure"></a></li>
+    <li id="kwick4"  class="main_kwick"> <a title="分店查询" href="/shops"></a></li>
+    <li id="kwick5"  class="main_kwick"> <a title="产品中心" href="/pages/product"></a></li>
+    <li id="kwick6"  class="main_kwick"> <a title="我要洗衣" href="/pages/customer"></a></li>
+    <li id="kwick7"  class="main_kwick"> <a title="English" href="/pages/english"></a></li>
     <ul class="sub_kwicks">
 	  <li id="sub_kwick1" class="sub_kwick">
 	    <a id='sub_a_2_0' class='sub_a' href='/pages/about:about_us'>背景介绍</a>

@@ -47,7 +47,7 @@
   /* (en) Layout: width, background, borders */
   /* (de) Layout: Breite, Hintergrund, Rahmen */
   /*.page_margins { max-width: 80em; }*/
-  .page_margins { max-width: 85em; }
+  .page_margins { max-width: 100em; }
   #header, #nav, #main, #footer { overflow:hidden; min-width: 888px; }
 
   /* (en) Designing main layout elements */
@@ -64,11 +64,9 @@
 
   #main { background: #fff; padding:10px 0; }
 
-  #footer {
-  }
-
-  #footer .page { padding: 10px 20px; }
-
+  #footer {}
+  #footer .page_margins {}
+  #footer .page {}
   /*------------------------------------------------------------------------------------------------------*/
 
   /**

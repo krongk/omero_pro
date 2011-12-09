@@ -2,7 +2,7 @@
 	Kwicks for jQuery (version 1.5.1)
 	Copyright (c) 2008 Jeremy Martin
 	http://www.jeremymartin.name/projects.php?project=kwicks
-	
+	菜单设计
 	Licensed under the MIT license:
 		http://www.opensource.org/licenses/mit-license.php
 

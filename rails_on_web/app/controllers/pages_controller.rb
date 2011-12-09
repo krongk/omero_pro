@@ -19,7 +19,7 @@ class PagesController < ApplicationController
     else
       @page = Page.where(:path_name => params[:id]).limit(1).first
     end
-    @page = Page.find(1) if @page.nil?
+    @page = Page.all.first if @page.nil?
 
     #special action 
     case @page.path_name
