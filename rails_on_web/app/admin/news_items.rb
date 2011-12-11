@@ -16,10 +16,12 @@ ActiveAdmin.register NewsItem do
       unless item.image_path.blank?
         image_tag(item.image_path, :width => 60) 
       else
-        "没有图片"
+        "无"
       end
     end
-    column :external_path
+    column :external_path do |item|
+      link_to item.external_path.truncate(20), item.external_path, :target => "_blank" unless item.external_path.blank?
+    end
     column :updated_at
     default_actions
   end

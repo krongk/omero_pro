@@ -35,6 +35,7 @@ ActiveAdmin::Dashboards.build do
   #   section "Recent User", :priority => 1
   #
   # Will render the "Recent Users" then the "Recent Posts" sections on the dashboard.
+
   section :"快速导航" do
     ul do
       li link_to "添加新闻", new_admin_news_item_path
@@ -53,13 +54,13 @@ ActiveAdmin::Dashboards.build do
     end
   end
 
-  section :"最新产品列表" do
-    ul do
-      ProductItem.recent(10).collect do |item|
-        li link_to item.title, admin_product_item_path(item)
-      end
-    end
-  end
+  # section :"最新产品列表" do
+  #   ul do
+  #     ProductItem.recent(10).collect do |item|
+  #       li link_to item.title, admin_product_item_path(item)
+  #     end
+  #   end
+  # end
 
   section :"最新资源列表" do
     ul do

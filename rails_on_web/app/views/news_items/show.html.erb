@@ -1,30 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% title @news_item.title %>
+<% meta_keywords @news_item.title %>
+<% nav_bar [['首页', '/'],['新闻中心', '/news_items'],[@news_item.news_cate.name, '/news_cates/'+ @news_item.news_cate.id.to_s]] %>
+<% side_news @news_item.news_cate.name %>
 
-<p>
-  <b>News cate:</b>
-  <%= @news_item.news_cate %>
-</p>
 
-<p>
-  <b>Title:</b>
+<h2>
   <%= @news_item.title %>
-</p>
+</h2>
+<hr/>
+<div id="news_content">
+  <% unless @news_item.image_path.blank? %><div class="news_img"><%= image_tag @news_item.image_path %></div><% end %>
+  <%= simple_format @news_item.body unless @news_item.body.blank? %>
+</div>
 
-<p>
-  <b>Body:</b>
-  <%= simple_format @news_item.body %>
-</p>
-
-<p>
-  <b>External url:</b>
-  <%= @news_item.external_path %>
-</p>
-
-<p>
-  <b>Image url:</b>
-  <%= @news_item.image_path %>
-</p>
-
-
-<%= link_to 'Edit', edit_news_item_path(@news_item) %> |
-<%= link_to 'Back', news_items_path %>
+<hr/>
+<%=render :partial => "layouts/bshare" %>
+<%= link_to '返回', news_items_path %>

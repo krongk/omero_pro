@@ -6,5 +6,7 @@
  *= require layout
  *= require home
  *= require shops
+ *= require pages
+ *= require news_items
  * require_tree . 
 */

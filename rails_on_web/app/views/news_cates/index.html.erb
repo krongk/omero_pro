@@ -1,23 +1,18 @@
-<h1>Listing news_cates</h1>
+<h1>新闻分类</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<div class="news_cate_list">
 <% @news_cates.each do |news_cate| %>
-  <tr>
-    <td><%= news_cate.name %></td>
-    <td><%= link_to 'Show', news_cate %></td>
-    <td><%= link_to 'Edit', edit_news_cate_path(news_cate) %></td>
-    <td><%= link_to 'Destroy', news_cate, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <ul>
+    <li><%= link_to news_cate.name, news_cate_path(news_cate) %>
+      <ul>
+        <% NewsItem.recent(5, news_cate.id).each do |item| %>
+          <li><%= link_to item.title, news_item_path(item)%></li>
+        <% end %>
+      </ul>
+    </li>
+  </ul>
 <% end %>
-</table>
+</div>
 
 <br />
 
-<%= link_to 'New News cate', new_news_cate_path %>

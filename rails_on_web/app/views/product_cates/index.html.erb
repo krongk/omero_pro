@@ -20,7 +20,7 @@
 /**list layout**/
   *{padding:0; margin:0; list-style:none; text-decoration:none;}
   .box{width:100%; overflow:hidden;}
-  .item_li{float:left; margin-right:10px; margin-bottom:10px; width:200px; height:200px; display:block;}
+  .item_li{float:left; margin-right:20px; margin-bottom:60px; width:200px; height:160px; display:block;}
 /**图片大图tips预览效果**/
 #tip   {position:absolute;color:#333;display:none;}
 #tip s   {position:absolute;top:40px;left:-20px;display:block;width:0px;height:0px;font-size:0px;line-height:0px;border-color:transparent #BBA transparent transparent;border-style:dashed solid dashed dashed;border-width:10px;}
@@ -42,7 +42,7 @@
 NORMAL
 *************************************************************************************/
 .normal img {
-  border: solid 5px #ff448f;
+  border: solid 5px #eee;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
@@ -89,9 +89,9 @@ $(document).ready(function(){
 <% @product_cates.each do |product_cate| %>
   <tr><td>
     <h2><%= link_to product_cate.name, product_cate_path(product_cate.id) %></h2><ul>
-    <% product_cate.product_items.limit(5).each do |item|%>
-      <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")), :height =>"160px", :class => "tip"), product_item_path(item.id)%>
-      <p class="product_title"><%= item.title %></p>
+    <% product_cate.product_items.limit(8).each do |item|%>
+      <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")), :height =>"160px", :class => 'tip'), product_item_path(item.id)%>
+      <p class="product_title"><%= link_to item.title.truncate(20), product_item_path(item.id), :style => "color:#ff448f"%></p>
       </li>
     <% end %>
   </td></tr>

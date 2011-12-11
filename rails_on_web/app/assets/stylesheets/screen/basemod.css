@@ -116,6 +116,29 @@
 
   #header  #col3 { margin-left: 23%; margin-right: 0; }
   #header  #col3_content { padding: 45px 20px 10px 10px; }
+
+  /**
+   * (en) Repositioning content container
+   * (de) Neupositionierung der Content Container
+   *
+   * |-------------------------------|
+   * | #header                       |
+   * |-------------------------------|
+   * | #col1  | #col3                |
+   * | 15%    | flexible             |
+   * |-------------------------------|
+   * | #footer                       |
+   * |-------------------------------|
+   */
+
+  /* Fixed width for left column | Fixe Breite für Linke Spalte */
+  #page #col1 { width: 15%; }
+  #page #col1_content { padding:0px; margin:0px;}
+  /* Hide right column | Rechte Spalte abschalten */
+  #page  #col2, #col2_content { display:none; }
+
+  #page  #col3 { margin-left: 15%; margin-right: 0; }
+  #page  #col3_content { padding: 45px 20px 10px 10px; }
  /**
   * ------------------------------------------------------------------------------------------------- #
   *

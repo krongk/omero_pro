@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
 
   def title(page_title)
@@ -28,7 +29,7 @@ module ApplicationHelper
     news_cate = NewsCate.find_by_name(cate_name)
     cate_id = news_cate.nil? ? 0 : news_cate.id
     news_items = NewsItem.recent(10, cate_id)
-    str_arr = ["<ul>"]
+    str_arr = ["<h2>相关新闻</h2><hr><ul>"]
     content_for(:side_bar) do
       news_items.each do |item|
         str_arr << "<li><a href='/news_items/#{item.id}' target='_blank'>#{item.title}</a></li>"

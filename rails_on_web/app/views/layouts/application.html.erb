@@ -99,16 +99,17 @@
             <!--显示该页的所有子页-->
             <ul>
             <% Page.where(:parent_id => @page.id).each do |page| %>
-               <li><%= link_to page.title, page.id%></li>
+               <li><%= link_to page.title, page_path(page.id)%></li>
             <% end %>
             </ul>
           <% end %>
           <%= yield :menu_side %>
-
+          
           <%= yield :side_bar %>
         </div>
         <div id="side_bar_2" class="side_bar">
           <br/>
+          <%= render :file => "/home/slide_nav" %>
           <%= image_tag asset_path("side_banner1.jpg"), :width => "265px" %><br/>
           <%= image_tag asset_path("side_banner2.jpg"), :width => "265px" %><br/>
           <%= image_tag asset_path("side_banner3.jpg"), :width => "265px" %><br/>

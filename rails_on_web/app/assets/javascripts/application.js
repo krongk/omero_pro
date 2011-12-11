@@ -6,9 +6,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
 //= require tinymce
 //= require jquery.rest
+//= require_tree .
 
 //添加到收藏
  function AddFavorite(sURL, sTitle)
