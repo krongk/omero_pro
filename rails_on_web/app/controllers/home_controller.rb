@@ -1,7 +1,7 @@
 #encoding: utf-8
 class HomeController < ApplicationController
   def index
-  	#redirect_to :action => :location
+    redirect_to "/pages/about:about_us"
   end
 
   #It's a location tip, you can set lawyer => nil, and modify 'views/home/location.html.erb' to 'view/home/_location.html.erb'
@@ -10,7 +10,7 @@ class HomeController < ApplicationController
   	# @ip = '222.200.90.100'
   	# @location = Rails.cache.read(@ip)
     render "/home/location", :layout => nil
-
+    return
   end
 
   def site_map

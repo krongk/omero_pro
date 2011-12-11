@@ -30,6 +30,9 @@ class PagesController < ApplicationController
     when 'product'
       redirect_to product_cates_url
       return
+    when 'about'
+      redirect_to '/pages/about:about_us'
+      return
     end
 
     respond_to do |format|
