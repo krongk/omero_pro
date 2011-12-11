@@ -8,8 +8,9 @@ zh-CN:
         news_cate: 新闻分类
         title: 标题
         body: 内容
-        external_path: 扩展链接地址
-        image_path: 图片链接地址
+        external_path: 扩展链接
+        image_path: 图片
+        updated_at: 更新时间
     errors:
       news_item: !!null 
   helpers:

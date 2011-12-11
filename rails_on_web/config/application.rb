@@ -59,7 +59,8 @@ end
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    # For faster asset precompiles, you can partially load your application by setting config.assets.initialize_on_precompile to false,i
+    # For faster asset precompiles, you can partially load your application by setting 
+    # config.assets.initialize_on_precompile to false,i
     # though in that case templates cannot see application objects or methods. 
       config.assets.initialize_on_precompile = false #add by xj
 
