@@ -44,11 +44,11 @@
 <div id="header">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td width="33%" rowspan="4"><img src="/assets/a_logo.jpg" width="368" height="327" alt="欧美龙-国际洗涤连锁" longdesc="http://www.omero-china.com" /></td>
+    <td width="23%" rowspan="4"><img src="/assets/a_logo.jpg" width="320px" alt="欧美龙-国际洗涤连锁" longdesc="http://www.omero-china.com" /></td>
     <% if is_ie? %>
-      <td width="67%" height="50" align="right">
+      <td width="77%" height="40" align="right">
     <% else %>
-     <td width="67%" height="90" align="right">
+     <td width="77%" height="70" align="right">
     <% end %>
          <span><%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;&nbsp;
           <a onclick="AddFavorite(window.location,document.title)" style="cursor:hand">收藏</a>&nbsp;&nbsp;&nbsp;
@@ -91,8 +91,8 @@
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%">
-        <div id="main_content">
-          <%=image_tag asset_path("main_banner.jpg") %>
+        <div id="main_content" class="shadow">
+          <%=image_tag asset_path("main_banner.jpg"), :width => '550px' %>
           <%= yield %>
         </div>
       </td>

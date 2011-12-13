@@ -11,10 +11,10 @@ body {
 	font-size: 85%;
 }
 .page_margins { text-align:left; margin: 0 auto; }
-.page_margins { width: 1024px; max-width: 1024px;}
+.page_margins { width: 960px; max-width: 960px;}
 
 
-#top_menu tr td a{font-size: 20px; font-weight: 500;}
+#top_menu tr td a{font-size: 18px; font-weight: 500;}
 #top_menu tr td {
 	border-right-width: 2px;
 	border-right-style: solid;
@@ -43,6 +43,17 @@ span.cord{
 	background-repeat: no-repeat;
 	background-position: center center;
 }
+/***shawon from: http://robertnyman.com/2010/03/16/drop-shadow-with-css-for-all-web-browsers/****/
+.shadow {
+		-moz-box-shadow: 6px 6px 8px #999;
+		-webkit-box-shadow: 6px 6px 8px #999;
+		box-shadow: 6px 6px 8px #999;
+		/* For IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=135, Color='#999999')";
+		/* For IE 5.5 - 7 */
+		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=8, Direction=135, Color='#999999');
+	}
+
 /*main************************/
 #main{
   padding: 0px;
@@ -50,16 +61,11 @@ span.cord{
   background-color: #a9a9a9;
 }
 #main_content{
+  width: 600px;
   margin: 10px 10px 20px 30px;
   padding: 10px;
+  background-color: #fff;
 }
-#main_content{
-	background-image: url(<%=asset_path("a_main_bg.png")%>);
-	background-repeat: no-repeat;
-	background-position: right bottom;
-	background-color: #fff;
-}
-
 
 #nav_bar{
 	margin-left: 40px;
@@ -80,7 +86,7 @@ span.cord{
 	font-family: "微软雅黑";
 	border-bottom-width: 1px;
 	border-bottom-style: dotted;
-	border-bottom-color: #FFF;
+	border-bottom-color: #eee;
 }
 /*************************/
 #footer{background-color: #a9a9a9; }
