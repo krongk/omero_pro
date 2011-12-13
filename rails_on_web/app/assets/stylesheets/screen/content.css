@@ -127,9 +127,9 @@
 
   /* (en) maximum constrast for tab focus - change with great care */
   /* (en) Maximaler Kontrast für Tab Focus - Ändern Sie diese Regel mit Bedacht */
-  a:focus { text-decoration:underline; color:#D01A55; background: #fff; outline: 3px #f93 solid; }
+  a:focus { text-decoration:none; color:#f52969; background: #fff; outline: 3px #f93 solid; }
   a:hover,
-  a:active { color:#D01A55; text-decoration:underline; outline: 0 none; }
+  a:active { color:#f52969; text-decoration:none; outline: 0 none; }
 
   /* --- images (with optional captions) | Bilder (mit optionaler Bildunterschrift) ------------------ */
 
@@ -176,8 +176,8 @@
   *
   * @section content-tables
   */
-
-  table {  background:#fff; width:auto; border-collapse:collapse; margin-bottom:0.5em; border-top:0px #888 solid; border-bottom:0px #888 solid; }
+/*
+  table {  background:#fff; width:auto; border-collapse:collapse; margin-bottom:0.5em; border:1px #888 solid;}
   table caption { font-variant:small-caps; }
   table.full { width:100%; }
   table.fixed { table-layout:fixed; }
@@ -187,13 +187,13 @@
   tbody th { background:#e0e0e0; color:#333; }
   tbody th[scope="row"], tbody th.sub { background:#f0f0f0; }
 
-  tbody th { border-bottom:1px solid #fff; text-align:left; }
-  tbody td { border-bottom:1px solid #eee; }
+  tbody th { border-bottom:0px solid #fff; text-align:left; }
+  tbody td { border-bottom:0px solid #eee; }
 
   tbody tr:hover th[scope="row"],
   tbody tr:hover tbody th.sub { background:#fff; }
   tbody tr:hover td { background:#fff; }
-
+*/
  /**
   * ------------------------------------------------------------------------------------------------- #
   *

@@ -1,0 +1,165 @@
+// Place all the styles related to the sites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(screen/content.css);
+
+body { background: #fff; }
+body { text-align: center; }
+body {
+	font-family: "微软雅黑";
+	font-size: 85%;
+}
+.page_margins { text-align:left; margin: 0 auto; }
+.page_margins { width: 1024px; max-width: 1024px;}
+
+
+#top_menu tr td a{font-size: 20px; font-weight: 500;}
+#top_menu tr td {
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: #888;
+	height: 35px;
+	text-align: center;
+}
+#sub_menu {
+    margin-top: 4px;
+    padding: 4px;
+	height: 35px;
+	text-align: left;
+	vertical-align: middle;
+	background-color: #888;
+}
+/*common************************/
+a.gray{color: #fff;}
+.box{
+	margin: 0 auto;
+	padding: 4px;
+	background-color: #fff;
+}
+span.cord{
+	padding-right: 10px;
+	background-image: url(<%=asset_path("li_sq.gif")%>);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/*main************************/
+#main{
+  padding: 0px;
+  margin: 0px;
+  background-color: #a9a9a9;
+}
+#main_content{
+  margin: 10px 10px 20px 30px;
+  padding: 10px;
+}
+#main_content{
+	background-image: url(<%=asset_path("a_main_bg.png")%>);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-color: #fff;
+}
+
+
+#nav_bar{
+	margin-left: 40px;
+	padding-top: 30px;
+}
+
+/*side************************/
+#side_content{
+  margin-right: 40px;
+  border-left-width: 1px;
+  border-left-style: dotted;
+  border-left-color: #FFF;
+}
+
+#side_table td {
+	line-height: 30px;
+	color: #FFF;
+	font-family: "微软雅黑";
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #FFF;
+}
+/*************************/
+#footer{background-color: #a9a9a9; }
+#footer h3{
+  color: #eee; 
+  font-size: 130%;
+  font-weight: 600;
+  font-family: "微软雅黑";
+  margin: 6px;
+ }
+#footer_banner{
+	background-image: url(<%=asset_path("a_footer_banner2.gif")%>);
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-color: #a9a9a9; 
+}
+#site_map {
+	border: 0px solid #FFF;
+}
+.no_border{
+	border: 0px;
+}
+#site_map td {
+	border: 1px solid #fff;
+}
+#site_map table td {
+	border: 0px solid #fff;
+}
+#site_map p {
+	margin: 6px;
+	padding: 0px;
+}
+#site_map a {
+    font-size: 98%;
+	color: #CCC;
+	text-decoration: none;
+}
+#site_map p a {
+	color: #FFF;
+	text-decoration: none;
+	font-family: "微软雅黑";
+}
+/*page show***********************/
+#page .section{
+	color: 888888;
+	letter-spacing: 0.1em;
+	font-size: 110%;
+	line-height: 30px;
+}
+#page .section {
+	margin: 0px;
+	padding: 0px;
+}
+#page .section h3 {
+	color: 888888;
+	font-family: "微软雅黑";
+	letter-spacing: 0.2em;
+}
+#page .section .summary {
+	margin: 10px;
+	padding: 10px;
+}
+#page .section ul, ol {
+   margin: 20px 0 20px 40px;
+   padding: 20px;
+   background-color: #eee;
+}
+
+#page .section ul li {
+    line-height: 35px;
+	list-style-type: square;
+	list-style-image: url(<%=asset_path("li_sq.gif")%>);
+}
+#page .section .question {
+	margin: 10px;
+	color: #f52969;
+	font-size: 120%;
+}
+#page .section .answer {
+	padding-left: 40px;
+}
+/*page show***********************/

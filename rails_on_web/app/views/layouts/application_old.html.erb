@@ -1,0 +1,145 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-cn" />
+  <meta name="robots" content="all" />
+  <meta name="author" content="omero" />
+  <meta name="Copyright" content="Omero Lcd, All Rights Reserved." />
+  <title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
+  <meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
+  <meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
+    
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <!--[if lte IE 8]>
+    <link href="yaml/patches/patch_layout_draft.css" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  <!--[if IE 6]>
+    <link href="yaml/patches/ie6.css" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $(".top_banner_flip").mouseover(function(){
+        $(".top_banner").slideToggle("slow");
+      });
+
+      //corner
+      $("div.side_bar").corner();
+      $("div#col1_content").corner();
+    });
+  </script>
+
+</head> 
+ 
+<body> 
+<!-- skip link navigation -->
+<ul id="skiplinks">
+  <li><a class="skip" href="#nav">跳过导航</a></li>
+  <li><a class="skip" href="#col3">跳过内容.</a></li>
+</ul>
+
+<div id="top_banner" role="banner">
+  <div class="page_margins">
+    <div class="page">
+      <div class="top_banner" style="height:220px; display:none; overflow:hidden;"><%=image_tag "top_banner.jpg", :width=>"100%" %></div>
+      <div class="top_banner_flip" style="color:#fff;background:#ff448f;padding:5px;">欢迎您，来自中国.成都的用户!</div>
+    </div>
+  </div>
+</div>
+
+<div id="header" role="banner">
+  <div class="page_margins">
+    <div class="page">
+      <div id="topnav" role="contentinfo">
+        <span><%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;|&nbsp;&nbsp;
+          <a onclick="AddFavorite(window.location,document.title)" style="cursor:hand">收藏</a>&nbsp;&nbsp; | &nbsp;&nbsp;
+          <a onclick="SetHome(this,window.location)" style="cursor:hand">设为首页</a></span>
+         </span>
+      </div>
+
+        <div id="col1" role="complementary">
+        <div id="col1_content" class="clearfix">
+          <%=image_tag asset_path("logo.jpg"), :height => "200px" %>
+        </div></div>
+        <div id="col3" role="complementary">
+        <div id="col3_content" class="clearfix">
+          <%= render :partial => "/layouts/nav"%>
+        </div></div>
+    </div>
+  </div>
+</div>
+<!-- end: main navigation -->
+<!-- begin: main content area #main -->
+<div id="main">
+  <div class="page_margins">
+    <div class="page">
+      <!-- begin: #col1 - first float column -->
+      <div id="col1" role="complementary">
+        <div id="col1_content" class="clearfix">
+          <% if notice %><p class="notice"><%= notice %></p><% end %>
+          <% if alert %><p class="alert"><%= alert %></p><% end %>
+          <div id="nav_bar"><%= yield :nav_bar %></div>
+          <%= yield %>
+        </div>
+      </div>
+      <!-- end: #col1 -->
+      <!-- begin: #col2 second float column -->
+      <div id="col2" role="complementary">
+        <div id="col2_content" class="clearfix">
+          [side_right]
+        </div>
+      </div>
+      <!-- end: #col2 -->
+      <!-- begin: #col3 static column -->
+      <div id="col3" role="main">
+        <div id="col3_content" class="clearfix">
+        <div id="side_bar_1" class="side_bar">
+          <% if @page %>
+            <%= image_tag asset_path("menu_side_#{@page.path_name.sub(/:.*/, '')}.jpg") %><br/>
+            <!--显示该页的所有子页-->
+            <ul>
+            <% Page.where(:parent_id => @page.id).each do |page| %>
+               <li><%= link_to page.title, page_path(page.id)%></li>
+            <% end %>
+            </ul>
+          <% end %>
+          <%= yield :menu_side %>
+          
+          <%= yield :side_bar %>
+        </div>
+        <div id="side_bar_2" class="side_bar">
+          <br/>
+          <%= render :file => "/home/slide_nav" %>
+          <%= image_tag asset_path("side_banner1.jpg"), :width => "265px" %><br/>
+          <%= image_tag asset_path("side_banner2.jpg"), :width => "265px" %><br/>
+          <%= image_tag asset_path("side_banner3.jpg"), :width => "265px" %><br/>
+        </div>
+
+        </div>
+        <div id="ie_clearing">&nbsp;</div>
+        <!-- End: IE Column Clearing -->
+      </div>
+      <!-- end: #col3 -->
+    </div>
+  </div>
+</div>
+<!-- end: #main -->
+
+<!-- begin: #footer -->
+<div id="footer" role="contentinfo">
+  <div class="page_margins">
+    <div class="page">
+      <div style="height:20px;"></div>
+      <h1>网站导航</h1>
+      <hr />
+      <%= render :partial => 'layouts/site_map' %>
+    </div>
+  </div>
+</div>
+<!-- full skiplink functionality in webkit browsers -->
+<script src="/yaml/core/js/yaml-focusfix.js" type="text/javascript"></script>
+</body>
+</html>

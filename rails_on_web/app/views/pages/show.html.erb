@@ -5,9 +5,6 @@
 <% side_news @page.title %>
 
 <div id="page">
-  <div id="col1"><div id="col1_content">
-    <%=image_tag asset_path("menu_side1_about.jpg") %>
-  </div></div><div id="col3"><div id="col3_content">
       <% case @page.path_name%>
       <% when 'about:address' %>
         <%= @page.body.html_safe unless @page.body.blank?%>
@@ -16,5 +13,4 @@
 
       <% end %>
       <%= @page.body.html_safe unless @page.body.blank?%>
-  </div></div>
 </div>
