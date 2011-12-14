@@ -1,7 +1,7 @@
 #encoding: utf-8
 class HomeController < ApplicationController
   def index
-    redirect_to "/pages/about:about_us"
+    redirect_to "/pages/about"
   end
 
   #It's a location tip, you can set lawyer => nil, and modify 'views/home/location.html.erb' to 'view/home/_location.html.erb'

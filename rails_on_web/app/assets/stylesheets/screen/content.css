@@ -44,7 +44,7 @@
   /* (en) base layout gets standard font size 12px */
   /* (de) Basis-Layout erhält Standardschriftgröße von 12 Pixeln */
   body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:"微软雅黑", Helvetica, sans-serif;
     font-size:75.00%;
     color:#444;
   }
@@ -52,7 +52,7 @@
   /*--- Headings | Überschriften ------------------------------------------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
-    font-family:"Times New Roman", Times, serif;
+    font-family:"微软雅黑", Times, serif;
     font-weight:normal;
     color:#222;
     margin:0 0 0.25em 0;
@@ -60,10 +60,9 @@
 
   h1 { font-size:250%; }                       /* 30px */
   h2 { font-size:200%; }                       /* 24px */
-  h3 { font-size:150%; }                       /* 18px */
-  h4 { font-size:133.33%; }                    /* 16px */
+  h3 { font-size:133.33%; }                    /* 16px */
+  h4 { font-size:116.67%; }                    /* 14px */
   h5 { font-size:116.67%; }                    /* 14px */
-  h6 { font-size:116.67%; }                    /* 14px */
 
   /* --- Lists | Listen  -------------------------------------------------------------------------------- */
 
@@ -84,7 +83,7 @@
   p { line-height:1.5em; margin:0 0 1em 0; }
 
   blockquote, cite, q {
-    font-family:Georgia, "Times New Roman", Times, serif;
+    font-family:Georgia, "微软雅黑", Times, serif;
     font-style:italic;
   }
   blockquote { margin:0 0 1em 1.6em; color:#666; }
@@ -122,7 +121,7 @@
 
   /*--- Links ----------------------------------------------------------------------------------------- */
 
-  a { color:#585947; background:transparent; text-decoration:none; }
+  a { color:#333333; background:transparent; text-decoration:none; }
   a:visited  { color:#585947; }
 
   /* (en) maximum constrast for tab focus - change with great care */

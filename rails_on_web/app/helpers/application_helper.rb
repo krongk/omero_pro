@@ -33,7 +33,7 @@ module ApplicationHelper
     news_cate = NewsCate.find_by_name(cate_name)
     cate_id = news_cate.nil? ? 0 : news_cate.id
     news_items = NewsItem.recent(10, cate_id)
-    str_arr = ["<tr><td><h3>相关新闻</h3></td></tr>"]
+    str_arr = []
     content_for(:side_news) do
       news_items.each do |item|
         str_arr << "<tr><td><span class='cord'>&nbsp;</span><a class='gray' href='/news_items/#{item.id}' target='_blank'>#{item.title}</a></td></tr>"
