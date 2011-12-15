@@ -37,7 +37,7 @@
       $(".kwicks > li").each(function(){
            $(this).hover(function(){
                $(".sub_kwicks > li").hide();
-               $("li#sub_"+$(this).attr("id")).show();
+               $("li#sub_"+$(this).attr("id")).show('slow');
       }); 
   });
     });
@@ -188,6 +188,7 @@
       <td width="10%">&nbsp;<span stype="color:#a9a9a9">-</span></td>
       <td width="20%" align="left" valign="top">
         <div id="side_content">
+          <div class="box"><%=image_tag asset_path("side_banner.jpg") %></div>
           <table id="side_table" width="100%" border="0" cellspacing="0" cellpadding="0">
             <% if @page %>
               <tr><td><%= image_tag asset_path("menu_side_#{@page.path_name.sub(/:.*/, '')}.jpg"), :width => "100%" %></td></tr>
@@ -224,7 +225,7 @@
               <td>&nbsp;</td>
             </tr>
           </table>
-          <div class="box"><%=image_tag asset_path("side_banner.jpg") %></div>
+         
           <%= yield :side %>
         </div>
       </td>
