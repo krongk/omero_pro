@@ -1,337 +1,149 @@
-// Place all the styles related to the sites controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-@import url(screen/content.css);
-
-body { margin: 0px; padding: 0px;}
-body { background: #fff; }
-body { text-align: center; }
 body {
-	font-family: "微软雅黑";
-	font-size: 85%;
-}
-.page_margins { text-align:left; margin: 0 auto; }
-.page_margins { width: 980px; max-width: 980px;}
-
-
-/*common************************/
-a.gray{color: #fff;}
-.box{
-	margin: 0 auto;
-	padding: 4px;
-	background-color: #fff;
-}
-span.cord{
-	padding-right: 10px;
-	background-image: url(<%=asset_path("li_sq.gif")%>);
-	background-repeat: no-repeat;
-	background-position: center center;
-}
-/***shawon from: http://robertnyman.com/2010/03/16/drop-shadow-with-css-for-all-web-browsers/****/
-.shadow {
-		-moz-box-shadow: 12px 12px 18px #666666;
-		-webkit-box-shadow: 12px 12px 18px #666666;
-		box-shadow: 12px 12px 18px #666666;
-		/* For IE 8 */
-		-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=16, Direction=135, Color='#666666')";
-		/* For IE 5.5 - 7 */
-		filter: progid:DXImageTransform.Microsoft.Shadow(Strength=16, Direction=135, Color='#666666');
-	}
-
-/*main************************/
-#main{
-  padding: 0px;
-  margin: 0px;
-  background-color: #a9a9a9;
-}
-#main_content{
-  width: 600px;
-  margin: 10px 10px 20px 30px;
-  padding: 20px;
-  background-color: #fff;
-}
-#nav_bar{
-	margin-left: 35px;
-	padding-top: 20px;
-}
-#nav_bar a{
-	font-size: 120%;
-	padding: 6px;
-}
-/*side************************/
-#side_content{
-  margin-right: 40px;
-}
-#side_table {
-  border-left-width: 1px;
-  border-left-style: dotted;
-  border-left-color: #b7b7b7;
-}
-#side_table td {
-	line-height: 30px;
-	color: #eee;
-	font-family: "微软雅黑";
-	border-bottom-width: 2px;
-	border-bottom-style: dotted;
-	border-bottom-color: #c7c7c7;
-}
-#side_content a{
-	color: #eee;
-}
-/*************************/
-
-/*pages show on main content, css the tinymce style************************/
-#main_content img{width: 600px;}
-#main_content p{margin: 4px; padding: 2px;}
-
-/*************************************************************************************/
-#footer{background-color: #a9a9a9; }
-#footer h3{
-  color: #eee; 
-  font-size: 130%;
-  font-weight: 600;
-  font-family: "微软雅黑";
-  margin: 6px;
- }
-#footer_banner{
-	background-image: url(<%=asset_path("a_footer_banner.gif")%>);
-	background-repeat: no-repeat;
-	background-position: left center;
-	background-color: #a9a9a9; 
-}
-#site_map {
-	border: 0px solid #eee;
-}
-.no_border{
-	border: 0px;
-}
-#site_map td {
-	border: 1px solid #eee;
-	border-right: 0px;
-}
-#site_map td.right {
-	border-right: 1px solid #eee;
-}
-#site_map table td {
-	border: 0px solid #eee;
-}
-#site_map p {
-	margin: 6px;
-	padding: 0px;
-}
-#site_map a {
-    font-size: 12px;
-	color: #CCC;
-	text-decoration: none;
-}
-#site_map h3  {
-    margin: 6px 0px 0px 20px;
-}
-#site_map h3 a {
-    font-size: 16px;
-}
-#site_map p a {
-	color: #FFF;
-	text-decoration: none;
-	font-family: "微软雅黑";
-}
-/*page show***********************/
-#page .section{
-	color: 888888;
-	letter-spacing: 0.1em;
-	font-size: 110%;
-	line-height: 30px;
-}
-#page .section {
-	margin: 0px;
-	padding: 0px;
-}
-#page .section h3 {
-	color: 888888;
-	font-family: "微软雅黑";
-	letter-spacing: 0.2em;
-}
-#page .section .summary {
-	margin: 10px;
-	padding: 10px;
-}
-#page .section ul, ol {
-   margin: 20px 0 20px 40px;
-   padding: 20px;
-   background-color: #eee;
-}
-
-#page .section ul li {
-    line-height: 35px;
-	list-style-type: square;
-	list-style-image: url(<%=asset_path("li_sq.gif")%>);
-}
-#page .section .question {
-	margin: 10px;
-	color: #f52969;
-	font-size: 120%;
-}
-#page .section .answer {
-	padding-left: 40px;
-}
-/*page show*********************************************************************/
-/*-------------------------KWICKS--------------------*/
-#top_menu tr td a{font-size: 18px; font-weight: 500;}
-#top_menu tr td {
-	border-right-width: 2px;
-	border-right-style: solid;
-	border-right-color: #888;
-	height: 35px;
-	text-align: center;
-}
-#sub_menu {
-    margin-top: 4px;
-    padding: 4px;
-	height: 35px;
-	text-align: left;
-	vertical-align: middle;
-	background-color: #888;
-	overflow: hidden
-}
-.kwicks {
-	list-style: none;
-	position: relative;
+	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	font-family:"Microsoft YaHei", "微软雅黑";
+	background: #fff;
 	margin: 0;
 	padding: 0;
-	width:100%;
-	height:50px;
-	z-index:2;
-}
-.kwicks li {
-	display: block;
-	float: left;
-	overflow: hidden;
-	padding: 0;
-	cursor: pointer;
-	z-index:2;
-	border-left-width: 1px;
-	border-left-style: solid;
-	border-left-color: #666;
-}
-.kwicks li a {
-	background-image:url(<%= asset_path("sprites_menu.jpg") %>);
-	background-repeat:no-repeat;
-	font-family: "微软雅黑", Arial;
-	font-size: 16px;
-	letter-spacing: 0.0em;
-	color: #000000;
-	height: 40px;
-	outline:none;
-	display:block;
-	z-index:100;
-	cursor:pointer;
-	font-weight: bold;
-	margin-left: 5px;
-	text-decoration: none;
-}
-.kwicks li h3 {
-	position: absolute;
-	width: 120px;
-	font-family: "couries new";
-	font-size: 10px;
-	color: #999999;
-	outline:none;
-	z-index:0;
-	cursor:pointer;
-	font-weight: normal;
-	margin-left: 5px;
-	text-decoration: none;
-	left: 0px;
-	top: 18px;
-	right: 0px;
-	bottom: 0px;
-}
-#kwick_1, #kwick_2, #kwick_3, #kwick_4, #kwick_5, #kwick_6, #kwick_7 {
-	margin: 0pt;
-	overflow: hidden;
-	position: absolute;
-	display: block;
-	width: 110px;
-}
-#kwick_1 {
-	left: 0px;
-	border: none;
-}
-#kwick_2 {
-	left: 112px;
-}
-#kwick_3 {
-	left: 224px;
-}
-#kwick_4 {
-	left: 336px;
-}
-#kwick_5 {
-	left: 440px;
-}
-#kwick_6 {
-	left: 550px;
-}
-#kwick_7 {
-	right: 0px;
-}
-.kwicks a:hover, .kwicks #active {
-	color: #f52969;
-}
-.kwicks li a:hover h3, .kwicks li #active h3 {
-	color: #f52969;
-}
-#kwick_1 a {
-	background-position:0px 0px;
-}
-#kwick_2 a {
-	background-position:0px -50px;
-}
-#kwick_3 a {
-	background-position:0px -192px;
-}
-#kwick_4 a {
-	background-position:0px -100px;
-}
-#kwick_5 a {
-	background-position:0px -150px;
-}
-#kwick_6 a {
-	background-position:-1000px -150px;
-}
-#kwick_7 a {
-	background-position:0px -300px;
-}
- /******/
- .sub_kwicks{
-    float: left;
-	padding: 0px;
-	margin: 0px;
-	width: 100%;
-	list-style-type: none;
-	overflow: hidden;
+	color: #333;
 }
 
-.sub_kwicks li {
-	display: none;
-	width: 100%;
-	border: 0px solid #f52969;
-	height: 30px;
-	margin: 5px 0 0 0;
-	padding: 0px;
+/* ~~ 元素/标签选择器 ~~ */
+ul, ol, dl { /* 由于浏览器之间的差异，最佳做法是在列表中将填充和边距都设置为零。为了保持一致，您可以在此处指定需要的数值，也可以在列表所包含的列表项（LI、DT 和 DD）中指定需要的数值。请注意，除非编写一个更为具体的选择器，否则您在此处进行的设置将会层叠到 .nav 列表。 */
+	padding: 0;
+	margin: 0;
 }
-.sub_kwicks li a {
-	font-family: "微软雅黑";
-	font-size: 14px;
-	color: #ffffff;
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
+	padding-right: 15px;
+	padding-left: 15px; /* 向 div 内的元素侧边（而不是 div 自身）添加填充可避免使用任何方框模型数学。此外，也可将具有侧边填充的嵌套 div 用作替代方法。 */
+}
+a img { /* 此选择器将删除某些浏览器中显示在图像周围的默认蓝色边框（当该图像包含在链接中时） */
+	border: none;
+}
+
+/* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: none; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+}
+a:visited {
+	color: #6E6C64;
 	text-decoration: none;
-	padding: 4px 8px;
 }
-.sub_kwicks li a:hover {
-	color: #f52969;
+a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+	text-decoration: none;
 }
-.sub_kwicks li a:visited {
-	color: #ffffff;
+
+/* ~~ 此固定宽度容器包含其它 div ~~ */
+.container {
+	width: 985px;
+	margin: 0 auto; /* 侧边的自动值与宽度结合使用，可以将布局居中对齐 */
 }
-/*******header nav end*******************************************************************/
+
+/* ~~ 标题未指定宽度。它将扩展到布局的完整宽度。标题包含一个图像占位符，该占位符应替换为您自己的链接徽标 ~~ */
+.header {
+	background: #fff;
+}
+.footer_map {
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* ~~ 以下是此布局的列。 ~~ 
+
+1) 填充只会放置于 div 的顶部和/或底部。此 div 中的元素侧边会有填充。这样，您可以避免使用任何“方框模型数学”。请注意，如果向 div 自身添加任何侧边填充或边框，这些侧边填充或边框将与您定义的宽度相加，得出 *总计* 宽度。您也可以选择删除 div 中的元素的填充，并在该元素中另外放置一个没有任何宽度但具有设计所需填充的 div。
+
+2) 由于这些列均为浮动列，因此未对其指定边距。如果必须添加边距，请避免在浮动方向一侧放置边距（例如：div 中的右边距设置为向右浮动）。在很多情况下，都可以改用填充。对于必须打破此规则的 div，应向该 div 的规则中添加“display:inline”声明，以控制某些版本的 Internet Explorer 会使边距翻倍的错误。
+
+3) 由于可以在一个文档中多次使用类（并且一个元素可以应用多个类），因此已向这些列分配类名，而不是 ID。例如，必要时可堆叠两个侧栏 div。您可以根据个人偏好将这些名称轻松地改为 ID，前提是仅对每个文档使用一次。
+
+4) 如果您更喜欢在左侧（而不是右侧）进行导航，只需使这些列向相反方向浮动（全部向左，而非全部向右），它们将按相反顺序显示。您无需在 HTML 源文件中移动 div。
+
+*/
+.main {
+	float: right;
+	background-image: url(<%=asset_path("bg/b_05.jpg")%>);
+	background-repeat: repeat-y;
+	background-position: 0px 0px;
+	margin: 0px;
+}
+.main_top {
+    background: #bcbec0;
+	margin:0;
+}
+.main_foot {
+	margin:0;
+}
+.sidebar1 {
+	float: right;
+	width: 275px;
+	padding-bottom: 10px;
+}
+.content {
+	padding: 10px 0px;
+	width: 710px;
+	float: right;
+}
+.content_body {
+	padding-left: 30px;
+	padding-right: 20px;
+}
+.content_body img{
+	width: 98%;
+}
+.footer_nav {
+	background-image: url(<%=asset_path("bg/b_09.jpg")%>);
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+
+/* ~~ 此分组的选择器为 .content 区域中的列表提供了空间 ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* 此填充反映上述标题和段落规则中的右填充。填充放置于下方可用于间隔列表中其它元素，置于左侧可用于创建缩进。您可以根据需要进行调整。 */
+}
+
+/* ~~ 导航列表样式（如果选择使用预先创建的 Spry 等弹出菜单，则可以删除此样式） ~~ */
+ul.nav {
+	list-style: none; /* 这将删除列表标记 */
+	border-top: 1px solid #666; /* 这将为链接创建上边框 – 使用下边框将所有其它项放置在 LI 中 */
+	margin-bottom: 15px; /* 这将在下面内容的导航之间创建间距 */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* 这将创建按钮间隔 */
+}
+ul.nav a, ul.nav a:visited { /* 对这些选择器进行分组可确保链接即使在访问之后也能保持其按钮外观 */
+	padding: 5px 5px 5px 15px;
+	display: block; /* 这将为链接赋予块属性，使其填满包含它的整个 LI。这样，整个区域都可以响应鼠标单击操作。 */
+	width: 160px;  /*此宽度使整个按钮在 IE6 中可单击。如果您不需要支持 IE6，可以删除它。请用侧栏容器的宽度减去此链接的填充来计算正确的宽度。 */
+	text-decoration: none;
+	background: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘导航的背景和文本颜色 */
+	background: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ 脚注 ~~ */
+.footer {
+    margin: 0;
+	padding: 10px 0;
+	background: #bcbec0;
+	position: relative;/* 这可以使 IE6 hasLayout 以正确方式进行清除 */
+	clear: both; /* 此清除属性强制 .container 了解列的结束位置以及包含列的位置 */
+}
+
+/* ~~ 其它浮动/清除类 ~~ */
+.fltrt {  /* 此类可用于在页面中使元素向右浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* 此类可用于在页面中使元素向左浮动。浮动元素必须位于其在页面上的相邻元素之前。 */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* 如果从 #container 中删除或移出了 #footer，则可以将此类放置在 <br /> 或空 div 中，作为 #container 内最后一个浮动 div 之后的最终元素 */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}

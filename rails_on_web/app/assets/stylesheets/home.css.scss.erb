@@ -2,180 +2,206 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* body { background: url(<%= asset_path 'bg_blue.png' %>) repeat-x top left fixed;} */
-
-/* #header {
-    background: #4d87c7 url(<%= asset_path('bg_blue.png') %>) repeat-x top left;
- } */
-
- /* This css file serves as a template for styling your kwicks.  Feel free to modify, but please make note of the comments - some of them are important. */
-
-.hide{display: none;}
-.side_bar{background-color: #fff; margin-bottom: 10px;}
-
-/*******header nav start*******/
-#nav_bar{
+/*******header nav end*******************************************************************/
+#side_table {
+  border-left-width: 1px;
+  border-left-style: dotted;
+  border-left-color: #b7b7b7;
 }
-#nav_bar .nav_bar_link{
-    margin: 0 8px;
-	color: #888888;
-	font-size: 1.5em;
-	font-family: '微软雅黑';
+#side_table td {
+	line-height: 30px;
+	color: #eee;
+	font-family: "微软雅黑";
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #c7c7c7;
 }
-/*******header nav start*******/
+
+/*-------------------------footer site_map start--------------------*/
+#site_map {
+	border: 0px solid #eee;
+}
+#site_map hr{
+	color: #ccc;
+}
+.no_border{
+	border: 0px;
+}
+#site_map td {
+	border: 1px solid #CCC;
+	border-right: 0px;
+}
+#site_map td.right {
+	border-right: 1px solid #eee;
+}
+#site_map table td {
+	border: 0px solid #eee;
+}
+#site_map p {
+	margin: 6px;
+	padding: 0px;
+}
+#site_map h3  {
+    margin: 6px 0px 0px 20px;
+}
+#site_map h3 a {
+    font-size: 16px;
+	color: #ddd;
+}
+#site_map p a {
+	font-size:12px;
+	color: #eee;
+}
+/*******header nav start*******************************************************************/
+#top_menu tr td {
+	border-right-width: 2px;
+	border-right-style: solid;
+	border-right-color: #888;
+	text-align: center;
+}
+#sub_menu {
+    margin-top: 4px;
+    padding: 4px;
+	height: 35px;
+	text-align: left;
+	vertical-align: middle;
+	background-color: #888;
+	overflow: hidden
+}
 .kwicks {
 	list-style: none;
 	position: relative;
 	margin: 0;
 	padding: 0;
+	width:100%;
+	z-index:2;
 }
-.kwicks li{
-	display: block;
+.kwicks li {
+	float: left;
 	overflow: hidden;
 	padding: 0;
 	cursor: pointer;
+	z-index:2;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-left-color: #666;
 }
-
-/* example 1 */
-.kwicks li{
-	float: left;
-	width: 125px;
-	height: 100px;
-	margin-right: 5px;
+.kwicks li a {
+	font-size: 16px;
+	letter-spacing: 0.0em;
+	color: #ccc;
+	height: 40px;
+	outline:none;
+	display:block;
+	z-index:100;
+	cursor:pointer;
+	font-weight: bold;
+	text-decoration: none;
+	margin-left: 6px;
 }
-
-.main_kwick a{
+.kwicks li h3 {
+	position: absolute;
+	width: 120px;
+	font-family: "couries new";
+	font-size: 10px;
+	color: #999999;
+	outline:none;
+	z-index:0;
+	cursor:pointer;
+	font-weight: normal;
+	text-decoration: none;
+	left: -10px;
+	top: 22px;
+	right: 0px;
+	bottom: 0px;
+}
+#kwick_1, #kwick_2, #kwick_3, #kwick_4, #kwick_5, #kwick_6, #kwick_7 {
+	margin: 0pt;
+	overflow: hidden;
+	position: absolute;
 	display: block;
-	height: 120px;
-	width: 100px;
+	width: 110px;
 }
-
-#kwick1 { 
-	background-color: #F52969;
-	background-image: url('<%=asset_path("menu_about.gif")%>');
-	margin-right: none;
+#kwick_1 {
+	left: 0px;
+	border: none;
 }
-#kwick2 {
-	background-color: #FCB3D0;
-	background-image: url('<%=asset_path("menu_join.gif")%>');
-	margin-right: none;
+#kwick_2 {
+	left: 112px;
 }
-#kwick3 {
-	background-color: #585947;
-	background-image: url('<%=asset_path("menu_ensure.gif")%>');
-	margin-right: none;
+#kwick_3 {
+	left: 224px;
 }
-#kwick4 { 
-	background-color: #E8E6DA;
-	background-image: url('<%=asset_path("menu_searching.gif")%>');
-	margin-right: none;
+#kwick_4 {
+	left: 336px;
 }
-#kwick5 { 
-	background-color: #CCCEA9;
-	background-image: url('<%=asset_path("menu_products.gif")%>');
-	margin-right: none;
+#kwick_5 {
+	left: 440px;
 }
-#kwick6 { 
-	background-color: #A6AF7A;
-	background-image: url('<%=asset_path("menu_customer.gif")%>');
-	margin-right: none;
+#kwick_6 {
+	left: 550px;
 }
-#kwick7 { 
-	background-color: #F52969;
-	background-image: url('<%=asset_path("menu_english.gif")%>');
-	margin-right: none;
+#kwick_7 {
+	right: 0px;
 }
-.sub_kwicks{
-	display: block;
-	position: relative;
-	visibility: visible;
+.kwicks a:hover, .kwicks #active {
+	color: #f52969;
+	background-color: #888888;
+}
+.kwicks li a:hover h3, .kwicks li #active h3 {
+	color: #f52969;
+	background-color: #888888;
+}
+#kwick_1 a {
+	background-position:-1000px 0px;
+}
+#kwick_2 a {
+	background-position:-1000px -50px;
+}
+#kwick_3 a {
+	background-position:-1000px -192px;
+}
+#kwick_4 a {
+	background-position:-1000px -100px;
+}
+#kwick_5 a {
+	background-position:-1000px -150px;
+}
+#kwick_6 a {
+	background-position:-1000px -150px;
+}
+#kwick_7 a {
+	background-position:0px -300px;
+}
+ /******/
+ .sub_kwicks{
+    float: left;
+	padding: 0px;
+	margin: 0px;
 	width: 100%;
-	margin-top: 80px;
 	list-style-type: none;
-	background-color: #fff;
-	float: left;
-	padding: 8px;
-	height: 35px;
+	overflow: hidden;
 }
 
 .sub_kwicks li {
 	display: none;
 	width: 100%;
-	border: 1px solid #f52969;
-	background-color: #f52969;
+	border: 0px solid #f52969;
 	height: 30px;
-	margin: 0px;
-	padding-top: 10px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
+	margin: 5px 0 0 0;
+	padding: 0px;
 }
 .sub_kwicks li a {
 	font-family: "微软雅黑";
-	font-size: 16px;
+	font-size: 14px;
 	color: #ffffff;
 	text-decoration: none;
-	padding: 4px;
-	margin-top: 10px;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	margin-left: 10px;
+	padding: 4px 8px;
 }
 .sub_kwicks li a:hover {
-	color: #b8b8b8;
+	color: #f52969;
 }
-/*******header nav end*******/
-
-/*******footer site map start*******/
-#footer {
-	background-color: #888888;
-/** 	
-    background-image: url(<%= asset_path("footer_bg.png")%> );
-	background-repeat: no-repeat;
-	background-position: center top; **/
+.sub_kwicks li a:visited {
+	color: #ffffff;
 }
-#footer a:hover{ color:#F52969; }
-#footer h1{
-	font-size: 28px;
-	font-family: "微软雅黑";
-	font-weight: bolder;
-	color: #ddd;
-}
-#footer  #top_ul {
-	list-style-type: none;
-}
-#footer li.top_li {
-	margin: 10px;
-	padding: 10px;
-	float: left;
-	border: 1px solid #eee;
-	display: block;
-	height: 225px;
-	width: 126px;
-}
-#footer a.top_a {
-	font-size: 18px;
-	font-family: "微软雅黑";
-	font-weight: bolder;
-	color: #eee;
-	text-decoration: none;
-}
-#footer  #sub_ul {
-	list-style-type: none;
-	padding: 0px;
-	margin-top: 20px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-#footer .sub_li {
-	margin-top: 3px;
-}
-#footer a.sub_a {
-	font-size: 12px;
-	font-family: "微软雅黑";
-	font-weight: bold;
-	color: #FFF;
-	text-decoration: none;
-}
-/*******footer site map end*******/
+/*******header nav end*******************************************************************/
