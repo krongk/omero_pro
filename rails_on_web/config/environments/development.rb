@@ -26,7 +26,7 @@ RailsOnWeb::Application.configure do
   config.assets.compress = true
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  #config.assets.debug = false
 
   #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp

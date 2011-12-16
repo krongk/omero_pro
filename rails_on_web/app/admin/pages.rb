@@ -27,4 +27,5 @@ ActiveAdmin.register Page do
       simple_format item.body
     end
   end
+  
 end

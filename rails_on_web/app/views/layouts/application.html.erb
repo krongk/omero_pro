@@ -34,12 +34,20 @@
           easing: 'easeOutQuint'
       });
       //显示二级菜单
-      $(".kwicks > li").each(function(){
-           $(this).hover(function(){
-               $(".sub_kwicks > li").hide();
-               $("li#sub_"+$(this).attr("id")).show('slow');
-      }); 
-  });
+      $("a.top_menu_link").hover(function(){
+        $(".sub_kwicks > li").hide();
+        $("li#sub_"+$(this).parent("li").attr("id")).clearQueue();
+        $("li#sub_"+$(this).parent("li").attr("id")).fadeIn();
+      });
+
+      // $(".kwicks > li").each(function(){
+      //      $(this).hover(function(){
+      //          $(".sub_kwicks > li").hide();
+      //          $(".sub_kwicks > li").clearQueue();
+      //          //$("li#sub_"+$(this).attr("id")).clearQueue();
+      //          $("li#sub_"+$(this).attr("id")).fadeIn();
+      //      }); 
+      // });
     });
   </script>
 
@@ -75,32 +83,32 @@
    <td align="left" valign="top" height="20">
      <ul class="kwicks">
         <li id="kwick_1">
-          <a href="/pages/about:about_us">关于欧美龙
+          <a class="top_menu_link" href="/pages/about:about_us">关于欧美龙
             <h3>About OMERO</h3>
           </a>
         </li>
         <li id="kwick_2">
-          <a href="/pages/join:join_standard">加盟政策
+          <a class="top_menu_link" href="/pages/join:join_standard">加盟政策
             <h3>Cooperation </h3>
           </a>
         </li>
         <li id="kwick_3">
-          <a href="/pages/ensure">保障体系
+          <a class="top_menu_link" href="/pages/ensure">保障体系
             <h3>Learning & Training</h3>
           </a>
         </li>
         <li id="kwick_4">
-          <a href="/shops">加盟店分布
+          <a class="top_menu_link" href="/shops">加盟店分布
             <h3>Searching branchs</h3>
           </a>
         </li>
         <li id="kwick_5">
-          <a href="/pages/product">产品中心
+          <a class="top_menu_link" href="/pages/product">产品中心
             <h3>Products</h3>
           </a>
         </li>
         <li id="kwick_6">
-          <a href="/pages/customer">我要洗衣
+          <a class="top_menu_link" href="/pages/customer">我要洗衣
             <h3>Customer services</h3>
           </a>
         </li>
@@ -112,7 +120,7 @@
     <td align="left" valign="top">
      <div id="sub_menu">
       <ul class="sub_kwicks">
-          <li id="sub_kwick_1" class="sub_kwick" style="display: block;">
+          <li id="sub_kwick_1" class="sub_kwick">
           <a id='sub_a_2_0' class='sub_a' href='/pages/about:about_us'>背景介绍</a>
           <a id='sub_a_3_1' class='sub_a' href='/pages/about:culture'>企业文化</a>
           <a id='sub_a_4_2' class='sub_a' href='/pages/about:brand'>品牌定位</a>
@@ -177,11 +185,11 @@
    <% if notice %><p class="notice"><%= notice %></p><% end %>
   <% if alert %><p class="alert"><%= alert %></p><% end %>
   <div id="nav_bar"><%= yield :nav_bar %></div>
+  <br/>
   <table width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
       <td width="70%" align="left" valign="top">
         <div id="main_content" class="shadow">
-          <%=image_tag asset_path("main_banner.jpg"), :width => '500px' %>
           <%= yield %>
         </div>
       </td>
@@ -190,40 +198,24 @@
         <div id="side_content">
           <div class="box"><%=image_tag asset_path("side_banner.jpg") %></div>
           <table id="side_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td><h4>相关导航</h4></td>
+            </tr>
             <% if @page %>
-              <tr><td><%= image_tag asset_path("menu_side_#{@page.path_name.sub(/:.*/, '')}.jpg"), :width => "100%" %></td></tr>
-                 <!--显示该页的所有子页-->
-                <% Page.where(:parent_id => @page.id).each do |page| %>
-                   <tr><td><%= link_to page.title, page_path(page.id)%></td></tr>
-                <% end %>
-           <% end %>
+               <!--显示该页的所有子页-->
+              <% Page.where(:parent_id => @page.id).each do |page| %>
+                 <tr><td><%= link_to page.title, page_path(page.id)%></td></tr>
+              <% end %>
+            <% end %>
+            <%= yield :menu_side %>
 
+            
             <tr>
               <td><h4>相关新闻</h4></td>
             </tr>
             <%= yield :side_news %>
 
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
-            <tr>
-              <td>&nbsp;</td>
-            </tr>
+           
           </table>
          
           <%= yield :side %>
@@ -234,15 +226,24 @@
 </div>
 <!---->
 <div id="footer">
-  
   <table id="footer_banner" width="100%" border="0" cellspacing="0" cellpadding="0">
     <tr>
-      <td width="6%" height="52">&nbsp;</td>
-      <td width="13%">
-       <h3 style="color: #f52969;">关于欧美龙</h3>
+      <td width="8%" height="52">&nbsp;</td>
+      <td width="14%">
+       <h3 style="color: #f52969; margin-left:10px;">
+        <% if @page %>
+          <%= @page.title %>
+        <% elsif request[:controller] =~ /shop/ %>
+          加盟店查询
+        <% elsif request[:controller] =~ /product/ %>
+          产品中心
+        <% elsif request[:controller] =~ /news/ %>
+          新闻中心
+        <% end %>
+       </h3>
       </td>
-      <td width="3%">&nbsp;</td>
-      <td width="48%">&nbsp;</td>
+      <td width="1%">&nbsp;</td>
+      <td width="47%">&nbsp;</td>
       <td width="1%">&nbsp;</td>
       <td width="30%"><%=render :partial => "layouts/bshare" %></td>
       <td width="1%">&nbsp;</td>
@@ -262,3 +263,6 @@
 <script src="/yaml/core/js/yaml-focusfix.js" type="text/javascript"></script>
 </body>
 </html>
+
+<!-- 24小时服务热线：4006-113-666 -->
+<!-- 公司名称：四川万邦欧美龙洗涤服务有限公司 -->

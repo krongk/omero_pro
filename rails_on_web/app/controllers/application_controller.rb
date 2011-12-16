@@ -4,8 +4,8 @@ class ApplicationController < ActionController::Base
   before_filter :locate
 
   #const
-  $REGIONS = Region.all.map{|r| {r.name => [r.id, r.en_name]}}
-  $CITIES = City.all.map{|r| {r.name => [r.id, r.en_name]}}
+  # $REGIONS = Region.all.map{|r| {r.name => [r.id, r.en_name]}}
+  # $CITIES = City.all.map{|r| {r.name => [r.id, r.en_name]}}
 
   #返回值
   #@location

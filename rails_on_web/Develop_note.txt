@@ -14,8 +14,12 @@
       - routs config
       
 to do list:
+0. Update ActiveAdmin "Powered by Active Admin 0.3.4":
+   C:\RailsInstaller\Ruby1.9.2\lib\ruby\gems\1.9.1\gems\activeadmin-0.3.4\lib\active_admin\views\pages\base.rb
+   > need to restart
+   
 1. modify Gemfile
-
+ 
 2. add table
 rails g scaffold site name:string value:string
 rails g scaffold page title:string body:text parent_id:integer position:integer path:string meta_keywords:string meta_description:string link_url:string menu_match:string show_in_menu:integer deletable:integer 

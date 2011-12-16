@@ -3,7 +3,8 @@
 
     //tinymce-jquery 方式
     $('textarea').tinymce({
-      theme: 'advanced'
+      theme: 'advanced',
+      language : "zh-cn"
     });
   });
 

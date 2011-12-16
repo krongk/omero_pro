@@ -62,7 +62,7 @@ end
     # For faster asset precompiles, you can partially load your application by setting 
     # config.assets.initialize_on_precompile to false,i
     # though in that case templates cannot see application objects or methods. 
-      config.assets.initialize_on_precompile = false #add by xj
+    #config.assets.initialize_on_precompile = true #add by xj
 
 
     # Version of your assets, change this if you want to expire all your assets
