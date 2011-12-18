@@ -1,10 +1,14 @@
 body {
-	font: 100%/1.4 Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
 	font-family:"Microsoft YaHei", "微软雅黑";
 	background: #fff;
 	margin: 0;
 	padding: 0;
-	color: #333;
+	color: #666;
+}
+h1, h2, h3{
+	font-size: 18px;
+	font-family:"Microsoft YaHei", "微软雅黑";
 }
 
 /* ~~ 元素/标签选择器 ~~ */
@@ -23,14 +27,15 @@ a img { /* 此选择器将删除某些浏览器中显示在图像周围的默认
 
 /* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
 a:link {
-	color: #42413C;
+	color: #333;
 	text-decoration: none; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
 }
 a:visited {
-	color: #6E6C64;
+    color: #333;
 	text-decoration: none;
 }
 a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+	color: #f52969;
 	text-decoration: none;
 }
 
@@ -61,7 +66,8 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 
 */
 .main {
-	float: right;
+	float: left;
+	background-color: #bcbec0;
 	background-image: url(<%=asset_path("bg/b_05.jpg")%>);
 	background-repeat: repeat-y;
 	background-position: 0px 0px;
@@ -75,21 +81,21 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	margin:0;
 }
 .sidebar1 {
-	float: right;
+	float: left;
 	width: 275px;
 	padding-bottom: 10px;
+	margin: -80px 0 0 0;
+}
+.sidebar1_body{
+	padding-right: 20px;
 }
 .content {
-	padding: 10px 0px;
 	width: 710px;
-	float: right;
+	float: left;
 }
 .content_body {
 	padding-left: 30px;
-	padding-right: 20px;
-}
-.content_body img{
-	width: 98%;
+	padding-right: 30px;
 }
 .footer_nav {
 	background-image: url(<%=asset_path("bg/b_09.jpg")%>);
@@ -125,7 +131,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 
 /* ~~ 脚注 ~~ */
 .footer {
-    margin: 0;
+    margin: 0 auto;
 	padding: 10px 0;
 	background: #bcbec0;
 	position: relative;/* 这可以使 IE6 hasLayout 以正确方式进行清除 */
@@ -147,3 +153,6 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* 这将更改鼠标和键盘
 	font-size: 1px;
 	line-height: 0px;
 }
+
+.red{color: #f52969;}
+.font18{font-size: 18px;}

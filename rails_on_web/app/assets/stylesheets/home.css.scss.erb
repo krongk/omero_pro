@@ -2,7 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/*******header nav end*******************************************************************/
+
+
+.main_top{
+	padding: 10px;
+}
+#nav_bar{
+	margin: 20px 0 0 10px;
+}
+/*******news*******************************************************************/
+.news_content{
+	font-size: 14px;
+}
+/*******side bar*******************************************************************/
 #side_table {
   border-left-width: 1px;
   border-left-style: dotted;
@@ -10,13 +22,30 @@
 }
 #side_table td {
 	line-height: 30px;
-	color: #eee;
-	font-family: "微软雅黑";
 	border-bottom-width: 2px;
 	border-bottom-style: dotted;
 	border-bottom-color: #c7c7c7;
 }
-
+.box{
+	width: 240px;
+	padding: 6px;
+	margin-bottom: 30px;
+	background-color: #fff;
+}
+.sidebar1_body a{
+	color: #fff;
+}
+.cord {
+	padding: 6px;
+	background-image: url(<%= asset_path("li_sq.gif")%>);
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+h3.title{
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
 /*-------------------------footer site_map start--------------------*/
 #site_map {
 	border: 0px solid #eee;
@@ -32,7 +61,7 @@
 	border-right: 0px;
 }
 #site_map td.right {
-	border-right: 1px solid #eee;
+	border-right: 1px solid #CCC;
 }
 #site_map table td {
 	border: 0px solid #eee;
@@ -45,20 +74,13 @@
     margin: 6px 0px 0px 20px;
 }
 #site_map h3 a {
-    font-size: 16px;
-	color: #ddd;
+    font-size: 18px;
+	color: #ccc;
 }
 #site_map p a {
-	font-size:12px;
 	color: #eee;
 }
 /*******header nav start*******************************************************************/
-#top_menu tr td {
-	border-right-width: 2px;
-	border-right-style: solid;
-	border-right-color: #888;
-	text-align: center;
-}
 #sub_menu {
     margin-top: 4px;
     padding: 4px;
@@ -84,36 +106,25 @@
 	z-index:2;
 	border-left-width: 1px;
 	border-left-style: solid;
-	border-left-color: #666;
+	border-left-color: #888;
 }
 .kwicks li a {
-	font-size: 16px;
+	font-size: 18px;
 	letter-spacing: 0.0em;
-	color: #ccc;
+	color: #000;
 	height: 40px;
 	outline:none;
 	display:block;
 	z-index:100;
 	cursor:pointer;
-	font-weight: bold;
 	text-decoration: none;
 	margin-left: 6px;
 }
-.kwicks li h3 {
-	position: absolute;
-	width: 120px;
+.kwicks li a h3 {
 	font-family: "couries new";
-	font-size: 10px;
-	color: #999999;
-	outline:none;
-	z-index:0;
-	cursor:pointer;
+	font-size: 12px;
 	font-weight: normal;
-	text-decoration: none;
-	left: -10px;
-	top: 22px;
-	right: 0px;
-	bottom: 0px;
+	color: #ccc;
 }
 #kwick_1, #kwick_2, #kwick_3, #kwick_4, #kwick_5, #kwick_6, #kwick_7 {
 	margin: 0pt;
@@ -205,3 +216,18 @@
 	color: #ffffff;
 }
 /*******header nav end*******************************************************************/
+
+.foot_addr{
+  margin-bottom: 4px;
+}
+.foot_addr1{
+	font-size: 14px;
+}
+.foot_addr2{
+	font-size: 10px;
+}
+.foot_title{
+	padding: 10px 0 0 15px;
+	margin: 0;
+}
+/*******footer addr end*******************************************************************/

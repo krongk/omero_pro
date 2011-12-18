@@ -17,12 +17,12 @@
 <%= csrf_meta_tags %>
 <script type="text/javascript">
 $(document).ready(function(){
-$(".top_banner_flip").mouseover(function(){
-//$(".top_banner").slideToggle("slow");
-});
-//corner
-$("div.box").corner();
-$("div#main_content").corner();
+  // $(".top_banner_flip").mouseover(function(){
+  //   $(".top_banner").slideToggle("slow");
+  // });
+  //corner
+  $("div.box").corner();
+  //$("div#main_content").corner();
 //一级菜单效果
 // $('.kwicks').kwicks({
 //     max : 200,
@@ -30,26 +30,14 @@ $("div#main_content").corner();
 //     easing: 'easeOutQuint'
 // });
 //一级菜单不kwicks
-$(".kwicks > li").each(function(){
-$(this).hover(function(){
-$(".sub_kwicks > li").hide();
-$("li#sub_"+$(this).attr("id")).fadeIn();
-});
-});
-//显示二级菜单
-// $("a.top_menu_link").hover(function(){
-//   $(".sub_kwicks > li").hide();
-//   $("li#sub_"+$(this).parent("li").attr("id")).clearQueue();
-//   $("li#sub_"+$(this).parent("li").attr("id")).fadeIn();
-// });
-// $(".kwicks > li").each(function(){
-//      $(this).hover(function(){
-//          $(".sub_kwicks > li").hide();
-//          $(".sub_kwicks > li").clearQueue();
-//          //$("li#sub_"+$(this).attr("id")).clearQueue();
-//          $("li#sub_"+$(this).attr("id")).fadeIn();
-//      }); 
-// });
+  $(".kwicks > li").each(function(){
+    $(this).hover(function(){
+      $(".sub_kwicks > li").hide();
+      $("li#sub_"+$(this).attr("id")).fadeIn();
+    });
+  });
+  //
+  $( ".content_body img" ).aeImageResize({ height: 620, width: 620 });
 });
 </script>
 </head> 
@@ -66,9 +54,10 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
     <% else %>
      <td width="77%" height="70" align="right">
     <% end %>
-      <span><%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;&nbsp;
-        <a onclick="AddFavorite(window.location,document.title)" style="cursor:hand">收藏</a>&nbsp;&nbsp;&nbsp;
-        <a onclick="SetHome(this,window.location)" style="cursor:hand">设为首页</a>
+      <span>
+        <%= render 'devise/menu/registration_items' %>&nbsp;&nbsp;&nbsp;
+        <%= render 'devise/menu/login_items' %>&nbsp;&nbsp;&nbsp;
+        <%= link_to '联系我们', '/pages/about:address' %>
       </span>
     </td>
   </tr>
@@ -81,7 +70,7 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
       <ul class="kwicks">
         <li id="kwick_1">
           <a class="top_menu_link" href="/pages/about:about_us">关于欧美龙
-            <h3>About OMERO</h3>
+            <h3>About</h3>
           </a>
         </li>
       <li id="kwick_2">
@@ -91,12 +80,12 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
       </li>
       <li id="kwick_3">
       <a class="top_menu_link" href="/pages/ensure">保障体系
-      <h3>Learning & Training</h3>
+      <h3>Training</h3>
       </a>
       </li>
       <li id="kwick_4">
       <a class="top_menu_link" href="/shops">加盟店分布
-      <h3>Searching branchs</h3>
+       <h3>Branchs</h3>
       </a>
       </li>
       <li id="kwick_5">
@@ -106,7 +95,7 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
       </li>
       <li id="kwick_6">
       <a class="top_menu_link" href="/pages/customer">我要洗衣
-      <h3>Customer services</h3>
+      <h3>Customer</h3>
       </a>
       </li>
       </ul>
@@ -116,7 +105,7 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
     <td align="left" valign="top">
       <div id="sub_menu">
       <ul class="sub_kwicks">
-      <li id="sub_kwick_1" class="sub_kwick">
+      <li id="sub_kwick_1" class="sub_kwick" style="display:block;">
       <a id='sub_a_2_0' class='sub_a' href='/pages/about:about_us'>背景介绍</a>
       <a id='sub_a_3_1' class='sub_a' href='/pages/about:culture'>企业文化</a>
       <a id='sub_a_4_2' class='sub_a' href='/pages/about:brand'>品牌定位</a>
@@ -176,55 +165,72 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
 <div class="main_top">
     <% if notice %><p class="notice"><%= notice %></p><% end %>
     <% if alert %><p class="alert"><%= alert %></p><% end %>
-    <div id="nav_bar"><%= yield :nav_bar %></div>
-    <br/>
+    <p id="nav_bar" class="font18">&nbsp;&nbsp;<%= yield :nav_bar %></p>
+
 <!-- end .main_top --></div>
 
 <div class="main"> 
-  <%=image_tag asset_path("bg/b_02.gif"), :width => "985" %>
-  <div class="sidebar1">
-    <div id="sidebar1_body">
-      <div class="box"><%=image_tag asset_path("side_banner.jpg") %></div>
-      <table id="side_table" width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td><h4>相关导航</h4></td>
-        </tr>
-        <% if @page %>
-           <!--显示该页的所有子页-->
-          <% Page.where(:parent_id => @page.id).each do |page| %>
-             <tr><td><%= link_to page.title, page_path(page.id)%></td></tr>
-          <% end %>
-        <% end %>
-        <%= yield :menu_side %>
+  <%=image_tag asset_path("bg/b_02.gif") %>
 
-        
-        <tr>
-          <td><h4>相关新闻</h4></td>
-        </tr>
-        <%= yield :side_news %>
-
-       
-      </table>
-    </div>   
-  <!-- end .sidebar1 --></div>
 <div class="content">
   <div class="content_body">
     <%=yield %>
   <!-- end .content_body --></div>
 <!-- end .content --></div>
+ <div class="sidebar1">
+  <div class="sidebar1_body">
+    <div class="box"><%=image_tag asset_path("side_banner.jpg")%></div>
+    <table id="side_table" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+      <% if @page %>
+         <!--显示该页的所有子页-->
+        <% Page.where(:parent_id => @page.id).each do |page| %>
+           <tr><td><%= link_to page.title, page_path(page.id)%></td></tr>
+        <% end %>
+      <% end %>
+
+      <%= yield :menu_side %>
+      <%= yield :side_news %>
+
+     
+    </table>
+  </div>   
+<!-- end .sidebar1 --></div>
+
 <!-- end .main --> </div>
-<div class="main_foot">
-<%=image_tag asset_path("bg/b_07.gif"), :width => "985" %>
+<div class="main_foot" style="margin-bottom: -8px;">
+  <%=image_tag asset_path("bg/b_07.gif"), :width => "985" %>
 <!-- end .main_foot --></div>
+<div class="clearfloat">&nbsp;</div>
 
 <div class="footer">
   <div class="footer_nav">
     <table width="100%" height="65" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="6%">&nbsp;</td>
-        <td width="17%">df</td>
-        <td width="52%">df</td>
-        <td width="25%">df</td>
+        <td width="17%" valign="center" align="left">
+          <h3 class="foot_title red">
+            <% if @page %>
+              <%= @page.title %>
+            <% elsif request[:controller] =~ /shop/ %>
+              加盟店查询
+            <% elsif request[:controller] =~ /product/ %>
+              产品中心
+            <% elsif request[:controller] =~ /news/ %>
+              新闻中心
+            <% else %>
+              欧美龙
+            <% end %>
+           </h3>
+        </td>
+        <td width="52%" valign="bottom">
+          <div class="foot_addr">
+            <span class="foot_addr1">四川万邦欧美龙洗涤服务有限公司</span><span class="foot_addr2">OMERO INTERNATIONAL LAUNDRY CO.,LTD.</span><br/>
+            <span class="foot_addr2">四川省成都市人民南路南延线天府大道新希望国际1栋1单元17楼8号.
+            加盟热线：400-800-626 </span>
+          </div>
+        </td>
+        <td width="25%" valign="bottom"><%=render :partial => "layouts/bshare" %></td>
       </tr>
     </table>
   </div>
@@ -236,5 +242,3 @@ $("li#sub_"+$(this).attr("id")).fadeIn();
 <!-- end .container --></div>
 </body>
 </html>
-<!-- 24小时服务热线：4006-113-666 -->
-<!-- 公司名称：四川万邦欧美龙洗涤服务有限公司 -->

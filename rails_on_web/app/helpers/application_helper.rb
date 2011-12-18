@@ -22,7 +22,7 @@ module ApplicationHelper
   	bar_arr.each do |nav|
   	  strs << link_to(nav[0], nav[1], :class=> 'nav_bar_link')
   	end
-  	str = strs.join('/')
+  	str = strs.join(' / ')
     	content_for(:nav_bar){
     	  str.html_safe
     	}
@@ -33,12 +33,11 @@ module ApplicationHelper
     news_cate = NewsCate.find_by_name(cate_name)
     cate_id = news_cate.nil? ? 0 : news_cate.id
     news_items = NewsItem.recent(10, cate_id)
-    str_arr = []
+    str_arr = ['<tr><td><h3 class="title">+相关新闻</h3></td></tr>']
     content_for(:side_news) do
       news_items.each do |item|
         str_arr << "<tr><td><span class='cord'>&nbsp;</span><a class='gray' href='/news_items/#{item.id}' target='_blank'>#{item.title}</a></td></tr>"
       end
-      str_arr << "<tr><td>&nbsp;</td></tr>"
       str_arr.join.html_safe
     end
   end

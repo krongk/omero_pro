@@ -7,9 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require tinymce
-//= require jquery.rest
 //= require_tree .
 
+
+// <a onclick="AddFavorite(window.location,document.title)" style="cursor:hand">收藏</a>&nbsp;&nbsp;&nbsp;
+// <a onclick="SetHome(this,window.location)" style="cursor:hand">设为首页</a>
 //添加到收藏
  function AddFavorite(sURL, sTitle)
 {

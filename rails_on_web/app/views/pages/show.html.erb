@@ -7,7 +7,6 @@
 <div id="page">
       <% case @page.path_name%>
       <% when 'about:address' %>
-        <%= @page.body.html_safe unless @page.body.blank?%>
         <iframe src="/home/location" width="100%" height="500px" scrolling="no"></iframe>
       <% else %>
 

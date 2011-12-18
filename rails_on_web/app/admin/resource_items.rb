@@ -31,8 +31,9 @@ ActiveAdmin.register ResourceItem do
     column :resource_path
     column :resource_name
     column :resource_note do |item|
-      str = ["名称：#{item.resource_name}<br/>"]
-      str << "描述：#{item.resource_note.to_s.truncate(200)}"
+      #str = ["名称：#{item.resource_name}<br/>"]
+      #str << "描述：#{item.resource_note.to_s.truncate(200)}"
+      str = []
       if item.resource_type == ResourceItem.type_hash.key('picture').to_s
         str << "<img src = '#{item.resource_path}' width = '60px' />"
       end

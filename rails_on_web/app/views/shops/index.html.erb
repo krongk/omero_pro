@@ -1,4 +1,8 @@
 <% title "门店查询" %>
+<% meta_keywords "欧美龙洗衣全国加盟店分布" %>
+<% meta_description "欧美龙洗衣全国加盟店分布"%>
+<% nav_bar [['首页', '/'],['全国加盟店查询', '/shops']] %>
+<% side_news "加盟" %>
 
 <% content_for :menu_side do %>
   <%#image_tag asset_path("menu_side_search.jpg") %>
@@ -36,13 +40,15 @@
 <% end %> 
 
 <!--查询结果-->
+<h3>查询结果</h3>
 <% if @shops.size > 0 %>
-	<h3>查询结果</h3>
 	<ul>
 	<% @shops.each do |shop| %>
 	  <li><%=link_to shop.short_address, shop_path(shop.id) %></li>
 	<% end %>
 	</ul>
+<% else %>
+ <p> 没有查询到相关信息!</p>
 <% end %>
 
 <%#image_tag asset_path("map.jpg"), :width=> "100%" %>
