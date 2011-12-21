@@ -38,12 +38,45 @@ $(document).ready(function(){
   });
   //
   $( ".content_body img" ).aeImageResize({ height: 620, width: 620 });
+
+  //
+  var ClicentH=document.documentElement.clientHeight;
+  var ClicentW=document.documentElement.clientWidth;
+
+  document.getElementById("top_banner").width = ClicentW;
+  document.getElementById("top_banner").height = ClicentH;
 });
 </script>
 </head> 
 <body> 
 <div class="container">
-  <div id="top_banner"><%=image_tag "a_top_banner.jpg", :width=>"100%" %></div>
+  <div id="top_banner">
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="985" height="249" id="FlashID" accesskey="1" tabindex="1" title="omero">
+        <param name="movie" value="<%=asset_path("flash/top_banner.swf")%>" />
+        <param name="quality" value="high" />
+        <param name="wmode" value="opaque" />
+        <param name="swfversion" value="9.0.45.0" />
+        <!-- 此 param 标签提示使用 Flash Player 6.0 r65 和更高版本的用户下载最新版本的 Flash Player。如果您不想让用户看到该提示，请将其删除。 -->
+        <param name="expressinstall" value="<%=asset_path("Scripts/expressInstall.swf")%>" />
+        <!-- 下一个对象标签用于非 IE 浏览器。所以使用 IECC 将其从 IE 隐藏。 -->
+        <!--[if !IE]>-->
+        <object type="application/x-shockwave-flash" data="<%=asset_path("flash/top_banner.swf")%>" width="985" height="249">
+          <!--<![endif]-->
+          <param name="quality" value="high" />
+          <param name="wmode" value="opaque" />
+          <param name="swfversion" value="9.0.45.0" />
+          <param name="expressinstall" value="<%=asset_path("Scripts/expressInstall.swf")%>" />
+          <!-- 浏览器将以下替代内容显示给使用 Flash Player 6.0 和更低版本的用户。 -->
+          <div>
+            <h4>此页面上的内容需要较新版本的 Adobe Flash Player。</h4>
+            <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="获取 Adobe Flash Player" width="112" height="33" /></a></p>
+          </div>
+          <!--[if !IE]>-->
+        </object>
+        <!--<![endif]-->
+      </object>
+  </div>
+
 <div class="header">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
