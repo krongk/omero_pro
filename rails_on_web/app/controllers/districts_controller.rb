@@ -1,4 +1,4 @@
-class DistrictsController < InheritedResources::Base
+class DistrictsController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
   respond_to :json
 

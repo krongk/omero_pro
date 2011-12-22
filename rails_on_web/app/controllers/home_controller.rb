@@ -31,6 +31,10 @@ class HomeController < ApplicationController
   def nav_img_and_jquery2
     #handle css3 slide img
   end
+
+  #show viedio
+  def ad_tv
+  end
 end
 
 

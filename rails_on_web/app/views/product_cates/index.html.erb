@@ -4,20 +4,12 @@
 <% nav_bar [['首页', '/'],['产品中心', '/product_cates']] %>
 <% side_news "产品中心" %>
 
-<%content_for :side_bar do %>
-  <table>
-    <tr>
-      <th colspan="3">产品分类列表</th>
-    </tr>
-
+<%content_for :menu_side do %>
   <% @product_cates.each do |product_cate| %>
     <tr>
-      <th><%= product_cate.name %></th>
-      <td>（<%=product_cate.product_items.size || '0'%>）件</td>
-      <td><%= link_to '查看所有', product_cate %></td>
+      <td><%=link_to "#{product_cate.name}   (#{product_cate.product_items.size}件)", product_cate_path(product_cate)  %></td>
     </tr>
   <% end %>
-</table>
 <% end %>
 
 <script type="text/javascript">
@@ -45,14 +37,16 @@
 
 <div class="product_list">
   <% @product_cates.each do |product_cate| %>
-    <h2><%= link_to product_cate.name, product_cate_path(product_cate.id) %></h2>
+    
+    <h2><%= link_to "#{product_cate.name}   更多>>", product_cate_path(product_cate.id) %></h2>
     <ul>
     <% product_cate.product_items.limit(8).each do |item|%>
       <li class="item_li">
-        <%= link_to image_tag((item.image_path || asset_path("product.jpg")), :width=> "120px", :class => 'item_img'), product_item_path(item.id)%>
-        <p class="product_title"><%= link_to item.title.truncate(20), product_item_path(item.id), :style => "color:#f52969"%></p>
+        <%= link_to image_tag((item.image_path || asset_path("product.jpg")), :class => 'item_img'), product_item_path(item.id)%>
+        <p class="product_title"><%= link_to item.title.to_s.truncate(20), product_item_path(item.id), :style=> "color: #f52969;"%></p>
       </li>
     <% end %>
     </ul>
+    <br/><br/>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 #encoding: utf-8
-class ShopsController < InheritedResources::Base
+class ShopsController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show, :update_cities, :update_districts]
   before_filter :locate
 

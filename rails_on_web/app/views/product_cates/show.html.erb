@@ -1,4 +1,13 @@
 <% title @product_cate.name %>
+
+<%content_for :menu_side do %>
+  <% @product_cates.each do |product_cate| %>
+    <tr>
+      <td><%=link_to "#{product_cate.name}   (#{product_cate.product_items.size}件)", product_cate_path(product_cate)  %></td>
+    </tr>
+  <% end %>
+<% end %>
+
 <h2>
   <%= @product_cate.name %>
 </h2>
@@ -26,12 +35,14 @@ $(document).ready(function(){
 })
 </script>
 
-<div class="normal">
+<div class="normal product_list">
   <ul>
-	<% @product_cate.product_items.limit(5).each do |item|%>
+	<% @product_items.each do |item|%>
 	  <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")),:class => "tip"), product_item_path(item.id)%><br/>
-	  <%= link_to item.title, product_item_path(item.id) %>
+	  <%= link_to item.title.to_s.truncate(20), product_item_path(item.id), :style=> "color: #f52969;"%>
 	  </li>
 	<% end %>
   </ul>
+
+  <%=will_paginate @product_items %>
 </div>

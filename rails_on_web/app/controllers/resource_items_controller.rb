@@ -1,6 +1,6 @@
 # encoding: utf-8
 require 'fileutils'
-class ResourceItemsController < InheritedResources::Base
+class ResourceItemsController < InheritedResourcesBase
     before_filter :authenticate_admin_user!
 
     def create

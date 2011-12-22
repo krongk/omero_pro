@@ -1,4 +1,4 @@
-class NewsItemsController < InheritedResources::Base
+class NewsItemsController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
 
   def index

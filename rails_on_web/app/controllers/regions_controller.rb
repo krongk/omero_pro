@@ -1,4 +1,4 @@
-class RegionsController < InheritedResources::Base
+class RegionsController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
 
   def index

@@ -1,5 +1,5 @@
 #encoding: utf-8
-class NewsCatesController < InheritedResources::Base
+class NewsCatesController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
 
   def show

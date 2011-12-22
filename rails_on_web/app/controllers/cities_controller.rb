@@ -1,4 +1,4 @@
-class CitiesController < InheritedResources::Base
+class CitiesController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
   respond_to :json
 
