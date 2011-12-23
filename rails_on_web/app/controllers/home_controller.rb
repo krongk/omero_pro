@@ -1,7 +1,8 @@
 #encoding: utf-8
 class HomeController < ApplicationController
+  #show flash index as root
   def index
-    redirect_to "/pages/about"
+    render "/home/index", :layout => nil
   end
 
   #It's a location tip, you can set lawyer => nil, and modify 'views/home/location.html.erb' to 'view/home/_location.html.erb'
