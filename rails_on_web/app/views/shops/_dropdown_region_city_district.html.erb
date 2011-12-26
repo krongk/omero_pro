@@ -64,23 +64,44 @@ $(document).ready(function() {
 }
 -->
 </style>
-
-<li>选择省份:</li>
-<li>
-  <select id="regions" name="shop[region_id]">
-    <option value="1">请选择省份</option>
-    <%= options_from_collection_for_select(Region.all, :id, :name) %>
-  </select>
-</li>
-<li>选择城市:</li>
-<li>
-    <select id="cities" name="shop[city_id]">
-      <option value="1">请选择城市</option>
-    </select>
-</li>
- <li>选择地区:</li>
-<li>
-    <select id="districts" name="shop[district_id]">
-      <option value="1">请选择地区</option>
-    </select>
-</li>
+<% if style == 'table' %> 
+	<tr><td>
+	  <select id="regions" name="shop[region_id]">
+	    <option value="1">请选择省份</option>
+	    <%= options_from_collection_for_select(Region.all, :id, :name) %>
+	  </select>
+	</td></tr>
+	<tr><td>
+	  <select id="cities" name="shop[city_id]">
+	    <option value="1">请选择城市</option>
+	  </select>
+	</td></tr>
+<% elsif style == 'no' %>
+     <select id="regions" name="shop[region_id]">
+	    <option value="1">请选择省份</option>
+	    <%= options_from_collection_for_select(Region.all, :id, :name) %>
+	  </select>
+     <select id="cities" name="shop[city_id]">
+	    <option value="1">请选择城市</option>
+	  </select>
+<% else %>
+	<li>选择省份:</li>
+	<li>
+	  <select id="regions" name="shop[region_id]">
+	    <option value="1">请选择省份</option>
+	    <%= options_from_collection_for_select(Region.all, :id, :name) %>
+	  </select>
+	</li>
+	<li>选择城市:</li>
+	<li>
+	    <select id="cities" name="shop[city_id]">
+	      <option value="1">请选择城市</option>
+	    </select>
+	</li>
+	 <li>选择地区:</li>
+	<li>
+	    <select id="districts" name="shop[district_id]">
+	      <option value="1">请选择地区</option>
+	    </select>
+	</li>
+<% end %>

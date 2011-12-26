@@ -24,6 +24,9 @@ $(document).ready(function(){
   //corner
   $("div.box").corner();
 
+  //slide show 
+  $('#slideshow').sliders({ delay: 2500, speed: 500 });
+  $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
   //一级菜单不kwicks
   $(".kwicks > li").each(function(){
     $(this).hover(function(){
@@ -180,19 +183,53 @@ $(document).ready(function(){
 <!-- end .content --></div>
  <div class="sidebar1">
   <div class="sidebar1_body">
-    <div class="box"><%=image_tag asset_path("side_banner.jpg")%></div>
+    <div class="box">
+      <div id='slideshow'>
+        <%=image_tag asset_path("slide_b_04.jpg")%>
+        <%=image_tag asset_path("slide_b_01.jpg")%>
+        <%=image_tag asset_path("slide_b_02.jpg")%>
+        <%=image_tag asset_path("slide_b_03.jpg")%>
+      </div>
+    </div>
+
     <table id="side_table" width="100%" border="0" cellspacing="0" cellpadding="0">
       <% if @page %>
          <!--显示该页的所有子页-->
+        <tr><td class="black_bg"><h3 class="title">+ <%= link_to @page.title, page_path(@page.id) %></h3></td></tr>
         <% Page.where(:parent_id => @page.id).each do |page| %>
            <tr><td><%= link_to page.title, page_path(page.id)%></td></tr>
         <% end %>
       <% end %>
       <%= yield :menu_side %>
       <%= yield :side_news %>
-
-     
     </table>
+
+    <div class="box">
+      <div id='slideshow2'>
+        <%=image_tag asset_path("side_banner0.jpg")%>
+        <%=image_tag asset_path("side_banner1.jpg")%>
+        <%=image_tag asset_path("side_banner2.jpg")%>
+        <%=image_tag asset_path("side_banner3.jpg")%>
+      </div>
+    </div>
+
+    <div class="box">
+      <table>
+      <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
+      <tr><td>
+      <%= form_tag("/shops/", :method => "get") do %>
+        <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+        <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+      <% end %>
+      </td><td>
+        <%= image_tag("map_search2.jpg", :width => '140') %>
+      </td></tr>
+      </table>
+    </div>
+    <div class="box">
+      <a href="#"><%= image_tag("kefu.gif", :width => '240') %></a>
+    </div>
+
   </div>   
 <!-- end .sidebar1 --></div>
 

@@ -24,7 +24,7 @@
 <br/>
 <ul>
 <%= form_tag("/shops/", :method => "get") do %>
-  <%=render :partial => "/shops/dropdown_region_city_district" %>
+  <%=render :partial => "/shops/dropdown_region_city_district", :locals =>{:style => 'ul'} %>
   <li>
     <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
   </li>

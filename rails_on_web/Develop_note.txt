@@ -129,6 +129,7 @@ rails g controller home index help site_map
       download zh-cn langs zip from: http://www.tinymce.com/i18n/index.php?ctrl=lang&act=download&pr_id=1
       a. extract the zip file and replace the folder to tinymce-rails gem folder:
          C:\RailsInstaller\Ruby1.9.2\lib\ruby\gems\1.9.1\gems\tinymce-rails-3.4.7\assets\precompiled\tinymce
+         Linux: /usr/local/rvm/gems/ruby-1.9.2-p290/gems/tinymce-rails-3.4.7/assets/precompiled/tinymce
       b. Modify the config option [language: "en"] to [language: "zh-cn"] on where your initialize. e.g.
         <script type="text/javascript">
           tinyMCE.init({
@@ -239,3 +240,36 @@ rails g controller home index help site_map
           <td> <a title="我要洗衣" href="/pages/customer">我要洗衣</a></td>
         </tr>
       </table>
+
+
+20. 首页flash链接：
+
+关于欧美龙：/pages/about
+加盟合作：　/pages/join
+产品中心：  /product_cates
+我要洗衣：  /pages/customer
+
+中间两个文字：/pages/about:brand
+
+中间一排图片全部统一链接：/pages/about:honor
+
+下面三个图片：
+　电视广告：/pages/ad_tv
+　企业文化：/pages/about:culture
+　加盟合作：/pages/join
+
+分享按钮链接：
+  1. QQ空间:
+  http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http%3A%2F%2Fwww.omero-china.com&title=欧美龙干洗连锁加盟http%3A%2F%2Fwww.omero-china.com
+
+  2. 新浪：
+  http://v.t.sina.com.cn/share/share.php?appkey=2788964267&title=欧美龙干洗连锁加盟http%3A%2F%2Fwww.omero-china.com&source=bshare&retcode=0&ralateUid=${RALATEUID}
+
+  3. 人人：
+  http://share.renren.com/share/buttonshare.do?link=http%3A%2F%2Fwww.omero-china.com&title=%E6%AC%A7%E7%BE%8E%E9%BE%99%20-%20%E5%85%B3%E4%BA%8E%E6%AC%A7%E7%BE%8E%E9%BE%99
+
+  4.ＱＱ微博：
+  http://share.v.t.qq.com/index.php?c=share&a=index&title=%E5%85%B3%E4%BA%8E%E6%AC%A7%E7%BE%8E%E9%BE%99%20-%20%E5%85%B3%E4%BA%8E%E6%AC%A7%E7%BE%8E%E9%BE%99-%E6%AC%A7%E7%BE%8E%E9%BE%99%E6%B4%97%E8%A1%A3%E8%BF%9E%E9%94%81%E4%B8%BA%E5%9B%BD%E9%99%85%E5%93%81%E7%89%8C%2C%E7%BB%A7%E6%89%BF%E5%9B%BD%E9%99%85%E5%85%88%E8%BF%9B%E5%B9%B2%E6%B4%97%E8%AE%BE%E5%A4%87%E5%92%8C%E7%AE%A1%E7%90%86%E6%A8%A1%E5%BC%8F%2C%E6%88%90%E4%B8%BA%E7%9B%AE%E5%89%8D%E4%B8%AD%E5%9B%BD%E6%9C%80%E9%AB%98%E7%AB%AF%E7%9A%84%E5%B9%B2%E6%B4%97%E8%BF%9E%E9%94%81%E5%8A%A0%E7%9B%9F%E9%9B%86%E5%9B%A2%E4%BC%81%E4%B8%9A%EF%BC%81%E5%85%A8%E5%9B%BD%E5%8A%A0%E7%9B%9F%E5%88%86%E5%BA%97%E8%A6%86%E7%9B%9623%E4%B8%AA%E7%9C%81%E5%B8%82%EF%BC%8C%E8%A6%86%E7%9B%96%E4%BA%92%E8%81%94%E7%BD%91%E5%8A%A0%E7%9B%9F%E5%B9%B2%E6%B4%97%E8%BF%9E%E9%94%81%E5%88%9B%E4%B8%9A%E9%A1%B9%E7%9B%AE%E4%BA%BA%E7%BE%A4%E7%9A%8480%25.&site=http%3a%2f%2fwww.bshare.cn&pic=&url=http%3A%2F%2Fwww.omero-china.com&appkey=dcba10cb2d574a48a16f24c9b6af610c
+
+  5.豆瓣：
+  http://shuo.douban.com/!service/share?image=&href=http%3A%2F%2Fwww.omero-china.com&name=%E6%AC%A7%E7%BE%8E%E9%BE%99%20-%20%E5%85%B3%E4%BA%8E%E6%AC%A7%E7%BE%8E%E9%BE%99&text=欧美龙干洗连锁加盟http%3A%2F%2Fwww.omero-china.com
