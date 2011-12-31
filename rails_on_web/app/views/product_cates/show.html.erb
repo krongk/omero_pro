@@ -1,4 +1,9 @@
 <% title @product_cate.name %>
+<% meta_keywords "欧美龙洗衣产品中心" %>
+<% meta_description "欧美龙洗衣产品中心"%>
+<% nav_bar [['首页', '/'],['产品中心', '/product_cates'], [@product_cate.name, '/product_cates/'+ @product_cate.id.to_s]] %>
+<% side_news "产品中心" %>
+<% side_nav @product_cate.name, 'product'%>
 
 <%content_for :menu_side do %>
   <% @product_cates.each do |product_cate| %>

@@ -1,0 +1,228 @@
+@charset "utf-8";
+body {
+	font: 14px "Microsoft YaHei", "微软雅黑";
+	;
+	background: #e6ebef;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+}
+a img { /* 此选择器将删除某些浏览器中显示在图像周围的默认蓝色边框（当该图像包含在链接中时） */
+	border: none;
+}
+
+/* ~~ 站点链接的样式必须保持此顺序，包括用于创建悬停效果的选择器组在内。 ~~ */
+a:link {
+	color: #333;
+	text-decoration: none; /* 除非将链接设置成极为独特的外观样式，否则最好提供下划线，以便可从视觉上快速识别 */
+}
+a:visited {
+    color: #333;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
+	color: #ffffff;
+	text-decoration: none;
+}
+.write a{color: #ffffff;}
+.write a:hover, a:active, a:focus{color: #333;}
+
+.oneColFixCtrHdr #container {
+	width: 980px;
+	margin: 0 auto;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.oneColFixCtrHdr #header {
+	padding: 0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+	background-color: #494949;
+	background-image: url(images/1_02.jpg);
+	background-repeat: repeat-x;
+	height: 274px;
+	margin-top: -5px;
+	text-align: center;
+}
+.oneColFixCtrHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+.oneColFixCtrHdr #mainContent {
+	padding: 0px; 
+}
+.oneColFixCtrHdr #footer {
+	background-color: #DDDDDD;
+	background-image: url(images/1_16.jpg);
+	background-repeat: repeat-x;
+	height: 352px;
+	padding-top: 0;
+	padding-right: 10px;
+	padding-bottom: 0;
+	padding-left: 10px;
+	margin-top: 20px;
+}
+.oneColFixCtrHdr #footer {
+	color: #999;
+}
+.oneColFixCtrHdr #banner{
+	text-align:center;
+}
+
+.twoColFixRt {
+	width: 100%;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	text-align: left; /* this overrides the text-align: center on the body element. */
+}
+.twoColFixRt #sidebar1 {
+	float: right;
+	width: 275px !important;
+	width: 260px;
+	padding: 0px 5px;
+	border-left-width: 2px;
+	border-left-style: dotted;
+	border-left-color: #999;
+}
+.twoColFixRt #mainContent { 
+	margin: 0 300px 0 0; /* the right margin on this div element creates the column down the right side of the page - no matter how much content the sidebar1 div contains, the column space will remain. You can remove this margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends. */
+	padding: 10px !important; 
+	padding: 0px; 
+} 
+
+.side_content{
+	background-image: url(images/3_09.jpg);
+	background-repeat: repeat-y;
+	padding: 0px;
+	padding-left: 10px;
+	margin-top: -5px;
+	
+}
+.round_content{
+  background-image: url(images/3_09.jpg);
+  background-repeat: repeat-y;
+  margin: 0px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  padding: 10px;	
+}
+.summary_content{
+	margin-top: 20px;
+	padding: 0 10px;
+}
+.round_content h2{
+	margin-top: -10px;
+}
+.side_box{
+	background-image: url(images/1_04.jpg);
+	background-repeat: repeat-x;
+	margin: 0px;
+	padding: 10px;
+	}
+.toto {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 16px;
+	padding: 4px;
+	color: #666;
+	margin-right: 4px;
+}
+h2 {
+	font-size: 16px;
+	margin: 4px;
+}
+.more_red {
+	height: 25px;
+	width: 100%;
+	background-image: url(images/1_11.jpg);
+	background-repeat: repeat-x;
+	background-position: left bottom;
+	text-align: right;
+	display: block;
+	color: #C00;
+	font-size: 14px;
+}
+.more_black {
+	height: 25px;
+	width: 100%;
+	text-align: right;
+	display: block;
+	color: #666;
+	font-size: 14px;
+}
+.image_news_content {
+	margin: 0px;
+	padding: 10px;
+	width: 100%;
+}
+.white_a {
+	background-image: url(images/white_a.gif);
+	padding: 2px;
+	background-repeat: no-repeat;
+}
+.bshare {
+	float: right;
+}
+
+#search {
+	font-size: 14px;
+	background-color:transparent;
+	background-image: url(images/1_07.gif);
+	margin-top: -4px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 26px;
+	width: 170px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	text-align: left;
+	padding: 10px 0 0 10px;
+}
+
+
+.image_news_content img {
+	float: left;
+	margin: 10px;
+}
+
+.more_black_border {
+	height: 25px;
+	width: 100%;
+	text-align: right;
+	display: block;
+	color: #666;
+	font-size: 14px;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #666;
+}
+
+.border_left{
+	border-left-width: 2px;
+	border-left-style: dotted;
+	border-left-color: #999;	
+}
+.border_black{
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;	
+}
+.font_gray a{color: #ccc;}
+.table_footer_map p{
+	padding: 0;
+	margin: 0;
+}
+.table_footer_map a{
+	color: #999;
+}
+.table_footer_map a.top_a{
+	font-size: 16px;
+	color: #ccc;
+}
+#footer .footer_phone{
+  padding: 20px;
+  color:#333;
+  font-size:24px;
+  font-weight:600;
+}
+.table_footer_map h3{
+	margin: 10px 0;
+	padding: 0px;}

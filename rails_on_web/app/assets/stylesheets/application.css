@@ -4,9 +4,8 @@
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
  *= require sites
- *= require home
- *= require shops
  *= require pages
+ *= require shops
  *= require news_items
  *= require product_cates
 */

@@ -1,4 +1,9 @@
 <% title @news_cate.name %>
+<% meta_keywords @news_cate.name %>
+<% nav_bar [['首页', '/'],['新闻中心', '/news_items'],[@news_cate.name, '/news_cates/'+ @news_cate.id.to_s]] %>
+<% side_news @news_cate.name %>
+<% side_nav @news_cate.name, 'news' %>
+
 
 <h1>
   <%= @news_cate.name %>

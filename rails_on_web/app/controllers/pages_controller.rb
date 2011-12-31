@@ -1,9 +1,13 @@
+#encoding: utf-8
 class PagesController < ApplicationController
   before_filter :authenticate_admin_user!, :except => [:index, :show, :en]
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    @news_cate_about = NewsCate.find_by_name("关于欧美龙") || NewsCate.find(13)
+    @news_cate_hangye = NewsCate.find_by_name("行业分析") || NewsCate.find(1)
+    @news_cate_ganxizhishi = NewsCate.find_by_name("干洗知识") || NewsCate.find(10)
+    @news_cate_xiyichangshi = NewsCate.find_by_name("洗衣常识") || NewsCate.find(11)
 
     respond_to do |format|
       format.html # index.html.erb

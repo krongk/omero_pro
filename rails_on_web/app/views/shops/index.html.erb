@@ -3,16 +3,7 @@
 <% meta_description "欧美龙洗衣全国加盟店分布"%>
 <% nav_bar [['首页', '/'],['全国加盟店查询', '/shops']] %>
 <% side_news "加盟" %>
-
-<% content_for :menu_side do %>
-  <%#image_tag asset_path("menu_side_search.jpg") %>
-  <% Region.all.sort{|r1,r2| r1.name.length <=> r2.name.length}.each do |region| %>
-    <tr><td>
-      <%= link_to region.name, :controller => :shops, :action => :index, 'shop[region_id]' => region.id %>
-    </td></tr>
-  <% end %>
-<% end %>
-
+<% side_nav "加盟店分布", 'shop' %>
 
 <br/>
 <div id="search_shop">

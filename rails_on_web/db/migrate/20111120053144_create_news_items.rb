@@ -6,6 +6,7 @@ class CreateNewsItems < ActiveRecord::Migration
       t.text :body
       t.string :external_path
       t.string :image_path
+      t.sort_id :integer, :default => 0
 
       t.timestamps
     end

@@ -3,6 +3,7 @@
 <% meta_description @page.meta_description %>
 <% nav_bar [['首页', '/'],[@page.title, '/pages/'+ @page.path_name]] %>
 <% side_news @page.title %>
+<% side_nav @page.title, 'page' %>
 
 <div id="page">
       <% case @page.path_name%>

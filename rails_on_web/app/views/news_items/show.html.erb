@@ -2,7 +2,7 @@
 <% meta_keywords @news_item.title %>
 <% nav_bar [['首页', '/'],['新闻中心', '/news_items'],[@news_item.news_cate.name, '/news_cates/'+ @news_item.news_cate.id.to_s]] %>
 <% side_news @news_item.news_cate.name %>
-
+<% side_nav @news_item.news_cate.name, 'news' %>
 
 <h2>
   <%= @news_item.title %>
