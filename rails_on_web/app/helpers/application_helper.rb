@@ -18,14 +18,15 @@ module ApplicationHelper
   #链接菜单导航，如：首页/关于我们
   #input: nav_bar [['首页', '/'], ['关于', '/about']]
   def nav_bar(bar_arr)
-  	strs = []
+  	strs = ['<div id="nav_bar">']
   	bar_arr.each do |nav|
   	  strs << link_to(nav[0], nav[1], :class=> 'nav_bar_link')
+      strs << " / "
   	end
-  	str = strs.join(' / ')
-    	content_for(:nav_bar){
-    	  str.html_safe
-    	}
+    strs << "</div>"
+  	content_for(:nav_bar){
+  	  strs.join.html_safe
+  	}
   end
 
   #显示边栏导航
@@ -33,10 +34,7 @@ module ApplicationHelper
   # 通过父级显示所有子栏目
   # :style => ['page', 'news', 'product', 'shop']
   def side_nav(cate_name, style = 'page')
-    str_arr = ["<div class='side_top_img'>"]
-    str_arr << image_tag(asset_path("2_03.jpg"))
-    str_arr << "</div>"
-    str_arr << ["<ul>"]
+    str_arr = ["<ul class='side_nav'>"]
     case style
     when 'page'
       page = Page.find_by_title(cate_name)
@@ -89,22 +87,40 @@ module ApplicationHelper
     else
       'other'
     end
-    str_arr << "</ul>"
+    str_arr << "</ul><br/>"
 
     content_for(:side_nav) do
       str_arr.join.html_safe
     end
   end
-  #显示10条新闻，根据传入的分类，如果找不到则显示最新10条
+  #显示6条新闻，根据传入的分类，如果找不到则显示最新6条
   def side_news(cate_name)
     news_cate = NewsCate.find_by_name(cate_name)
     cate_id = news_cate.nil? ? 0 : news_cate.id
-    news_items = NewsItem.recent(10, cate_id)
-    str_arr = ['<h3 class="title">+ 相关新闻</h3>']
+    
+    str_arr = ['<h3 class="title">+ 相关新闻</h3><ul class="side_news_ul">']
     content_for(:side_news) do
+      news_items = NewsItem.recent(6, cate_id)
       news_items.each_with_index do |item, index|
-        str_arr << "<li><span class='red_bg'>#{index + 1}</span><a class='gray' href='/news_items/#{item.id}' target='_blank'>#{item.title}</a></li>"
+        str_arr << "<li><a class='gray' href='/news_items/#{item.id}' target='_blank'>#{item.title.truncate(16)}</a></li>"
       end
+      str_arr << "</ul>"
+      str_arr << '<span class="more_red">'
+      str_arr << link_to("更多>>", news_cate_path(cate_id))
+      str_arr << '</span>'
+
+      str_arr << '<div class="image_news_content">'
+      news_items = NewsItem.recent(2, cate_id, true)
+      news_items.each_with_index do |item, index|
+        str_arr << '<div class="news_content">'
+        str_arr << image_tag(asset_path("3200.jpg"), :width => "135", :height => "131")
+        str_arr << strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(120)
+        str_arr << '<span class="more_red">'
+        str_arr << link_to("查看详细...", news_item_path(item))
+        str_arr << '</span></div>'
+      end
+      str_arr << '</div>'
+
       str_arr.join.html_safe
     end
   end

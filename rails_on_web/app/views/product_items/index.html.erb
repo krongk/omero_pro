@@ -35,14 +35,13 @@
 // })
 </script>
 
-<div class="normal product_list">
+<div class="product_list_all corner_box">
+ <%=will_paginate @product_items %>
   <ul>
     <% @product_items.each do |item|%>
-      <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")),:class => "tip"), product_item_path(item.id)%><br/>
-      <%= link_to item.title.to_s.truncate(20), product_item_path(item.id), :style=> "color: #f52969;"%>
+      <li class="item_li"><%= link_to image_tag((item.image_path || asset_path("product.jpg")),:class => "tip"), product_item_path(item.id)%>
       </li>
     <% end %>
   </ul>
 
-  <%=will_paginate @product_items %>
 </div>

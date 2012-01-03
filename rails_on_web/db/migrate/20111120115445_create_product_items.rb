@@ -7,6 +7,7 @@ class CreateProductItems < ActiveRecord::Migration
       t.decimal :price, :precision => 10, :scale => 2
       t.string :image_path
       t.boolean :is_visible, :default => true
+      t.integer :sort_id, :default => 0
       
       t.timestamps
     end

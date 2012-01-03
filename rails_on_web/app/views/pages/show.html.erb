@@ -5,7 +5,9 @@
 <% side_news @page.title %>
 <% side_nav @page.title, 'page' %>
 
-<div id="page">
+<div id="page" class="corner_box">
+	<h2><%= @page.title %></h2>
+
       <% case @page.path_name%>
       <% when 'about:address' %>
         <iframe src="/home/location" width="100%" height="500px" scrolling="no"></iframe>

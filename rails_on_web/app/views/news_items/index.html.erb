@@ -5,14 +5,15 @@
 <% side_news "新闻" %>
 <% side_nav "新闻", 'news' %>
 
-<div class="news_list">
+<div class="news_list corner_box">
     <ul>
     <% @news_items.each do |news_item| %>
       <li>
-      <span class="news_title"><%= link_to news_item.title, news_item_path(news_item), :class=> 'news_title' %></span>
-      &nbsp;&nbsp;&nbsp;&nbsp;[新闻类型：<%= news_item.news_cate.name %>] [更新时间：<%= news_item.updated_at.to_s(:db) unless news_item.updated_at.blank?%>]
+       <h2><%= link_to news_item.title, news_item_path(news_item), :class=> 'news_title' %></h2>
+      
       <div class="news_content">
         <%= strip_tags(news_item.body.gsub(/&nbsp;/, '')).truncate(120) %>
+        <%= link_to ">>>查看详情", news_item_path(news_item), :class=> 'news_title' %>
       </div>
       </li>
     <% end %>

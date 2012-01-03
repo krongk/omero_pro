@@ -4,14 +4,17 @@
 <% side_news @news_item.news_cate.name %>
 <% side_nav @news_item.news_cate.name, 'news' %>
 
-<h2>
-  <%= @news_item.title %>
-</h2>
-<hr/>
-<div id="news_content">
-  <% unless @news_item.image_path.blank? %><div class="news_img"><%= image_tag @news_item.image_path %></div><% end %>
-  <%= simple_format @news_item.body unless @news_item.body.blank? %>
-</div>
+<div id="news_item" class="corner_box">
+	<h1>
+	  <%= @news_item.title %>
+	</h1>
+	<hr class="black"/>
 
-<hr/>
-<%= link_to '返回', news_items_path %>
+	<div id="news_content">
+	  <% unless @news_item.image_path.blank? %><div class="news_img"><%= image_tag @news_item.image_path %></div><% end %>
+	  <%= simple_format @news_item.body unless @news_item.body.blank? %>
+	</div>
+
+	<hr/>
+	<%= link_to '返回', news_items_path %>
+</div>

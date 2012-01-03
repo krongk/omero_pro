@@ -10,13 +10,15 @@ ActiveAdmin.register ProductItem do
   index do
     column :id
     column :'分类' do |item|
-      item.product_cate.name
+      item.product_cate.name unless item.product_cate.blank?
     end
     column :title do |item|
       link_to item.title, admin_product_item_path(item)
     end
-    column :price
-    column :image_path
+    column :image_path do |item|
+      image_tag item.image_path, :width => '80'
+   
+    end
     column :updated_at
     default_actions
   end
@@ -40,12 +42,12 @@ ActiveAdmin.register ProductItem do
                     td item.title
                   end
                   tr do
-                    th '产品价格'
-                    td item.price
+                    th '显示排序（数字越大越排前面）'
+                    td item.sort_id
                   end
                   tr do
-                    th '更新时间'
-                    td item.updated_at
+                    th '图片地址'
+                    td item.image_path
                   end
                   tr do
                     th '产品详情'

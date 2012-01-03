@@ -1,6 +1,10 @@
 class ProductCatesController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
 
+  def index
+  	@product_cates = ProductCate.all
+  	
+  end
   def show
     @product_cates = ProductCate.all
   	@product_cate = ProductCate.find_by_id(params[:id]) ? ProductCate.find(params[:id]) : ProductCate.first

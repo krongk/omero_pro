@@ -1,18 +1,17 @@
-<h1>新闻分类</h1>
+<div id="news_cates" class="corner_box">
+	<h1>新闻分类</h1>
 
-<div class="news_cate_list">
-<% @news_cates.each do |news_cate| %>
-  <ul>
-    <li><%= link_to news_cate.name, news_cate_path(news_cate) %>
-      <ul>
-        <% NewsItem.recent(5, news_cate.id).each do |item| %>
-          <li><%= link_to item.title, news_item_path(item)%></li>
-        <% end %>
-      </ul>
-    </li>
-  </ul>
-<% end %>
+	<div class="news_cate_list">
+	<% @news_cates.each do |news_cate| %>
+	  <ul>
+	    <li><%= link_to news_cate.name, news_cate_path(news_cate) %>
+	      <ul>
+	        <% NewsItem.recent(5, news_cate.id).each do |item| %>
+	          <li><%= link_to item.title, news_item_path(item)%></li>
+	        <% end %>
+	      </ul>
+	    </li>
+	  </ul>
+	<% end %>
+	</div>
 </div>
-
-<br />
-

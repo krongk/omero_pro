@@ -7,16 +7,16 @@ body {
 	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
 	color: #000000;
 }
-h1, h2, h3{
-	font-size: 18px;
-	font-family:"Microsoft YaHei", "微软雅黑";
-}
 
 /* ~~ 元素/标签选择器 ~~ */
 ul, ol, dl { /* 由于浏览器之间的差异，最佳做法是在列表中将填充和边距都设置为零。为了保持一致，您可以在此处指定需要的数值，也可以在列表所包含的列表项（LI、DT 和 DD）中指定需要的数值。请注意，除非编写一个更为具体的选择器，否则您在此处进行的设置将会层叠到 .nav 列表。 */
 	padding: 0;
 	margin: 0;
 }
+li {
+	list-style-type: none;
+}
+
 h1, h2, h3, h4, h5, h6, p {
 	margin-top: 0;	 /* 删除上边距可以解决边距会超出其包含的 div 的问题。剩余的下边距可以使 div 与后面的任何元素保持一定距离。 */
 	padding-right: 15px;
@@ -36,7 +36,7 @@ a:visited {
 	text-decoration: none;
 }
 a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠标使用者相同的悬停体验。 */
-	color: #ffffff;
+	color: #cc0000;
 	text-decoration: none;
 }
 .write a{color: #ffffff;}
@@ -94,20 +94,40 @@ a:hover, a:active, a:focus { /* 此组选择器将为键盘导航者提供与鼠
 	padding: 2px;
 	background-repeat: no-repeat;
 }
-.toto {
-	font-family: "Comic Sans MS", cursive;
-	font-size: 16px;
-	padding: 4px;
-	color: #666;
-	margin-right: 4px;
-}
+
 h2 {
-	font-size: 16px;
+	font-size: 14px;
 	margin: 4px;
+}
+
+h2 a{
+	font-size: 14px;
+	margin: 0px;
+}
+h2 .toto {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 12px;
+	padding: 2px;
+	color: #666;
+	margin: 0 4px 0 -14px;
+}
+h3.title{
+    margin: 10px 0 0 0;
+    padding: 4px;
+	background-color: #cc0000;
+	color: #ffffff;
 }
 .bshare {
 	float: right;
 	margin: 0px;
 	margin-top: -45px;
 	padding: 0px;
+}
+.corner_box{
+	background-color: #fff;
+	padding: 10px;
+	margin: 20px 0;
+}
+.black{
+	border: 3px dotted #666;
 }

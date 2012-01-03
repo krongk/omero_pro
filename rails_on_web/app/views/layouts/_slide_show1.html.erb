@@ -1,3 +1,4 @@
+<!-- this is show in index  -->
 <script type="text/javascript">
 $(document).ready(function() {      
     
@@ -106,7 +107,8 @@ ul img {
     height:198px;
     position:absolute;
     bottom:0;
-    left:515px; 
+    left:515px;
+    top: 1px;
     color:#fff;
     background:#CC0000;
     z-index:500;
@@ -131,17 +133,17 @@ ul img {
 
 <ul class="slideshow">
     <li class="show">
-     <a href="http://www.google.com">
+     <a href="/">
        <%= image_tag asset_path("slide1.jpg"), :width => "515", :height => "200", :title => "Slide 1", :alt => "欧美龙" %>
     </a>
     </li>
     <li>
-     <a href="http://www.google.com">
+     <a href="/">
        <%= image_tag asset_path("slide2.jpg"), :width => "515", :height => "200", :title => "Slide 2", :alt => "欧美龙asdfsdfa" %>
     </a>
     </li>
     <li>
-     <a href="http://www.google.com">
+     <a href="/">
        <%= image_tag asset_path("slide3.jpg"), :width => "515", :height => "200", :title => "Slide 3", :alt => "欧美龙asdfsa" %>
     </a>
     </li>

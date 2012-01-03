@@ -2,11 +2,12 @@
 <% meta_keywords @product_item.title %>
 <% nav_bar [['首页', '/'],[@product_item.product_cate.name, '/product_cates/'+ @product_item.product_cate.id.to_s]] %>
 <% side_news @product_item.product_cate.name %>
+<% side_nav @product_item.product_cate.name, 'product' %>
 
-<h2>
-  <%= @product_item.title %>
-</h2>
-<%= image_tag @product_item.image_path %>
-<p>
-  <%= simple_format @product_item.description %>
-</p>
+<div class="content_body corner_box">
+  <h1><%= @product_item.title %></h1>
+  <hr class="black"/>
+  <div>
+	<%= simple_format @product_item.description %>
+  </div>
+</div>

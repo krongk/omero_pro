@@ -17,35 +17,50 @@
 <%= csrf_meta_tags %>
 <script type="text/javascript">
 $(document).ready(function(){
-  // $(".top_banner_flip").mouseover(function(){
-  //   $(".top_banner").slideToggle("slow");
-  // });
+  $("#top_banner_flip").mouseover(function(){
+    $("#top_banner").slideToggle("slow");
+  });
 
   //corner
-  $("div.box").corner();
+  $("div.corner_box").corner();
+  $("div.side_box").corner();
+  $("div.black_side_box").corner();
 
   //slide show 
-  $('#slideshow').sliders({ delay: 2500, speed: 500 });
+  $('#slideshow1').sliders({ delay: 2500, speed: 500 });
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
   //一级菜单不kwicks
-  $(".kwicks > li").each(function(){
-    $(this).hover(function(){
-      $(".sub_kwicks > li").hide();
-      $("li#sub_"+$(this).attr("id")).fadeIn();
+  $(".top_menu_link").mouseover(function(){
+    $(".sub_kwick").hide();
+    $("#sub_" + $(this).attr("id")).show('slow');
+    $("#sub_top_menu").slideToggle("slow");
+  });
+  $("#sub_top_menu").hover(function(){
+    $(".top_menu_link").mouseover(function(){
+      $("#sub_top_menu").show('slow');
     });
   });
+  // $(".kwicks > li").each(function(){
+  //   $(this).hover(function(){
+  //     $(".sub_kwicks > li").hide();
+  //     $("li#sub_"+$(this).attr("id")).fadeIn();
+  //   });
+  // });
   //use jquery.ae.image.resize plugin to resize img
-  $(".content_body img").aeImageResize({ height: 620, width: 620 }); //img show on main body
-  $(".item_li img").aeImageResize({ height: 120, width: 120 }); //product image
+  $(".content_body img").aeImageResize({ height: 400, width: 600 }); //img show on main body
+  $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
+  $(".product_list_all img").aeImageResize({ height: 100, width: 100 }); //product image
   //
 });
 </script>
 </head> 
 <body class="oneColFixCtrHdr"> 
 <div id="container">
- <div id="top">
-    <%# image_tag asset_path("1_01.jpg"), :width => "980", :alt => "欧美龙洗衣连锁" %>
+  <div id="top_banner" style="height:220px; display:none; overflow:hidden;">
+    <%= play_flash asset_path("flash/top_banner.swf"), :width => '985', :height => '249' %>
   </div>
+  <div id="top_banner_flip" style="color:#fff;background:#cc0000;padding:5px;">&nbsp;&nbsp;欢迎您，来自中国.成都的用户!</div>
+
   <div id="header">
     <%= render :partial => 'layouts/nav' %>
    <!-- end #header --></div>
@@ -54,10 +69,55 @@ $(document).ready(function(){
  <div id="mainContent">
  <div class="twoColFixRt">
    <div id="sidebar1">
-   <%= yield :side_bar %><!--for index page-->
-   <%= yield :side_nav %><!--for detail page-->
-   <%= yield :side_news %><!--for detail page -->
+     <% if request[:controller] == 'pages' && request[:action] == 'index' %>
+       <%= yield :side_bar %><!--for index page-->
+     <% else %>
+       <div class='side_top_img'><%= image_tag(asset_path("2_03.jpg")) %></div>
+       <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
+       <div class="side_content">
+       <%= yield :side_nav %><!--for detail page-->
+       <%= render :partial => 'layouts/search_form' %>
+       <%= yield :side_news %><!--for detail page -->
+       </div>
+       <%=image_tag asset_path("3_11.jpg"), :width => "266", :height => "18" %>  
+
+       <div class="side_box">
+        <div id='slideshow1'>
+          <%=image_tag asset_path("slide_b_04.jpg")%>
+          <%=image_tag asset_path("slide_b_02.jpg")%>
+          <%=image_tag asset_path("slide_b_03.jpg")%>
+        </div>
+      </div>
+
+       <div class="side_box">
+        <div id='slideshow2'>
+          <%=image_tag asset_path("side_banner0.jpg")%>
+          <%=image_tag asset_path("side_banner1.jpg")%>
+          <%=image_tag asset_path("side_banner2.jpg")%>
+          <%=image_tag asset_path("side_banner3.jpg")%>
+        </div>
+      </div>
+   
+      <div class="side_box">
+        <table>
+        <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
+        <tr><td>
+        <%= form_tag("/shops/", :method => "get") do %>
+          <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+          <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+        <% end %>
+        </td><td>
+          <%= image_tag("map_search2.jpg", :width => '140') %>
+        </td></tr>
+        </table>
+      </div>
+      <div class="side_box">
+        <a href="#"><%= image_tag("kefu.gif", :width => '240') %></a>
+      </div>
+
+     <% end %>
    <!--end #sidebar1 --></div>
+
    <div id="mainContent">
    <%= yield :nav_bar %>
    <%= yield %>
