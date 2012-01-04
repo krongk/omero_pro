@@ -11,6 +11,10 @@
       <% case @page.path_name%>
       <% when 'about:address' %>
         <iframe src="/home/location" width="100%" height="500px" scrolling="no"></iframe>
+      <% when 'join' %>
+        <%= render :partial => "pages/join" %>
+      <% when 'ensure' %>
+        <%= render :partial => "pages/baozhang" %>
       <% else %>
 
       <% end %>

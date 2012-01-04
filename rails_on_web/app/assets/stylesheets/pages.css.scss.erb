@@ -74,9 +74,9 @@ li .square{
 .side_content{
 	background-image: url("<%=asset_path "3_09.jpg" %>");
 	background-repeat: repeat-y;
-	padding: 0px;
-	padding-left: 10px;
-	margin-top: -5px;
+	padding: 0 0 0 10px;
+	margin: -6px 0 0 0;
+	width: 100%;
 	
 }
 .round_content{
@@ -258,14 +258,9 @@ li .square{
 } 
 
 #page .section {
-	float: left;
-	width: 300px;
 	padding: 10px;
 	margin: 0px;
-	border-right-width: 2px;
-	border-right-style: dotted;
-	border-right-color: #666;
-}
+	}
 #page .section h3 {
 	color: 888888;
 	font-family: "微软雅黑";
@@ -279,6 +274,9 @@ li .square{
 #page .section .summary {
 	padding: 10px;
 	font-size: 14px;
+}
+#page .section .left_img{
+	padding: 20px;
 }
 #page .section ul, ol {
 	margin: 0;

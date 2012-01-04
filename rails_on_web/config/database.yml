@@ -16,7 +16,7 @@ development:
   host: 127.0.0.1
   port: 3306
   username: root
-  password: dev
+  password: kenrome
   database: omero_pro_dev
 
 # Warning: The database defined as "test" will be erased and
@@ -30,7 +30,7 @@ test:
   host: 127.0.0.1
   port: 3306
   username: root
-  password: dev
+  password: kenrome
   database: omero_pro_test
 
 production:
@@ -41,5 +41,5 @@ production:
   host: 127.0.0.1
   port: 3306
   username: root
-  password: dev
+  password: kenrome
   database: omero_pro
