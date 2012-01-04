@@ -1,0 +1,58 @@
+<%=render :partial => "layouts/slide_show2" %>
+<div class="section">
+    <%=image_tag asset_path("slider/girbau_contacte.jpg"), :width=> "640", :alt => "欧美龙洗衣" %>
+    <h3><span class="toto">>>></span>欧美龙提供创新体贴的洗衣服务</h3>
+    
+    <div class="summary">
+        &nbsp;&nbsp;&nbsp;&nbsp;如果您的衣服有任何“疑难杂症”无法根除，交给欧美龙来处理吧！ 
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;欧美龙在线洗衣为广大加盟商提供疑难衣物的洗涤服务。<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;加盟商可以点击欧美龙网站的在线客服即时沟通，也可以在欧美龙的QQ上与专业人员交流，还可以拨打我们的电话咨询。
+        <br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        如果您当地的洗衣店处理不了您的贵重衣物，而在您家附近又暂时没有开设欧美龙的加盟店，那么您可以通过快递的方式，将您的衣物送到欧美龙总部，我们会根据衣物的具体情况，进行相应的护理和洗涤。
+    </div>
+</div>
+
+<div class="section">
+  <%=image_tag asset_path("slider/xiyitong.gif"), :width=> "640", :alt => "欧美龙洗衣" %>
+  <h3><span class="toto">>>></span>上门取送服务</h3>
+    
+    <div class="summary">
+     办公室的工作人员的服装上可能有墨水、修正液或者复印药水；车机工或者业余爱好者的外衣上可能溅有蓄电池的酸迹和汗渍；厨师或家庭主妇的外衣上可能沾有油和食物的痕迹，另外还有墨水渍，圆珠笔，油墨，记号笔，油漆，唇膏，指甲油和鞋油等等污渍，都是洗衣中最头疼的问题。
+    <br/>
+    <ul>
+        <li>衣物清洗熨烫保养；
+        </li><li>衣物香薰；
+        </li><li>纽扣加固；
+        </li><li>问题部位加工修饰等等
+        </li>
+    </ul> <a href="/pages/ensure:join_investment">阅读更多&gt;&gt;</a>
+   </div>
+</div>
+
+<div class="section">
+<h3>最新活动</h3>
+  <ul>
+  <%
+    news_cate = NewsCate.find_by_name("最新活动")
+    cate_id = news_cate.nil? ? 0 : news_cate.id
+    news_items = NewsItem.recent(6, cate_id)
+    news_items.each_with_index do |item, index| %>
+      <li><a class='gray' href='/news_items/<%=item.id%>' target='_blank'><%=item.title.truncate(16)%></a></li>
+  <% end %>
+  </ul>
+</div>
+
+<div class="section">
+<h3>洗衣常识</h3>
+  <ul>
+  <%
+    news_cate = NewsCate.find_by_name("洗衣常识")
+    cate_id = news_cate.nil? ? 0 : news_cate.id
+    news_items = NewsItem.recent(10, cate_id)
+    news_items.each_with_index do |item, index| %>
+      <li><a class='gray' href='/news_items/<%=item.id%>' target='_blank'><%=item.title.truncate(16)%></a></li>
+  <% end %>
+  </ul>
+</div>

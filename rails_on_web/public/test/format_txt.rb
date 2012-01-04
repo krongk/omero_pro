@@ -22,3 +22,5 @@ Dir.glob("*[^rb]").each do |filename|
 	File.new("#{filename}_format.html", "w").write(arr.join("<br/>"))
 	break
 end
+
+

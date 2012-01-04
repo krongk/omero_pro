@@ -1,9 +1,15 @@
 <!-- see: http://citrus.github.com/jquery.sliders/-->
+
+
 <style type="text/css">
+      .container {
+        width: 640px;
+        margin: 15px auto;
+      }
       #slideshow {
         width: 640px;
         height: 385px;
-        border: 1px solid #ccc;
+
       }
       #slideshow img {
         display: block;
@@ -13,15 +19,14 @@
       .slideshow-controls {
         margin: 0.5em 0;
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #333;
       }
       .slideshow-controls a,
       .slideshow-controls span {
         display: inline-block;
         padding: 3px 5px;
-        background-color: #eee;
-        border: 1px solid #e0e0e0;
-        border-radius: 3px;
         font-size: 12px;
+        background-color: #333;
       }
       .slideshow-controls span {
         float: right;
@@ -84,27 +89,22 @@
 
     </script>
 
-<div id="slideshow" style="position: relative; display: block; overflow-x: hidden; overflow-y: hidden; ">
-	<div class="slider" style="display: block; position: absolute; top: 0px; width: 3200px; height: 385px; left: 0px; ">
-		<img alt="Photo 1" src="<%=asset_path("slider/1.jpg")%>" style="display: block; position: absolute; top: 0px; width: 640px; opacity: 1; left: 0px; z-index: 5; ">
-		<img alt="Photo 2" src="<%=asset_path("slider/2.jpg")%>" style="display: block; position: absolute; top: 0px; width: 640px; opacity: 1; left: 640px; z-index: 4; ">
-		<img alt="Photo 3" src="<%=asset_path("slider/3.jpg")%>" style="display: block; position: absolute; top: 0px; width: 640px; opacity: 1; left: 1280px; z-index: 3; ">
-		<img alt="Photo 4" src="<%=asset_path("slider/4.jpg")%>" style="display: block; position: absolute; top: 0px; width: 640px; opacity: 1; left: 1920px; z-index: 2; ">
-		<img alt="Photo 5" src="<%=asset_path("slider/5.jpg")%>" style="display: block; position: absolute; top: 0px; width: 640px; opacity: 1; left: 1560px; z-index: 1; ">
-	</div></div>
+    <div class="container">
 
-	<div class="slideshow-controls">
-		<a href="http://citrus.github.com/jquery.sliders/#previous" id="slideshow-previous" name="slideshow-previous">&#171;</a>
-		<a href="#1" class="slideshow-slide selected">1</a>
-		<a href="#2" class="slideshow-slide">2</a>
-		<a href="#3" class="slideshow-slide">3</a>
-		<a href="#4" class="slideshow-slide">4</a>
-		<a href="#5" class="slideshow-slide">5</a>
-		<a href="#next" id="slideshow-next" name="slideshow-next">&#187;</a>
-		<a href="#play-pause" class="pause" id="play-pause">pause</a>
-		<span id="status">status: <i>playing, slide: 1</i></span>
-	</div>
-</div>    
-
-
-<div id="exfm_on_page" class="exfm_invisible" style="display: none; ">{"EXFM_HAS_BG_AUDIO":true}</div><div id="exfm_on_page" class="exfm_invisible"></div></body></html>
+      <div id='slideshow'>
+        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/1.jpg")%>" />
+        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/2.jpg")%>" />
+        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/3.jpg")%>" />
+        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/4.jpg")%>" />
+        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/5.jpg")%>" />
+      </div>
+      
+      <div class='slideshow-controls'>
+        <a href="#1" class="slideshow-slide"><%=image_tag asset_path("slider/1.jpg"), :width => "60px" %></a>
+        <a href="#2" class="slideshow-slide"><%=image_tag asset_path("slider/2.jpg"), :width => "60px" %></a>
+        <a href="#3" class="slideshow-slide"><%=image_tag asset_path("slider/3.jpg"), :width => "60px" %></a>
+        <a href="#4" class="slideshow-slide"><%=image_tag asset_path("slider/4.jpg"), :width => "60px" %></a>
+        <a href="#5" class="slideshow-slide"><%=image_tag asset_path("slider/5.jpg"), :width => "60px" %></a>
+      </div>
+      
+    </div>   

@@ -35,7 +35,7 @@
         <%= link_to image_tag((recent_product_items[index].image_path || asset_path("product.jpg")), :width => "460px"), product_item_path(recent_product_items[index]) %></div>
       <h4>>><%= link_to recent_product_items[index].title, product_item_path(recent_product_items[index]) %></h4>
       <div clas="description">
-        <%=recent_product_items[index].description.gsub(/<([^>]+)>/, '').html_safe.truncate(120) %>
+        <%=strip_tags(recent_product_items[index].description.to_s.truncate(120))%>
       </div>
     </div>
   <% end %>
@@ -56,9 +56,9 @@
      <h4>>><%=link_to recent_product_items[3].title, product_item_path(recent_product_items[3])%></h4>
   </td></tr>
   <tr><td>
-      <%= strip_tags(recent_product_items[2].description.gsub(/&nbsp;/, '')).truncate(120) %>
+      <%= strip_tags(recent_product_items[2].description.to_s.gsub(/&nbsp;/, '')).truncate(120) %>
     </td><td>
-      <%= strip_tags(recent_product_items[3].description.gsub(/&nbsp;/, '')).truncate(120) %>
+      <%= strip_tags(recent_product_items[3].description.to_s.gsub(/&nbsp;/, '')).truncate(120) %>
   </td></tr>
 
   </table>
