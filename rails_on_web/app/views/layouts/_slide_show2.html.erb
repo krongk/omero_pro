@@ -90,21 +90,16 @@
     </script>
 
     <div class="container">
-
       <div id='slideshow'>
-        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/1.jpg")%>" />
-        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/2.jpg")%>" />
-        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/3.jpg")%>" />
-        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/4.jpg")%>" />
-        <img alt="欧美龙国际洗衣连锁" src="<%=asset_path("slider/5.jpg")%>" />
+        <% img_arr.each do |img| %>
+          <%=image_tag asset_path("slider/" + img ), :width => "640"%>
+        <% end %>
       </div>
-      
+
       <div class='slideshow-controls'>
-        <a href="#1" class="slideshow-slide"><%=image_tag asset_path("slider/1.jpg"), :width => "60px" %></a>
-        <a href="#2" class="slideshow-slide"><%=image_tag asset_path("slider/2.jpg"), :width => "60px" %></a>
-        <a href="#3" class="slideshow-slide"><%=image_tag asset_path("slider/3.jpg"), :width => "60px" %></a>
-        <a href="#4" class="slideshow-slide"><%=image_tag asset_path("slider/4.jpg"), :width => "60px" %></a>
-        <a href="#5" class="slideshow-slide"><%=image_tag asset_path("slider/5.jpg"), :width => "60px" %></a>
-      </div>
-      
+       <% img_arr.each do |img| %>
+          <a href="#1" class="slideshow-slide"><%=image_tag asset_path("slider/" + img ), :width => "60px" %></a>
+        <% end %>
+       
+      </div>  
     </div>   
