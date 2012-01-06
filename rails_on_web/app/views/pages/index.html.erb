@@ -27,7 +27,7 @@
             <div class="image_news_content">
               <div class="news_content">
                 <%=image_tag asset_path("3200.jpg"), :width => "135", :height => "131" %> 
-                <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(80) %>
+                &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(100) %>
               </div>
               <span class="more_red">更多>></span>
             </div>
@@ -59,7 +59,7 @@
         
         <% NewsItem.recent(2, @news_cate_hangye.id, true).each_with_index do |item, index| %>
             <div class="a">
-               <p style="margin:10px 0 0 0; padding: 0px;"><span class="toto">>>></span><%= link_to "#{item.title}", news_item_path(item), :class=> 'news_title' %></p>
+               <h2><span class="toto">>>></span><%= link_to "#{item.title}", news_item_path(item), :class=> 'news_title' %></h2>
               <div class="news_content">
                 <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(80) %>
                 <%= link_to "查看全文>>", news_item_path(item) %>
@@ -79,14 +79,12 @@
             <li class="square"><%=image_tag asset_path("li_sq_black.gif") %>&nbsp;<%=link_to item.title, news_item_path(item.id) %></li>
         <% end %>
         </ul>
-        <% NewsItem.recent(2, @news_cate_xiyichangshi.id, true).each_with_index do |item, index| %>
-            <div class="summary_content">
-               <h2><span class="toto">>>></span><%= link_to "#{item.title}", news_item_path(item), :class=> 'news_title' %></h2>
-              <div class="news_content">
-                <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(80) %>
-                <%= link_to "查看全文>>", news_item_path(item) %>
-              </div>
-            </div>
+        <BR/>
+        <% @news_cate_xiyichangshi.news_items.order("sort_id DESC").limit(1).each_with_index do |item, index| %>
+         <div class="AF">
+            &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(140) %><BR/>
+            <span style="float: right;"><%= link_to "查看全文>>", news_item_path(item) %></span>
+          </div>
         <% end %>
 
       </div>
@@ -104,8 +102,8 @@
        <BR/>
        <% @news_cate_ganxizhishi.news_items.order("sort_id DESC").limit(1).each_with_index do |item, index| %>
           <div class="AF">
-            <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(180) %><BR/>
-            <%= link_to "查看全文>>", news_item_path(item) %>
+            &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, ' ')).truncate(140) %><BR/>
+            <span style="float: right;"><%= link_to "查看全文>>", news_item_path(item) %></span>
           </div>
         <% end %>
 
