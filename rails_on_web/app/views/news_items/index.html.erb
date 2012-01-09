@@ -5,6 +5,11 @@
 <% side_news "新闻" %>
 <% side_nav "新闻", 'news' %>
 
+<% if params[:search] %>
+  <div class="news_list corner_box">
+    搜索关键词<span style="color:#cc0000;"><%=params[:search] %></span>的结果显示如下：
+  </div>
+<% end %>
 <div class="news_list corner_box">
     <ul>
     <% @news_items.each do |news_item| %>

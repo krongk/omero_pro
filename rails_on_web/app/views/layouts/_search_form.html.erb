@@ -1,4 +1,4 @@
-<form id="form1" name="form1" method="post" action="/news_items">
-  <input type="text" name="search" id="search" value="搜索相关内容" />
+<form id="form_search" name="form1" method="get" action="/news_items">
+  <input type="text" name="search" id="search" class="<%= css_class %>" value="" />
   <input type="image" name="imageField" id="imageField" src="<%=asset_path("3_14.jpg")%>" />
 </form>

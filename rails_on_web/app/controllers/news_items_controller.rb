@@ -2,7 +2,12 @@ class NewsItemsController < InheritedResourcesBase
   before_filter :authenticate_admin_user!, :except => [:index, :show]
 
   def index
-  	@news_items = NewsItem.paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
+  	#for search
+  	if params[:search]
+  	  @news_items = NewsItem.where("title like '%#{params[:search]}%'").paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
+  	else
+  	  @news_items = NewsItem.paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
+  	end
   end
 
   def show

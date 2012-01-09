@@ -24,16 +24,18 @@ $(document).ready(function(){
   //corner
   $("div.corner_box").corner();
   $("div.side_box").corner();
-  $("div.black_side_box").corner();
+  //$("div.black_side_box").corner();
 
   //slide show 
   $('#slideshow1').sliders({ delay: 2500, speed: 500 });
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
+
   //一级菜单不kwicks
   $(".top_menu_link").mouseover(function(){
+    $("#sub_top_menu").slideDown();
     $(".sub_kwick").hide();
-    $("#sub_" + $(this).attr("id")).show('slow');
-    $("#sub_top_menu").slideToggle("slow");
+     $("#sub_" + $(this).attr("id")).show();
+    // $("#sub_top_menu").slideToggle("slow");
   });
   $("#sub_top_menu").hover(function(){
     $(".top_menu_link").mouseover(function(){
@@ -76,7 +78,7 @@ $(document).ready(function(){
        <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
        <div class="side_content">
        <%= yield :side_nav %><!--for detail page-->
-       <%= render :partial => 'layouts/search_form' %>
+       <%= render :partial => 'layouts/search_form', :locals => {:css_class => "search1"} %>
        <%= yield :side_news %><!--for detail page -->
        </div>
        <%=image_tag asset_path("3_11.jpg"), :width => "266", :height => "18" %>  

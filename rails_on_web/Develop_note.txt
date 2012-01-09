@@ -273,3 +273,14 @@ rails g controller home index help site_map
 
   5.豆瓣：
   http://shuo.douban.com/!service/share?image=&href=http%3A%2F%2Fwww.omero-china.com&name=%E6%AC%A7%E7%BE%8E%E9%BE%99%20-%20%E5%85%B3%E4%BA%8E%E6%AC%A7%E7%BE%8E%E9%BE%99&text=欧美龙干洗连锁加盟http%3A%2F%2Fwww.omero-china.com
+
+  人生是一次艰难的跋涉，
+  时时会接受成长的考验；
+  人生也是一次梦幻的旅行，
+  理想的翅膀会伴我们翱翔。
+  世间无物，生命无数；
+  能回眸邂逅，实属不易。
+  惊叹于命运的神奇，
+  让我在有生之年遇见你。
+  祝君珍爱生命，珍惜每一天，
+  更拥有美好的未来！

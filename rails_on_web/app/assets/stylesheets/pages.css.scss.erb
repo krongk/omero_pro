@@ -98,20 +98,36 @@ li .square{
 	padding-left: 0px;
 }
 
-#search {
-	font-size: 14px;
+#form_search #imageField{
+	margin: 10px 0 -10px 0 !important;
+	margin: 0 0 -4px 0;
+	padding: 0px 0 0px 0 !important;
+	padding: 20px 0 -20px 0;
+}
+.search1 {
+	font-size: 16px;
 	background-color:transparent;
 	background-image: url("<%=asset_path "1_07.gif" %>");
-	margin-top: -4px;
 	border: none;
 	height: 26px;
-	width: 170px;
+	width: 200px;
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: left 14px !important;
+	background-position: left 6px;
 	text-align: left;
 	padding: 20px 0 0 10px !important;
-	padding: 12px 0 0 10px;
-	margin: -12px -12px 0 0;
+	padding: 10px 0 0 10px;
+	margin: 0 -12px 0 0;
+}
+.search2 {
+	font-size: 12px;
+	border: none;
+	height: 16px;
+	width: 170px;
+	text-align: left;
+	margin: -20px 0 10px 0 !important;
+	margin: 0px -4px 0 0;
+	padding: 0 0 6px 0;
 }
 
 .image_news_content .news_content{
@@ -146,7 +162,8 @@ li .square{
 	padding: 0px;}
 
 //======================top menu ====================
-.top_sub_menu {
+
+#sub_top_menu {
 	background-image: url("<%=asset_path "1_0.jpg" %>");
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -156,13 +173,16 @@ li .square{
 	float: left !important;
 	margin: -10px 0 0 0 !important;
 }
+.sub_show{
+	display: block;
+}
 .sub_top_menu_ul{
 	margin-top: 20px;
 }
 .sub_kwick{ display: none;}
 .sub_kwick a{
   font-size: 16px;
-  padding: 10px;
+  padding: 12px;
 }
 //==============side nav===============
 //==for index ====
@@ -302,3 +322,49 @@ li .square{
 #page .section .answer {
 	padding-left: 40px;
 }
+//======================index banner==================
+#index_banner {
+	background-image: url("<%=asset_path("index_banner.png")%>");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 308px;
+	width: 980px;
+	text-align: center;
+}
+#index_banner .big_font {
+	font-family: "微软雅黑";
+	font-size: 44px;
+	font-weight: bolder;
+	padding: 0px;
+	margin-top: 30px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+#index_banner .small_font {
+	font-family: "微软雅黑";
+	font-size: 24px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	margin-left: 0px;
+}
+#index_banner .mid_title {
+	font-family: "微软雅黑";
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0px;
+	padding: 0px;
+}
+#index_banner .mid_desc {
+	font-family: "微软雅黑";
+	font-size: 12px;
+	line-height: 22px;
+	padding: 0px;
+	margin-top: 6px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+//==========================
