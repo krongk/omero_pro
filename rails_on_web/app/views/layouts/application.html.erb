@@ -74,8 +74,12 @@ $(document).ready(function(){
      <% if request[:controller] == 'pages' && request[:action] == 'index' %>
        <%= yield :side_bar %><!--for index page-->
      <% else %>
-       <div class='side_top_img'><%= image_tag(asset_path("2_03.jpg")) %></div>
+       <div class='side_top_img'>
+        <%# image_tag(asset_path("2_03.jpg")) %>
+        <%= play_flash asset_path("flash/icon.swf"), :width => "272", :height => "213"  %>
+       </div>
        <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
+      
        <div class="side_content">
        <%= yield :side_nav %><!--for detail page-->
        <%= render :partial => 'layouts/search_form', :locals => {:css_class => "search1"} %>
