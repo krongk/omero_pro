@@ -37,12 +37,10 @@ function slideShow(speed) {
         function () {
             timer = setInterval('gallery()',speed);         
         }
-    );
-    
+    ); 
 }
 
 function gallery() {
-
 
     //if no IMGs have the show class, grab the first image
     var current = ($('ul.slideshow li.show')?  $('ul.slideshow li.show') : $('#ul.slideshow li:first'));
@@ -66,10 +64,8 @@ function gallery() {
             $('#slideshow-caption p').html(desc); 
             $('#slideshow-caption').slideToggle(1000); 
         });     
-    
         //Hide the current image
         current.animate({opacity: 0.0}, 1000).removeClass('show');
-
     }
 
 }
@@ -78,7 +74,7 @@ function gallery() {
 <style type="text/css">
 ul.slideshow {
     list-style:none;
-    width:670px;
+    width:656px;
     height:200px;
     overflow:hidden;
     position:relative;
@@ -103,11 +99,11 @@ ul img {
 
 
 #slideshow-caption {
-    width:155px;
+    width:200px;
     height:198px;
     position:absolute;
     bottom:0;
-    left:515px;
+    left:462px;
     top: 1px;
     color:#fff;
     background:#CC0000;

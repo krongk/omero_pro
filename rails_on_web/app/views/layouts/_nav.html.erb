@@ -7,19 +7,20 @@
   <tr>
     <td>&nbsp;</td>
     <td><%=image_tag asset_path("logo.png"), :height =>"89", :alt => "欧美龙洗衣连锁" %></td>
-    <td><table width="95%" border="0" cellspacing="0" cellpadding="0">
+    <td align="left">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td height="34" align="right">
+        <td height="34" align="right" valign="top" height="16">
         <span class="font_gray"><a href="/">首页</a>&nbsp;&nbsp;<a href="/">网站地图</a></span>
         </td>
       </tr>
       <tr>
-        <td align="right">
-         <%=render :partial => "layouts/search_form", :locals =>{:css_class => 'search2'} %>
+        <td align="right" valign="top" height="25">
+         <%=render :partial => "layouts/search_form", :locals =>{:css_class => 'form_top'} %>
         </td>
       </tr>
       <tr>
-        <td align="right">
+        <td align="right" valign="top">
          <a href="/" class="white_a">&nbsp;&nbsp;会员登录</a>&nbsp;&nbsp;<a href="/" class="white_a">&nbsp;&nbsp;我要注册</a>&nbsp;&nbsp;<a href="/" class="white_a">联系我们</a>
         </td>
       </tr>
@@ -38,7 +39,7 @@
 <table width="90%" border="0" cellspacing="0" cellpadding="0" class="write">
   <tr>
     <td height="44">&nbsp;</td>
-    <td><a class="top_menu_link" id="top_menu_1" href="/pages">关于欧美龙</a></td>
+    <td class="top_menu_1"><a class="top_menu_link" id="top_menu_1" href="/pages">关于欧美龙</a></td>
     <td><%=image_tag asset_path("1_05.jpg") %></td>
     <td><a class="top_menu_link" id="top_menu_2" href="/pages/join">加盟政策</a></td>
     <td><%=image_tag asset_path("1_05.jpg") %></td>

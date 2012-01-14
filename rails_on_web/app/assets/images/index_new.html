@@ -1,75 +1,188 @@
-<!DOCTYPE html> 
-<html> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Language" content="zh-cn" />
-<meta name="robots" content="all" />
-<meta name="author" content="omero" />
-<meta name="Copyright" content="Omero Lcd, All Rights Reserved." />
-<title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
-<meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
-<meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
-<%= stylesheet_link_tag "application" %>
-<%= javascript_include_tag "application" %>
-<!--[if lte IE 7]>
-<link href="yaml/patches/ie6.css" rel="stylesheet" type="text/css" />
-<![endif]-->
-<%= csrf_meta_tags %>
-<script type="text/javascript">
-$(document).ready(function(){
-  $("#top_banner_flip").mouseover(function(){
-    $("#top_banner").slideToggle("slow");
-  });
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+*{
+	margin: 0; 
+	padding: 0;
+}
+body {
+	margin: 0; 
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333;
+	font-family: "Microsoft YaHei", "Arial Unicode MS", "微软雅黑";
+	font-size: 12px;
+	background-color: #fff;
+	background-image: url(mr/01.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+}
+form{
+	margin: 0; 
+	padding: 0;
+}
+input{
+	margin: 0;
+	padding: 2px !important;
+	padding: 2px;
+}
+div, p, span{
+	margin: 0; 
+	padding: 0;
+}
+ul, ol, dl { 
+	margin: 0; 
+	padding: 0;
+}
+li {
+	list-style-type: none;
+}
 
-  //corner
-  $("div.corner_box").corner();
-  $("div.side_box").corner();
-  //$("div.black_side_box").corner();
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0; 
+	padding: 10px;
+}
+a img {
+	border: none;
+}
 
-  //slide show 
-  $('#slideshow1').sliders({ delay: 2500, speed: 500 });
-  $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
+a:link {
+	color: #333;
+	text-decoration: none; 
+}
+a:visited {
+    color: #000;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+	color: #cc0000;
+	text-decoration: underline;
+}
+.write a{color: #ffffff;}
+.write a:visited {color: #ffffff;}
+.write a:hover, a:active, a:focus{color: #333;}
+.right_border {
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: #999;
+}
+.red_border {
+	background-color: #cc0000;
+	margin: 0px;
+	padding: 0px;
+	height: 2px;
+	width: 100%;
+}
 
-  //一级菜单不kwicks
-  $(".top_menu_link").mouseover(function(){
-    $("#sub_top_menu").slideDown();
-    $(".sub_kwick").hide();
-     $("#sub_" + $(this).attr("id")).show();
-    //$("#sub_top_menu").slideToggle("slow");
-  });
-  $(".top_menu_link").mouseout(function(){
-    $("#sub_top_menu").slideToggle();
-  });
+.omero #container {
+	width: 980px;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	/*background-color: #e6ebef;*/
+	margin: 0 auto;
+	border-right: solid 1px #dddddd;
+	border-left: solid 1px #dddddd;	
+}
+.omero #header_banner {
+	margin: 0;
+	padding: 0;
+	height: 260px;
+}
+.omero #header_logo {
+	margin: 0;
+	padding: 0;
+	height: 160px !important;
+	height: 230px;
+	background-color: #06F;
+}
+#header_logo .content {
+	margin: 70px 0 0 0; 
+	padding: 0;
+	text-align: center;
+}
+#header_logo .form_logo {
+	float: right;
+	width: 270px;
+	position: relative;
+	text-align: right;
+	height: 90px;
+	z-index: 12;
+	overflow: hidden;
+	clear: both;
+	top: -90px;
+	margin-right: 8px;
+}
+.login_reg a {
+	background-color: #ddd;
+	margin: 0 0 0 3px;
+	padding: 3px 10px 2px 10px;
+}
+.login_reg a:hover {
+	color: #cc0000;
+	background-color: #333;
+	margin: 0 0 0 3px;
+	padding: 3px 10px 2px 10px;
+}
+.omero #header_nav {
+	padding: 0;
+	margin: 0px;
+	height: 48px;
+	background-color: #FF9;
+}
+#banner {
+	height: 690px;
+}
+.omero #mainContent {
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 0;
+	padding-left: 10px;
+}
+/******side bar*******/
+#sidebar {
+	text-align: left;
+	margin: 0;
+	padding: 0 0 0 4px;
+}
+.corner_white{
+	margin: 0px;
+	padding: 0px;
+}
+.corner_white .bg_white{
+	background-image: url(3_09.jpg);
+	background-repeat: repeat-y;
+	margin: 0;
+	padding: 0 0 0 12px;
+}
+.news_list {
+	margin: 0px;
+	padding: 10px;
+	background-image: url(1_04.jpg);
+	background-repeat: repeat-x;
+}
+/******side bar*******/
 
-  $("#sub_top_menu").hover(function(){
-    $(".top_menu_link").mouseover(function(){
-      $("#sub_top_menu").show('slow');
-    });
-  });
-  // $(".kwicks > li").each(function(){
-  //   $(this).hover(function(){
-  //     $(".sub_kwicks > li").hide();
-  //     $("li#sub_"+$(this).attr("id")).fadeIn();
-  //   });
-  // });
-  //use jquery.ae.image.resize plugin to resize img
-  $(".content_body img").aeImageResize({ height: 400, width: 600 }); //img show on main body
-  $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
-  $(".product_list_all img").aeImageResize({ height: 100, width: 100 }); //product image
-  $("#page").aeImageResize({ height: 400, width: 600 });
-  //
-});
-</script>
-</head> 
+.omero #footer {
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+
+}
+.omero #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+-->
+</style>
+</head>
 
 <body class="omero">
 <div id="container">
   <div id="header_banner">
-    <div id="top_banner" style="height:220px; display:none; overflow:hidden;">
-      <%= play_flash asset_path("flash/top_banner1.swf"), :width => '980', :height => '249' %>
-    </div>
-    <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
-
+    <h1>欢迎进入欧美龙洗衣连锁</h1>
+    <p>我们将竭诚为您服务！</p>
   <!-- end #top_banner --></div>
   <div id="header_logo">
      <div class="content"><img src="logo.png" width="399" height="90" alt="欧美龙" /></div>
@@ -93,8 +206,7 @@ $(document).ready(function(){
            </tr>
          </table>
      </div>
-  <!-- end #header_logo --></div>
-  
+  <!-- end #header_log --></div>
    <div id="header_nav">
      <div class="header_content">
      wef     </div>
@@ -113,7 +225,7 @@ $(document).ready(function(){
       <table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="233" align="left" valign="top" class="right_border">
-          <div style="margin:0; padding:0 10px;">
+        	<div style="margin:0; padding:0 10px;">
             <div class="corner_white">
        <img src="3_07.jpg" width="188" height="15" />
        <div class="bg_white">
@@ -149,13 +261,13 @@ $(document).ready(function(){
             &nbsp;sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...  </div>
         </td>
         <td width="233" align="left" valign="top" class="right_border">
-          <div style="margin:0; padding:0 10px;"><img src="7_0.jpg" width="200" height="130" />&nbsp;sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...  </div>
+        	<div style="margin:0; padding:0 10px;"><img src="7_0.jpg" width="200" height="130" />&nbsp;sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...  </div>
         </td>
         <td width="233" align="right" valign="top">
-          <div style="margin:0; padding:0 0 0 10px;">&nbsp;
-            <img src="7_1.jpg" width="207" height="136" />sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...
+        	<div style="margin:0; padding:0 0 0 10px;">&nbsp;
+        	  <img src="7_1.jpg" width="207" height="136" />sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...
 <p> 羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，... </p>
-          </div>
+        	</div>
         </td>
       </tr>
     </table>
@@ -214,5 +326,4 @@ $(document).ready(function(){
   <!-- end #footer --></div>
 <!-- end #container --></div>
 </body>
-
 </html>

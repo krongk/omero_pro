@@ -1,370 +1,166 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can #page .se Sass (SCSS) here: http://sass-lang.com/
-
-.oneColFixCtrHdr #container {
-	width: 980px;
-	margin: 0 auto;
-	text-align: left; /* this overrides the text-align: center on the body element. */
+*{
+	margin: 0; 
+	padding: 0;
 }
-.oneColFixCtrHdr #header {
-	padding: 0px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+body {
+	margin: 0; 
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333;
+	font-family: "Microsoft YaHei", "Arial Unicode MS", "微软雅黑";
+	font-size: 12px;
+	background-color: #fff;
+}
+form{
+	margin: 0; 
+	padding: 0;
+}
+input{
+	margin: 0;
+	padding: 2px !important;
+	padding: 2px;
+}
+div, p, span{
+	margin: 0; 
+	padding: 0;
+}
+ul, ol, dl { 
+	margin: 0; 
+	padding: 0;
+}
+li {
+	list-style-type: none;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0; 
+	padding: 10px;
+}
+a img {
+	border: none;
+}
+
+a:link {
+	color: #333;
+	text-decoration: none; 
+}
+a:visited {
+    color: #000;
+	text-decoration: none;
+}
+a:hover, a:active, a:focus {
+	color: #cc0000;
+	text-decoration: underline;
+}
+.write a{color: #ffffff;}
+.write a:visited {color: #ffffff;}
+.write a:hover, a:active, a:focus{color: #333;}
+.right_border {
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: #999;
+}
+.red_border {
+	background-color: #cc0000;
+	margin: 0px;
+	padding: 0px;
+	height: 2px;
+	width: 100%;
+}
+
+.omero #container {
+	width: 980px;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+	/*background-color: #e6ebef;*/
+	margin: 0 auto;
+	border-right: solid 1px #dddddd;
+	border-left: solid 1px #dddddd;	
+}
+.omero #header_banner {
+	margin: 0;
+	padding: 0;
 	background-color: #494949;
-	background-image: url("<%=asset_path "1_02.jpg" %>");
-	background-repeat: repeat-x;
-	height: 274px;
-	margin-top: -5px;
+}
+.omero #header_logo {
+	margin: 0;
+	padding: 0;
+	height: 160px !important;
+	height: 230px;
+	background-color: #494949;
+}
+#header_logo .content {
+	margin: 70px 0 0 0; 
+	padding: 0;
 	text-align: center;
 }
-.oneColFixCtrHdr #header h1 {
-	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
-	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+#header_logo .form_logo {
+	float: right;
+	width: 270px;
+	position: relative;
+	text-align: right;
+	height: 90px;
+	z-index: 12;
+	overflow: hidden;
+	clear: both;
+	top: -90px;
+	margin-right: 8px;
 }
-.oneColFixCtrHdr #mainContent {
-	padding: 0px; 
-	margin: 20px 0;
+.login_reg a {
+	background-color: #ddd;
+	margin: 0 0 0 3px;
+	padding: 3px 10px 2px 10px;
 }
-.oneColFixCtrHdr #footer {
-	background-color: #DDDDDD;
-	background-image: url("<%=asset_path "1_16.jpg" %>");
-	background-repeat: repeat-x;
-	height: 352px;
-	padding-top: 0;
+.login_reg a:hover {
+	color: #cc0000;
+	background-color: #333;
+	margin: 0 0 0 3px;
+	padding: 3px 10px 2px 10px;
+}
+.omero #header_nav {
+	padding: 0;
+	margin: 0px;
+	height: 48px;
+	background-color: #FF9;
+}
+#banner {
+	height: 690px;
+}
+.omero #mainContent {
+	margin: 0px;
+	padding-top: 0px;
 	padding-right: 10px;
 	padding-bottom: 0;
 	padding-left: 10px;
-	margin-top: 20px;
-	float: left;
-	width: 100%;
 }
-.oneColFixCtrHdr #footer {
-	color: #999;
+/******side bar*******/
+#sidebar {
+	text-align: left;
+	margin: 0;
+	padding: 0 0 0 4px;
 }
-.oneColFixCtrHdr #banner{
-	text-align:center;
+.corner_white{
+	margin: 0px;
+	padding: 0px;
 }
-
-.twoColFixRt {
-	width: 100%;
-	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
-}
-.twoColFixRt #sidebar1 {
-	float: right;
-	width: 275px !important;
-	width: 260px;
-	padding: 0px 5px;
-	border-left-width: 2px;
-	border-left-style: dotted;
-	border-left-color: #999;
-	display: block;
-}
-.twoColFixRt #mainContent { 
-	margin: 0 300px 0 0;
-	padding: 10px !important; 
-	padding: 0px; 
-	display: block;
-}
-
-li .square{
-    list-style-type: square;
-	list-style-position: inside;
-	padding-left: 20px;
-}
-
-.side_content{
-	background-image: url("<%=asset_path "3_09.jpg" %>");
+.corner_white .bg_white{
+	background-image: url(<%=asset_path("3_09.jpg")%>);
 	background-repeat: repeat-y;
-	padding: 0 0 0 10px;
-	margin: -6px 0 0 0;
-	width: 100%;
-	
-}
-.round_content{
-  background-image: url("<%=asset_path "3_09.jpg" %>");
-  background-repeat: repeat-y;
-  margin: 0px;
-  margin-top: -5px;
-  margin-bottom: -5px;
-  padding: 10px;	
-}
-
-#nav_bar {
-	border-bottom-width: 3px;
-	border-bottom-style: solid;
-	border-bottom-color: #666;
-	padding-top: 6px;
-	padding-right: 6px;
-	padding-bottom: 6px;
-	padding-left: 0px;
-}
-
-#form_search #imageField{
-	margin: 10px 0 -10px 0 !important;
-	margin: 0 0 -4px 0;
-	padding: 0px 0 0px 0 !important;
-	padding: 20px 0 -20px 0;
-}
-.search1 {
-	font-size: 16px;
-	background-color:transparent;
-	background-image: url("<%=asset_path "1_07.gif" %>");
-	border: none;
-	height: 26px;
-	width: 200px;
-	background-repeat: no-repeat;
-	background-position: left 14px !important;
-	background-position: left 6px;
-	text-align: left;
-	padding: 20px 0 0 10px !important;
-	padding: 10px 0 0 10px;
-	margin: 0 -12px 0 0;
-}
-.search2 {
-	font-size: 12px;
-	border: none;
-	height: 16px;
-	width: 170px;
-	text-align: left;
-	margin: -20px 0 10px 0 !important;
-	margin: 0px -4px 0 0;
-	padding: 0 0 6px 0;
-}
-
-.image_news_content .news_content{
-	margin: 0px;
-	padding: 0px;
-}
-.image_news_content img {
-	float: left;
-	margin: 10px 10px 0px 0px;
-	padding: 0px;
-}
-
-.table_footer_map p{
-	padding: 0;
 	margin: 0;
+	padding: 0 0 0 12px;
 }
-.table_footer_map a{
-	color: #999;
-}
-.table_footer_map a.top_a{
-	font-size: 16px;
-	color: #ccc;
-}
-#footer .footer_phone{
-  padding: 20px;
-  color:#333;
-  font-size:24px;
-  font-weight:600;
-}
-.table_footer_map h3{
-	margin: 10px 0;
-	padding: 0px;}
-
-//======================top menu ====================
-
-#sub_top_menu {
-	background-image: url("<%=asset_path "1_0.jpg" %>");
-	background-repeat: no-repeat;
-	background-position: center center;
-	height: 80px;
-	width: 100%;
-	display: none;
-	float: left !important;
-	margin: -10px 0 0 0 !important;
-}
-.sub_show{
-	display: block;
-}
-.sub_top_menu_ul{
-	margin-top: 20px;
-}
-.sub_kwick{ display: none;}
-.sub_kwick a{
-  font-size: 16px;
-  padding: 12px;
-}
-//==============side nav===============
-//==for index ====
-.black_side_box{
-	background-image: url("<%=asset_path "1_04.jpg" %>");
+.news_list {
+	margin: 0px;
+	padding: 10px;
+	background-image: url(<%=asset_path("1_04.jpg")%>);
 	background-repeat: repeat-x;
-	margin: 0px;
-	padding: 10px;
 }
-.black_side_box li{
-    padding: 4px 0;
-	list-style-type: square;
-	list-style-position: inside;
-}
-//===for second page====
-.side_nav {
-	margin: 0px;
-	padding: 0px;
-}
-.side_nav li {
-	border-bottom-width: 2px;
-	border-bottom-style: dotted;
-	border-bottom-color: #999;
-	height: 25px;
-	list-style-type: none;
-	margin: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 5px;
-}
-.side_nav li a{
-	background-image: url("<%=asset_path('li_sq_black.gif')%>");
-	background-repeat: no-repeat;
-	background-position: left center;
-	margin: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 30px;
-	
-}
-.side_nav .current {
-	background-color: #CCC;
-}
-.side_news_ul{
-	margin: 0px;
-	padding: 0px;
-}
-.side_news_ul li {
-	height: 25px;
-	margin: 0px;
-	padding: 0px;
-}
-.side_news_ul li a{
-	margin: 0px;
-	padding: 0 0 0 20px;
-	background-image: url(li_st.gif);
-	background-repeat: no-repeat;
-	background-position: 2px center;
-}
-//======================side box slide show================================
-.side_box{
-	margin: 10px 0 10px 8px;
-	padding: 4px;
-	background-color: #fff;
-}
-#slideshow1{
-	over-flow: hidden;
-	height: 120px;
-	width: 240px;
-}
-#slideshow2{
-	over-flow: hidden;
-	height: 80px;
-	width: 240px;
-}
-//======================pages start===============================
-#page{
-	margin: 20px 0;
-	padding: 0px;
-}
-#page h2{
-	font-size: 20px;
-	margin: 10px;
-	border-bottom-width: 3px;
-	border-bottom-style: dotted;
-	border-bottom-color: #666;
-	padding-top: 6px;
-	padding-right: 6px;
-	padding-bottom: 6px;
-	padding-left: 0px;
-} 
+/******side bar*******/
 
-#page .section {
-	padding: 10px;
-	margin: 0px;
-	}
-#page .section h3 {
-	color: 888888;
-	font-family: "微软雅黑";
-	letter-spacing: 0.2em;
-	padding: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 10px;
-	margin-left: 0px;
-}
-#page .section .summary {
-	padding: 10px;
-	font-size: 14px;
-}
-#page .section .left_img{
-	padding: 20px;
-}
-#page .section ul, ol {
-	margin: 0;
-	padding: 0px;
-}
+.omero #footer {
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
 
-#page .section ul li {
-	list-style-type: square;
-	list-style-position: inside;
-	border-bottom-width: 2px;
-	border-bottom-style: dotted;
-	border-bottom-color: #999;
-	font-size: 12px;
-	line-height: 25px;
-	margin: 0px;
-	padding: 0px;
 }
-#page .section .question {
-	margin: 10px;
-	color: #f52969;
-	font-size: 120%;
+.omero #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
 }
-#page .section .answer {
-	padding-left: 40px;
-}
-//======================index banner==================
-#index_banner {
-	background-image: url("<%=asset_path("index_banner.png")%>");
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	height: 308px;
-	width: 980px;
-	text-align: center;
-}
-#index_banner .big_font {
-	font-family: "微软雅黑";
-	font-size: 44px;
-	font-weight: bolder;
-	padding: 0px;
-	margin-top: 30px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-#index_banner .small_font {
-	font-family: "微软雅黑";
-	font-size: 24px;
-	padding: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 20px;
-	margin-left: 0px;
-}
-#index_banner .mid_title {
-	font-family: "微软雅黑";
-	font-size: 16px;
-	font-weight: bold;
-	margin: 0px;
-	padding: 0px;
-}
-#index_banner .mid_desc {
-	font-family: "微软雅黑";
-	font-size: 12px;
-	line-height: 22px;
-	padding: 0px;
-	margin-top: 6px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-//==========================

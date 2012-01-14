@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<meta name="robots" content="all" />
+<meta name="author" content="omero" />
+<meta name="Copyright" content="Omero Lcd, All Rights Reserved." />
+<title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
+<meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
+<meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
+<!--[if lte IE 7]>
+<link href="yaml/patches/ie6.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<%= csrf_meta_tags %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#top_banner_flip").mouseover(function(){
+    $("#top_banner").slideToggle("slow");
+  });
+
+  //corner
+  $("div.corner_box").corner();
+  $("div.side_box").corner();
+  //$("div.black_side_box").corner();
+
+  //slide show 
+  $('#slideshow1').sliders({ delay: 2500, speed: 500 });
+  $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
+
+  //一级菜单不kwicks
+  $(".top_menu_link").mouseover(function(){
+    $("#sub_top_menu").slideDown();
+    $(".sub_kwick").hide();
+     $("#sub_" + $(this).attr("id")).show();
+    //$("#sub_top_menu").slideToggle("slow");
+  });
+  $(".top_menu_link").mouseout(function(){
+    $("#sub_top_menu").slideToggle();
+  });
+
+  $("#sub_top_menu").hover(function(){
+    $(".top_menu_link").mouseover(function(){
+      $("#sub_top_menu").show('slow');
+    });
+  });
+  // $(".kwicks > li").each(function(){
+  //   $(this).hover(function(){
+  //     $(".sub_kwicks > li").hide();
+  //     $("li#sub_"+$(this).attr("id")).fadeIn();
+  //   });
+  // });
+  //use jquery.ae.image.resize plugin to resize img
+  $(".content_body img").aeImageResize({ height: 400, width: 600 }); //img show on main body
+  $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
+  $(".product_list_all img").aeImageResize({ height: 100, width: 100 }); //product image
+  $("#page").aeImageResize({ height: 400, width: 600 });
+  //
+});
+</script>
+</head> 
+<body class="oneColFixCtrHdr"> 
+<div id="container">
+  <div id="top_banner" style="height:220px; display:none; overflow:hidden;">
+    <%= play_flash asset_path("flash/top_banner.swf"), :width => '980', :height => '249' %>
+  </div>
+  <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;欢迎您，来自中国.成都的用户!</div>
+
+  <div id="header">
+    <%= render :partial => 'layouts/nav' %>
+   <!-- end #header --></div>
+  <%= yield :banner %>
+
+ <div id="mainContent">
+ <div class="twoColFixRt">
+   <div id="sidebar1">
+     <% if request[:controller] == 'pages' && request[:action] == 'index' %>
+       <%= yield :side_bar %><!--for index page-->
+     <% else %>
+       <div class='side_top_img'><%= image_tag(asset_path("2_03.jpg")) %></div>
+       <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
+       <div class="side_content">
+       <%= yield :side_nav %><!--for detail page-->
+       <%= render :partial => 'layouts/search_form', :locals => {:css_class => "search1"} %>
+       <%= yield :side_news %><!--for detail page -->
+       </div>
+       <%=image_tag asset_path("3_11.jpg"), :width => "266", :height => "18" %>  
+
+       <div class="side_box">
+        <div id='slideshow1'>
+          <%=image_tag asset_path("slide_b_04.jpg")%>
+          <%=image_tag asset_path("slide_b_02.jpg")%>
+          <%=image_tag asset_path("slide_b_03.jpg")%>
+        </div>
+      </div>
+
+       <div class="side_box">
+        <div id='slideshow2'>
+          <%=image_tag asset_path("side_banner0.jpg")%>
+          <%=image_tag asset_path("side_banner1.jpg")%>
+          <%=image_tag asset_path("side_banner2.jpg")%>
+          <%=image_tag asset_path("side_banner3.jpg")%>
+        </div>
+      </div>
+   
+      <div class="side_box">
+        <table>
+        <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
+        <tr><td>
+        <%= form_tag("/shops/", :method => "get") do %>
+          <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+          <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+        <% end %>
+        </td><td>
+          <%= image_tag("map_search2.jpg", :width => '140') %>
+        </td></tr>
+        </table>
+      </div>
+      <div class="side_box">
+        <a href="#"><%= image_tag("kefu.gif", :width => '240') %></a>
+      </div>
+
+     <% end %>
+   <!--end #sidebar1 --></div>
+
+   <div id="mainContent">
+   <%= yield :nav_bar %>
+   <%= yield %>
+   <!--end #mainContent --></div>
+  <!--end .twoColFixRt --></div>
+ <!--end #mainContent --></div>
+
+  <div id="footer">
+   <%= render :partial => 'layouts/site_map' %>
+  <!--end #footer--></div>
+<!--end #container--></div>
+</body>
+</html>
