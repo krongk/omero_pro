@@ -3,17 +3,17 @@
 
 <style type="text/css">
       .container {
-        width: 640px;
+        width: 600px;
         margin: 15px auto;
       }
       #slideshow {
-        width: 640px;
+        width: 600px;
         height: 385px;
 
       }
       #slideshow img {
         display: block;
-        width: 640px;
+        width: 600px;
         height: 385px;
       }      
       .slideshow-controls {
@@ -92,7 +92,7 @@
     <div class="container">
       <div id='slideshow'>
         <% img_arr.each do |img| %>
-          <%=image_tag asset_path("slider/" + img ), :width => "640"%>
+          <%=image_tag asset_path("slider/" + img )%>
         <% end %>
       </div>
 

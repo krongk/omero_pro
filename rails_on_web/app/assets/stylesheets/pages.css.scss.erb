@@ -10,6 +10,7 @@ body {
 	font-family: "Microsoft YaHei", "Arial Unicode MS", "微软雅黑";
 	font-size: 12px;
 	background-color: #fff;
+	line-height: 20px;
 }
 form{
 	margin: 0; 
@@ -30,6 +31,7 @@ ul, ol, dl {
 }
 li {
 	list-style-type: none;
+	line-height: 24px;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -71,7 +73,7 @@ a:hover, a:active, a:focus {
 .omero #container {
 	width: 980px;
 	text-align: left; /* this overrides the text-align: center on the body element. */
-	/*background-color: #e6ebef;*/
+	background-color: #e6ebef;
 	margin: 0 auto;
 	border-right: solid 1px #dddddd;
 	border-left: solid 1px #dddddd;	
@@ -81,15 +83,28 @@ a:hover, a:active, a:focus {
 	padding: 0;
 	background-color: #494949;
 }
+
+.slider_index_right{
+	float: right;
+	position: relative;
+	width: 210px;
+	height: 231px;
+	padding: 0 35px 0 0;
+	margin: -232px 0 0 0 !important;
+	margin: -232px 0 0 0;
+	background-image: url("<%=asset_path "pic-no2.gif" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+/**********header_logo end********/
 .omero #header_logo {
 	margin: 0;
-	padding: 0;
-	height: 160px !important;
-	height: 230px;
+	padding: 70px 0 0 0;
+	height: 160px;
 	background-color: #494949;
 }
-#header_logo .content {
-	margin: 70px 0 0 0; 
+#header_logo .logo {
+	margin: 0; 
 	padding: 0;
 	text-align: center;
 }
@@ -103,27 +118,110 @@ a:hover, a:active, a:focus {
 	overflow: hidden;
 	clear: both;
 	top: -90px;
+	margin-top: -10px !important;
+	margin-top: 0px;
 	margin-right: 8px;
 }
+
 .login_reg a {
-	background-color: #ddd;
-	margin: 0 0 0 3px;
-	padding: 3px 10px 2px 10px;
+	padding: 6px 10px;
+	margin: 0;
+	background-image: url("<%=asset_path "subit-s.jpg" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
 }
 .login_reg a:hover {
 	color: #cc0000;
-	background-color: #333;
-	margin: 0 0 0 3px;
-	padding: 3px 10px 2px 10px;
+	padding: 6px 10px;
+	margin: 0;
+	background-image: url("<%=asset_path "subit-s2.jpg" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
 }
+/**********header_logo end********/
+
+/*****nav*******/
 .omero #header_nav {
 	padding: 0;
-	margin: 0px;
-	height: 48px;
-	background-color: #FF9;
+	margin: 0;
+	text-align: center;
+	background-color: #494949;
+	background-image: url("<%=asset_path "1_02.jpg" %>");
+	background-repeat: repeat-x;
+	height: 42px;
 }
+#top_manu a{
+ 	color: #fff;
+ 	padding: 8px 2px;
+	display: block;
+}
+#top_manu a:hover{
+	padding: 8px 2px;
+	display: block;
+	background-color: #494949;
+ 	color: #fff;
+}
+
+#sub_top_menu {
+	background-image: url("<%=asset_path "1_0.jpg" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 80px;
+	width: 100%;
+	display: block;
+}
+.sub_show{
+	display: block;
+}
+.sub_top_menu_ul{
+	margin-top: 20px;
+}
+.sub_kwick{ display: none;}
+#sub_top_menu a{
+	color: #333;
+}
+.sub_kwick a{
+  color: #333;
+  font-size: 16px;
+  padding: 12px;
+}
+
+/*****nav*******/
 #banner {
-	height: 690px;
+	padding: 0;
+	margin: 0px;
+}
+#index_banner{
+	text-align: center;
+}
+#index_banner p{
+	margin: 0;
+	padding: 0;
+}
+#index_banner .big_font{
+	font-size: 48px;
+	font-weight: 700;
+	letter-spacing: 0.06em !important;
+	letter-spacing: 0.3em;
+	padding: 10px;
+	margin: 50px 0 10px 0;
+}  
+#index_banner  .small_font{
+	font-size: 28px;
+	font-weight: 500;
+	letter-spacing: 0.1em;
+	padding: 10px;
+	margin: 0 0 20px 0;
+}
+#index_banner a:hover{
+	text-decoration: none;
+}
+.mid_title{
+	font-size: 11px;
+}
+.mid_desc{
+	font-weight: 600;
+	font-size: 14px;
 }
 .omero #mainContent {
 	margin: 0px;
@@ -132,12 +230,40 @@ a:hover, a:active, a:focus {
 	padding-bottom: 0;
 	padding-left: 10px;
 }
+/**********banner*start**********/
+#banner{
+    background-color: #fff;
+	background-image: url(<%=asset_path("1_bander_bg.jpg")%>);
+	background-repeat: repeat-x;
+}
+#banner2{
+	background-color:  #e6ebef;
+	margin: 10px 0;
+	padding: 0;
+	text-align: center;
+}
+
+#banner_english {
+	margin: 0;
+	padding: 10px;
+	font-family: Arial, Helvetica, sans-serif, "Arial Unicode MS";
+	font-weight: bold;
+	font-size:14px;
+	color: #555;
+	line-height: 22px;
+}
+#banner_english p{
+	margin: 0;
+	padding: 0;
+}
+/**********banner*end**********/
 /******side bar*******/
 #sidebar {
 	text-align: left;
 	margin: 0;
-	padding: 0 0 0 4px;
+	padding: 0 0 0 5px;
 }
+
 .corner_white{
 	margin: 0px;
 	padding: 0px;
@@ -145,22 +271,202 @@ a:hover, a:active, a:focus {
 .corner_white .bg_white{
 	background-image: url(<%=asset_path("3_09.jpg")%>);
 	background-repeat: repeat-y;
-	margin: 0;
+	margin: -6px 0 0 0 !important;
+	margin: -10px 0 0 0;
 	padding: 0 0 0 12px;
 }
-.news_list {
+.black_bg_raw {
 	margin: 0px;
 	padding: 10px;
-	background-image: url(<%=asset_path("1_04.jpg")%>);
-	background-repeat: repeat-x;
+	background-image: url(<%=asset_path("rightbg.jpg")%>);
+	background-repeat: no-repeat;
+}
+#side_news_list{
+	border-top: solid 2px #cc0000;
+}
+#side_news_list ul{
+	margin: 0;
+	padding: 0 0 0 16px;
+}
+.side_news_image{
+	margin: 0;
+	padding: 0;
+}
+.side_news_image img{
+	float: left;
+	padding:6px;
+	margin:3;
 }
 /******side bar*******/
-
-.omero #footer {
-	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
-
+/******side bar*******/
+#nav_bar{
+	padding: 30px 0 0 0;
+	margin: 20px 20px 0 0;
+	border-bottom: solid 2px #646464;
 }
-.omero #footer p {
-	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
-	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+/******side bar*******/
+.omero #footer {
+	background-color: #494949;
+	background-image: url("<%=asset_path "footerbg.jpg" %>");
+	background-repeat: repeat-x;
+	height: 350px;
+	color: #999;
+}
+#footer .footer_phone{
+  padding: 20px 0 0 20px;
+  color:#333;
+  font-size:24px;
+  font-weight:600;
+}
+.top_a{
+	color: #eee;
+}
+.sub_a{
+	color: #333;
+}
+
+//===for second page====
+.side_nav {
+	margin: 0px;
+	padding: 0px;
+}
+.side_nav .parent{
+	padding: 0;
+	margin: 0 0 10px 0;
+	border-bottom: solid 3px #999;
+	font-size: 16px;
+}
+.side_nav li {
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0;
+}
+.side_nav li a{
+	background-image: url("<%=asset_path('li_sq_black.gif')%>");
+	background-repeat: no-repeat;
+	background-position: left center;
+	margin: 0px;
+	padding: 2px 0 2px 30px;
+	display: block;
+}
+.side_nav li a:hover{
+	color: #fff;
+	background-color: #CC0000;
+	display: block;
+}
+.side_nav .current {
+	background-color: #CCC;
+}
+.side_news_ul{
+	margin: 0px;
+	padding: 0px;
+}
+.side_news_ul li {
+	height: 25px;
+	margin: 0px;
+	padding: 0px;
+}
+.side_news_ul li a{
+	margin: 0px;
+	padding: 0 0 0 20px;
+	background-image: url("<%=asset_path('li_sq_black.gif')%>");
+	background-repeat: no-repeat;
+	background-position: 2px center;
+}
+//======================side box slide show================================
+//======================side box slide show================================
+.side_box{
+	margin: 10px 0 10px 8px;
+	padding: 4px;
+	background-color: #fff;
+}
+#slideshow1{
+	over-flow: hidden;
+	height: 120px;
+	width: 240px;
+}
+#slideshow2{
+	over-flow: hidden;
+	height: 80px;
+	width: 240px;
+}
+//======================pages start===============================
+#page{
+	margin: 10px 0 0 0;
+	padding: 0;
+}
+#page .content{
+	margin: -6px 0 0 0;
+	padding: 20px;
+	width: 599px;
+	background-color: #ffffff;
+}
+#page img{
+	overflow: hidden;
+}
+#page h1{
+	font-size: 30px;
+	margin:0;
+	padding: 0;
+}
+
+#page h2{
+	font-size: 20px;
+	margin: 0px;
+	border-bottom-width: 3px;
+	border-bottom-style: dotted;
+	border-bottom-color: #666;
+	padding-top: 6px;
+	padding-right: 6px;
+	padding-bottom: 6px;
+	padding-left: 0px;
+} 
+
+#page .section {
+	padding: 0px;
+	margin: 0px;
+	}
+#page .section h3 {
+	color: 888888;
+	font-family: "微软雅黑";
+	letter-spacing: 0.2em;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 0px;
+	padding: 0px;
+}
+#page .section .summary {
+	padding: 0px;
+	font-size: 14px;
+}
+#page .section .left_img{
+	padding: 20px;
+}
+#page .section ul, ol {
+	margin: 0;
+	padding: 0px;
+}
+
+#page .section ul li {
+	list-style-type: square;
+	list-style-position: inside;
+	border-bottom-width: 2px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;
+	font-size: 12px;
+	line-height: 25px;
+	margin: 0px;
+	padding: 0px;
+}
+#page .section .question {
+	margin: 10px;
+	color: #f52969;
+	font-size: 120%;
+}
+#page .section .answer {
+	padding-left: 40px;
 }

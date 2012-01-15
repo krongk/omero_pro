@@ -22,7 +22,7 @@ $(document).ready(function(){
   });
 
   //corner
-  $("div.corner_box").corner();
+  //$("div.corner_box").corner(); !not valid in IE
   $("div.side_box").corner();
   //$("div.black_side_box").corner();
 
@@ -30,22 +30,27 @@ $(document).ready(function(){
   $('#slideshow1').sliders({ delay: 2500, speed: 500 });
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
 
-  //一级菜单不kwicks
+ //一级菜单不kwicks
   $(".top_menu_link").mouseover(function(){
+    //$("#header_nav").height("10");
     $("#sub_top_menu").slideDown();
     $(".sub_kwick").hide();
-     $("#sub_" + $(this).attr("id")).show();
+     $("#sub_" + $(this).attr("id")).slideDown();
     //$("#sub_top_menu").slideToggle("slow");
   });
-  $(".top_menu_link").mouseout(function(){
-    $("#sub_top_menu").slideToggle();
+  $("#header_nav").mousemove(function(){
+    $("#sub_top_menu").show();
+  });
+  $("#header_nav").mouseout(function(){
+    //$("#header_nav").height("42");
+    $("#sub_top_menu").hide();
   });
 
-  $("#sub_top_menu").hover(function(){
-    $(".top_menu_link").mouseover(function(){
-      $("#sub_top_menu").show('slow');
-    });
-  });
+  // $("#sub_top_menu").hover(function(){
+  //   $(".top_menu_link").mouseover(function(){
+  //     $("#sub_top_menu").show('slow');
+  //   });
+  // });
   // $(".kwicks > li").each(function(){
   //   $(this).hover(function(){
   //     $(".sub_kwicks > li").hide();
@@ -53,10 +58,10 @@ $(document).ready(function(){
   //   });
   // });
   //use jquery.ae.image.resize plugin to resize img
-  $(".content_body img").aeImageResize({ height: 400, width: 600 }); //img show on main body
+  $(".content_body img").aeImageResize({ height: 400, width: 500 }); //img show on main body
   $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
   $(".product_list_all img").aeImageResize({ height: 100, width: 100 }); //product image
-  $("#page").aeImageResize({ height: 400, width: 600 });
+  $("#page").aeImageResize({ height: 400, width: 500 });
   //
 });
 </script>
@@ -69,10 +74,10 @@ $(document).ready(function(){
       <%= play_flash asset_path("flash/top_banner1.swf"), :width => '980', :height => '249' %>
     </div>
     <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
-
   <!-- end #top_banner --></div>
+
   <div id="header_logo">
-     <div class="content"><img src="logo.png" width="399" height="90" alt="欧美龙" /></div>
+     <div class="logo" valign="bottom"><%=image_tag asset_path("logo.png"), :width => "399", :height => "90"%></div>
        <div class="form_logo">
          <table width="95%" border="0" cellspacing="0" cellpadding="0">
            <tr>
@@ -82,7 +87,7 @@ $(document).ready(function(){
              <td align="right" valign="top" height="25">
              <form id="form_search" name="form1" method="get" action="/news_items">
                <table><tr><td>
-                 <input type="text" name="q" id="q" accesskey="a" size="25" />
+                 <input type="text" name="q" id="q" accesskey="a" size="24" height="30" style="padding: 2px 0;" />
                  </td><td>
                    <input type="submit" name="Submit" id="button" value="GO" />
                  </td></tr></table>
@@ -94,111 +99,75 @@ $(document).ready(function(){
          </table>
      </div>
   <!-- end #header_logo --></div>
-  
+
    <div id="header_nav">
-     <div class="header_content">
-     wef     </div>
+       <%= render :partial => 'layouts/nav' %>
   <!-- end #header_nav --></div>
   
-   <div id="banner">
-     fwef
-  <!-- end #header_nav --></div>
+  <%= yield :banner %>
   
   <div id="mainContent">
-   <table width="100%" height="600" bgcolor="#ddd" border="0" cellspacing="0" cellpadding="0">
+   <table width="100%" height="600" bgcolor="#e2ebea" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="690px" align="left" valign="top">
-    <div style="margin:0; padding: 0 20px 0 0; background-color:#eee;">
-      <img src="mr/mr_10.png" width="670" height="290" /><br/>
-      <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="233" align="left" valign="top" class="right_border">
-          <div style="margin:0; padding:0 10px;">
-            <div class="corner_white">
-       <img src="3_07.jpg" width="188" height="15" />
-       <div class="bg_white">
-          <div class="red_border"></div>
-             <div class="news_list2">
-             <h2 style="margin:0; padding: 0;"><span class="toto">>>></span>公司新闻</h2>
-                    <ul>
-                        <li><a href="/news_items/2">共创洗染业</a></li>
-                        <li></li>
-                        <li></li>
-                        <li><a href="/news_items/2">美好明天</a></li>
-                        <li><a href="/news_items/268">连锁店经营管理</a></li>
-                        <li><a href="/news_items/268">规范意见</a></li>
-                        <li><a href="/news_items/13">首届全</a></li>
-                        <li><a href="/news_items/13">国商业</a></li>
-                        <li><a href="/news_items/13">服务业技能...</a></li>
-                        <li><a href="/news_items/16">新的经营模</a></li>
-                        <li><a href="/news_items/16">式 新的盈利机会</a></li>
-                        <li><a href="/news_items/283">吉林省洗</a></li>
-                        <li><a href="/news_items/283">染行业</a></li>
-                        <li><a href="/news_items/283">消费纠纷...</a></li>
-                        <li><a href="/news_items/284">杭州市洗染业消费争议纠..</a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li><a href="/news_items/284">.</a></li>
-                    </ul>
-                    <span class="more_black"><a href="/news_cates/1">更多&gt;&gt;</a></span>
-                  </div>
-                 </div>
-        <img src="3_11.jpg" width="181" height="12" />
-       <!-- end .white_corner --></div>
-            &nbsp;sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...  </div>
-        </td>
-        <td width="233" align="left" valign="top" class="right_border">
-          <div style="margin:0; padding:0 10px;"><img src="7_0.jpg" width="200" height="130" />&nbsp;sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...  </div>
-        </td>
-        <td width="233" align="right" valign="top">
-          <div style="margin:0; padding:0 0 0 10px;">&nbsp;
-            <img src="7_1.jpg" width="207" height="136" />sdf  羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，...
-<p> 羊绒衣物即可干洗又可手洗，可按实际情况决定。 　　洗前.用专用洗剂与35ºC水搅拌均匀，将羊绒衣物放入浸泡15-30分钟后，在脏污处使用高浓度洗剂，采取挤揉的方法洗涤。其它部位轻轻拍揉。.用30ºC左右温水漂洗干净后，为使手感好，可放入适量的柔软剂。 .将洗后的水挤出后，... </p>
-          </div>
-        </td>
-      </tr>
-    </table>
-
-      
-     </div>
+     <%= yield :nav_bar %>
+     <%= yield %>
     </td>
     <td width="10px" class="right_border">&nbsp;</td>
     <td align="right" valign="top" width="270">
-    <div id="sidebar">
-      <div class="corner_white">
-       <img src="3_07.jpg" width="250" height="14" />
-       <div class="bg_white">
-          <div class="red_border"></div>
-             <div class="news_list">
-             <h2 style="margin:0; padding: 0;"><span class="toto">>>></span>公司新闻</h2>
-                    <ul>
-                        <li><a href="/news_items/2">共创洗染业</a></li>
-                        <li></li>
-                        <li></li>
-                        <li><a href="/news_items/2">美好明天</a></li>
-                        <li><a href="/news_items/268">连锁店经营管理</a></li>
-                        <li><a href="/news_items/268">规范意见</a></li>
-                        <li><a href="/news_items/13">首届全</a></li>
-                        <li><a href="/news_items/13">国商业</a></li>
-                        <li><a href="/news_items/13">服务业技能...</a></li>
-                        <li><a href="/news_items/16">新的经营模</a></li>
-                        <li><a href="/news_items/16">式 新的盈利机会</a></li>
-                        <li><a href="/news_items/283">吉林省洗</a></li>
-                        <li><a href="/news_items/283">染行业</a></li>
-                        <li><a href="/news_items/283">消费纠纷...</a></li>
-                        <li><a href="/news_items/284">杭州市洗染业消费争议纠..</a></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li><a href="/news_items/284">.</a></li>
-                    </ul>
-                    <span class="more_black"><a href="/news_cates/1">更多&gt;&gt;</a></span>
-                  </div>
-                 </div>
-        <img src="3_11.jpg" width="250" height="14" />
-       <!-- end .white_corner --></div>
-       <!-- end #sidebar --></div>
+      <div id="sidebar">
+         <% if request[:controller] == 'pages' && request[:action] == 'index' %>
+           <%= yield :side_bar %><!--for index page-->
+         <% else %>
+           <div style="margin:0; padding:0; text-align: right;">
+             <%= play_flash asset_path("flash/icon.swf"), :width => '265', :height => '210'%>
+           </div>
+           <div class="corner_white">
+             <%=image_tag asset_path("3_07.jpg"), :width => "250", :height => "14"%>
+              <div class="bg_white">
+               <%= yield :side_nav %><!--for detail page-->
+               <%# render :partial => 'layouts/search_form', :locals => {:css_class => "search1"} %>
+               <%= yield :side_news %><!--for detail page -->
+               <!-- end .bg_white --></div>
+               <%=image_tag asset_path("3_11.jpg"), :width => "250", :height => "14"%>
+          <!-- end .corner_white --></div>
+
+             <div class="side_box">
+              <div id='slideshow1'>
+                <%=image_tag asset_path("slide_b_04.jpg")%>
+                <%=image_tag asset_path("slide_b_02.jpg")%>
+                <%=image_tag asset_path("slide_b_03.jpg")%>
+              </div>
+            </div>
+
+             <div class="side_box">
+              <div id='slideshow2'>
+                <%=image_tag asset_path("side_banner0.jpg")%>
+                <%=image_tag asset_path("side_banner1.jpg")%>
+                <%=image_tag asset_path("side_banner2.jpg")%>
+                <%=image_tag asset_path("side_banner3.jpg")%>
+              </div>
+            </div>
+       
+            <div class="side_box">
+              <table>
+              <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
+              <tr><td>
+              <%= form_tag("/shops/", :method => "get") do %>
+                <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+                <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+              <% end %>
+              </td><td>
+                <%= image_tag("map_search2.jpg", :width => '140') %>
+              </td></tr>
+              </table>
+            </div>
+            <div class="side_box">
+              <a href="#"><%= image_tag("kefu.gif", :width => '240') %></a>
+            </div>
+          </div>
+         <% end %>
+      </div>
     </td>
   </tr>
   <tr>
@@ -210,7 +179,7 @@ $(document).ready(function(){
 
   <!-- end #mainContent --></div>
   <div id="footer">
-    <p>Footer</p>
+    <%= render :partial => 'layouts/site_map' %>
   <!-- end #footer --></div>
 <!-- end #container --></div>
 </body>

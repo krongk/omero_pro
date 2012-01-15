@@ -5,9 +5,10 @@
 <% side_news @page.title %>
 <% side_nav @page.title, 'page' %>
 
-<div id="page" class="corner_box">
-	<h2><%= @page.title %></h2>
-
+<div id="page">
+  <%=image_tag asset_path("show_06.jpg") %>
+  <div class="content">
+  	<h2><%= @page.title %></h2>
       <% case @page.path_name%>
       <% when 'about:address' %>
         <iframe src="/home/location" width="100%" height="500px" scrolling="no"></iframe>
@@ -21,4 +22,6 @@
 
       <% end %>
       <%= @page.body.html_safe unless @page.body.blank?%>
+  </div>
+   <%=image_tag asset_path("show_08.jpg") %>
 </div>

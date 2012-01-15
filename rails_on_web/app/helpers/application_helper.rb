@@ -43,6 +43,8 @@ module ApplicationHelper
         pages = Page.find_all_by_parent_id(page.id)
       else
         pages = Page.find_all_by_parent_id(page.parent_id)
+        parent_page = Page.find_by_id(page.parent_id)
+        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{parent_page.title}</h2>"
       end
       pages.each do |cate|
         if cate.title == cate_name
@@ -102,22 +104,22 @@ module ApplicationHelper
     content_for(:side_news) do
       news_items = NewsItem.recent(6, cate_id)
       news_items.each_with_index do |item, index|
-        str_arr << "<li><a class='gray' href='/news_items/#{item.id}' target='_blank'>#{item.title.truncate(16)}</a></li>"
+        str_arr << "<li><a class='gray2' href='/news_items/#{item.id}' target='_blank'>#{item.title.truncate(16)}</a></li>"
       end
       str_arr << "</ul>"
-      str_arr << '<span class="more_red">'
+      str_arr << '<div class="more_red">'
       str_arr << link_to("更多>>", news_cate_path(cate_id))
-      str_arr << '</span>'
+      str_arr << '</div>'
 
-      str_arr << '<div class="image_news_content">'
+      str_arr << '<div class="side_news_image">'
       news_items = NewsItem.recent(2, cate_id, true)
       news_items.each_with_index do |item, index|
         str_arr << '<div class="news_content">'
         str_arr << image_tag(asset_path("3200.jpg"), :width => "135", :height => "131")
         str_arr << strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(120)
-        str_arr << '<span class="more_red">'
+        str_arr << '<div class="more_red">'
         str_arr << link_to("查看详细...", news_item_path(item))
-        str_arr << '</span></div>'
+        str_arr << '</div></div>'
       end
       str_arr << '</div>'
 

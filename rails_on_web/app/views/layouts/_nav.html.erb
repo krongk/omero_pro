@@ -1,58 +1,22 @@
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="28%" height="66">&nbsp;</td>
-    <td width="35%">&nbsp;</td>
-    <td width="29%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%=image_tag asset_path("logo.png"), :height =>"89", :alt => "欧美龙洗衣连锁" %></td>
-    <td align="left">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td height="34" align="right" valign="top" height="16">
-        <span class="font_gray"><a href="/">首页</a>&nbsp;&nbsp;<a href="/">网站地图</a></span>
-        </td>
-      </tr>
-      <tr>
-        <td align="right" valign="top" height="25">
-         <%=render :partial => "layouts/search_form", :locals =>{:css_class => 'form_top'} %>
-        </td>
-      </tr>
-      <tr>
-        <td align="right" valign="top">
-         <a href="/" class="white_a">&nbsp;&nbsp;会员登录</a>&nbsp;&nbsp;<a href="/" class="white_a">&nbsp;&nbsp;我要注册</a>&nbsp;&nbsp;<a href="/" class="white_a">联系我们</a>
-        </td>
-      </tr>
-    </table></td>
-  </tr>
-  <tr>
-  <% if is_ie? %>
-    <td height="61">&nbsp;</td>
-  <% else %>
-    <td height="71">&nbsp;</td>
-  <% end %>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<table width="90%" border="0" cellspacing="0" cellpadding="0" class="write">
-  <tr>
-    <td height="44">&nbsp;</td>
-    <td class="top_menu_1"><a class="top_menu_link" id="top_menu_1" href="/pages">关于欧美龙</a></td>
-    <td><%=image_tag asset_path("1_05.jpg") %></td>
-    <td><a class="top_menu_link" id="top_menu_2" href="/pages/join">加盟政策</a></td>
-    <td><%=image_tag asset_path("1_05.jpg") %></td>
-    <td><a class="top_menu_link" id="top_menu_3" href="/pages/ensure">保障体系</a></td>
-    <td><%=image_tag asset_path("1_05.jpg") %></td>
-    <td><a class="top_menu_link" id="top_menu_4" href="/shops">加盟店分布</a></td>
-    <td><%=image_tag asset_path("1_05.jpg") %></td>
-    <td><a class="top_menu_link" id="top_menu_5" href="/pages/product">产品中心</a></td>
-    <td><%=image_tag asset_path("1_05.jpg") %></td>
-    <td><a class="top_menu_link" id="top_menu_6" href="/pages/customer">我要洗衣</a></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+<div id="top_manu"><center>
+  <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" height="42">
+    <tr>
+      <td>&nbsp;</td>
+      <td align="center"><a class="top_menu_link" id="top_menu_1" href="/pages">关于欧美龙</a></td>
+      <td valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td align="center"><a class="top_menu_link" id="top_menu_2" href="/pages/join">加盟政策</a></td>
+      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td align="center"><a class="top_menu_link" id="top_menu_3" href="/pages/ensure">保障体系</a></td>
+      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td align="center"><a class="top_menu_link" id="top_menu_4" href="/shops">加盟店分布</a></td>
+      <td valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td align="center"><a class="top_menu_link" id="top_menu_5" href="/pages/product">产品中心</a></td>
+      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td align="center"><a class="top_menu_link" id="top_menu_6" href="/pages/customer">我要洗衣</a></td>
+      <td>&nbsp;</td>
+    </tr>
+  </table></center>
+</div>
 <div id = "sub_top_menu" style="display: none;" >
   <ul class="sub_top_menu_ul">
     <li id="sub_top_menu_1" class="sub_kwick">

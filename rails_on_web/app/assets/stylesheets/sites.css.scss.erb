@@ -42,8 +42,6 @@ a:hover, a:active, a:focus {
 .write a:visited {color: #ffffff;}
 .write a:hover, a:active, a:focus{color: #333;}
 
-.top_menu_1 a:hover, a:active, a:focus{font-size: 16px;}
-
 .red{color: #f52969;}
 .font18{font-size: 18px;}
 .border_left{
@@ -51,15 +49,15 @@ a:hover, a:active, a:focus {
 	border-left-style: dotted;
 	border-left-color: #999;	
 }
-.border_black{
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
-	border-bottom-color: #333;	
+.border_black_1 {
+    padding: 0;
+    margin: 0 10px;
+	border-bottom: solid 1px #333;
 }
 .border_black_2 {
-	border-bottom-width: 2px;
-	border-bottom-style: solid;
-	border-bottom-color: #999;
+    padding: 0;
+    margin: 0 10px;
+	border-bottom: solid 2px #333;
 }
 .more_black_border {
 	height: 25px;
@@ -73,15 +71,12 @@ a:hover, a:active, a:focus {
 	border-bottom-color: #666;
 }
 .more_red {
-	height: 25px;
-	width: 100%;
-	background-image: url("<%=asset_path "1_11.jpg" %>");
-	background-repeat: repeat-x;
-	background-position: left bottom;
-	text-align: right;
-	display: block;
+    margin: -10px 0 0 0;
+	padding: 0;
+	border-bottom: solid 2px #cc0000;
 	color: #C00;
-	font-size: 14px;
+	width: 100%;
+	text-align: right;
 }
 .font_gray a{color: #ccc;}
 .more_black {
@@ -90,13 +85,8 @@ a:hover, a:active, a:focus {
 	text-align: right;
 	display: block;
 	color: #666;
-	font-size: 14px;
 }
-.image_news_content {
-	margin: 0px;
-	padding: 10px;
-	width: 100%;
-}
+
 .white_a {
 	background-image: url("<%=asset_path "white_a.gif" %>");
 	padding: 2px;
@@ -122,7 +112,7 @@ h2 a{
 h3.title{
     margin: 10px 0 0 0;
     padding: 4px;
-	background-color: #cc0000;
+	background-color: #494949;
 	color: #ffffff;
 }
 .bshare {
@@ -137,5 +127,7 @@ h3.title{
 	margin: 20px 0;
 }
 .black{
-	border: 3px dotted #666;
+	border: 1px dotted #646464;
+	padding: 0px;
+	margin: 0px;
 }

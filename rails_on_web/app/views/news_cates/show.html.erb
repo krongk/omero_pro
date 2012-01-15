@@ -4,25 +4,21 @@
 <% side_news @news_cate.name %>
 <% side_nav @news_cate.name, 'news' %>
 
+<div id="news_item" class="corner_box">
+  <h1>
+    <%= @news_cate.name %>
+  </h1>
+  <br/>
+  <hr class="black"/>
 
-<h1>
-  <%= @news_cate.name %>
-</h1>
-
-<div id="news_cate" class="news_list corner_box">
   <div class="news_list">
-      <ul>
       <% @news_items.each do |news_item| %>
-        <li>
-        <h2 style="margin:20px 0 0 0;"><%= link_to news_item.title, news_item_path(news_item) %></h2>
-        
-        <div class="news_content">
+        <h3 style="margin:0; padding: 0;"><%= link_to news_item.title, news_item_path(news_item), :style => "color: #cc0000;" %></h3>
+        <div style="margin:0; padding: 0 0 20px 12px;">
           <%= strip_tags(news_item.body.gsub(/&nbsp;/, '')).truncate(120) %>
           <%= link_to ">>>查看详细", news_item_path(news_item) %>
         </div>
-        </li>
       <% end %>
-      </ul>
   </div>
   <br />
 

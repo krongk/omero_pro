@@ -1,117 +1,146 @@
+<% title "首页" %>
+<% meta_keywords "四川万邦欧美龙洗涤有限公司, 欧美龙国际洗衣品牌，欧美龙洗衣加盟店,欧美龙连锁,欧美龙连锁加盟,欧美龙招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁"%>
+<% meta_description "四川万邦欧美龙洗涤有限公司, 欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！" %>
+
 <% content_for :banner do %>
+<div id="banner">
   <div id="banner1" class="banner">
     <%# image_tag asset_path("1_08.jpg"), :width => "980", :alt => "欧美龙洗衣连锁" %>
     <%= render :partial => "layouts/index_banner" %>
+    <div class="border_black_2"></div>
   </div>
-  <div id="banner2" class="banner">
-    <%= image_tag asset_path("1_10.jpg"), :width => "980", :alt => "欧美龙洗衣连锁" %>
+  <div id="banner2">
+    <%= image_tag asset_path("1_10.jpg"), :width => "960", :alt => "欧美龙洗衣连锁" %>
     <%# image_tag asset_path("1_13.jpg"), :width => "980", :alt => "欧美龙洗衣连锁" %>
-    <div class="border_black_2">&nbsp;</div>
+    <div class="border_black_2"></div>
   </div>
+</div>
 <% end %>
 
 <% content_for :side_bar do %>
-
-        <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
-
-        <div class="side_content" >
-         <div style="margin-left: 4px;">
-          <%#image_tag asset_path("1_07.jpg"), :width => "266", :height => "14" %>
-          <%=render :partial => "layouts/search_form", :locals => {:css_class => 'search1'} %>
-
-          <div class="black_side_box">
-            <h2 style="margin:0 0 0 8px; padding: 0;"><span class="toto">>>></span>公司新闻</h2>
-            <ul>
-            <% @news_cate_about.news_items.order("updated_at DESC").limit(6).each_with_index do |item, index| %>
-                <li><%=link_to item.title.truncate(14), news_item_path(item.id) %></li>
-            <% end %>
-            </ul>
-            <span class="more_black"><%=link_to "更多>>", news_cate_path(@news_cate_hangye.id) %></span>
-          </div>
-          
-           <% @news_cate_hangye.news_items.order("sort_id DESC").limit(2).each_with_index do |item, index| %>
-            <div class="image_news_content">
-              <div class="" style="margin:-6px; padding: 0;">
-                <h2 style="margin:0; padding: 0;"><span class="toto">>>></span><%= item.title%></h2>
-                <%=image_tag asset_path("side_news_image.jpg"), :width => "135" %> 
-                &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(100) %>
-              </div>
-              <span class="more_red">更多>></span>
-            </div>
+  <div class="corner_white">
+   <%=image_tag asset_path("3_07.jpg"), :width => "250", :height => "14"%>
+    <div class="bg_white">
+        <div id="side_news_list" class="black_bg_raw">
+          <h2 style="margin:0; padding:0;">公司新闻</h2>
+          <ul>
+          <% @news_cate_about.news_items.order("updated_at DESC").limit(6).each_with_index do |item, index| %>
+              <li><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(14), news_item_path(item.id) %></li>
           <% end %>
-                  
-        
-        </div></div>
-        
-        <%=image_tag asset_path("3_11.jpg"), :width => "266", :height => "18" %>  
+          </ul>
+         
+       </div>
+        <div class="more_red"> <%= link_to "更多>>",news_cate_path(@news_cate_hangye.id), :style => "color: #cc0000" %></div>
+
+        <% @news_cate_hangye.news_items.order("sort_id DESC").limit(2).each_with_index do |item, index| %>
+          <div> <br/>
+            <div class="side_news_image">
+              <h2 style="margin:0; padding: 0;"><%= item.title.truncate(17)%></h2>
+              <%=image_tag asset_path("side_news_image#{rand(3)}.jpg"), :width => "135" %> 
+              &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(100) %>
+            </div>
+            <div class="more_red"> <%= link_to "查看全文>>", news_item_path(item), :style => "color: #cc0000" %></div>
+          </div>
+        <% end %>
+        <% @news_cate_about.news_items.order("sort_id DESC").limit(1).each_with_index do |item, index| %>
+          <div> <br/>
+            <div class="side_news_image">
+              
+              <%=image_tag asset_path("side_news_image#{rand(3)}.jpg"), :width => "135" %> 
+              <h2 style="margin:0; padding: 0;"><%= item.title.truncate(17)%></h2>
+              <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(100) %>
+            </div>
+            <div class="more_red"> <%= link_to "查看全文>>", news_item_path(item), :style => "color: #cc0000" %></div>
+          </div>
+        <% end %>
+
+     <!-- end .bg_white --></div>
+    <%=image_tag asset_path("3_11.jpg"), :width => "250", :height => "14"%>
+   <!-- end .corner_white --></div>
 <% end %>
 
 
-     
+<div>  
 <%=render :partial => "layouts/slide_show1" %>
+ <div class="slider_index_right">
+   <div style="margin:0 0 0 40px;padding: 6px; color: #ffffff; font-size: 16px; font-weight: 600;">
+    <div style="margin: 0 0 0 -50px;"><%=image_tag asset_path("ico-sj.gif") %></div>
+    OMERO<BR/>
+    International<br/>
+    Laundry<br/>
+    Union<br/>
+   </div>
+  </div>
+</div>
 <br/>
-<table width="96%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="260" align="left" valign="top">
-        <%=image_tag asset_path("3_07.jpg"), :width => "266", :height => "14" %>
-      <div class="round_content">
-       <div class="a">
-        <h2 style="margin-top: -16px;"><span class="toto">>>></span>新闻中心</h2>
-            <ul>
-            <% @news_cate_hangye.news_items.order("updated_at DESC").limit(6).each_with_index do |item, index| %>
-                <li class="square"><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(16), news_item_path(item.id) %></li>
-            <% end %>
-            </ul>
-            <span class="more_black"><%=link_to "更多>>", news_cate_path(@news_cate_hangye.id) %></span>
-        </div>
-        
-        <% NewsItem.recent(2, @news_cate_hangye.id, true).each_with_index do |item, index| %>
-            <div class="a">
-               <h2><span class="toto">>>></span><%= link_to "#{item.title}", news_item_path(item), :class=> 'news_title' %></h2>
-              <div class="news_content">
-                <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(48) %>
-                <%= link_to "查看全文>>", news_item_path(item) %>
-              </div>
-            </div>
-            <br/>
-        <% end %>        
-        
-        </div>
-        <%=image_tag asset_path("3_11.jpg"), :width => "266", :height => "18" %>
-    </td>
-    <td align="left" valign="top">
-      <div class="summary_content border_left">
-        <h2><span class="toto">>>></span>洗涤常识</h2>
-        <div style="padding:10px;"><%=image_tag asset_path("7_0.jpg"), :width => "175", :alt =>"洗涤常识" %></div>
-
-        <% @news_cate_xiyichangshi.news_items.order("sort_id DESC").limit(1).each_with_index do |item, index| %>
-         <div style="padding: 10px;">
-            <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(140) %><BR/>
-            <span style="float: right;"><%= link_to "查看全文>>", news_item_path(item) %></span>
-          </div>
-        <% end %>
-
-      </div>
-    </td>
-    <td align="left" valign="top">
-      <div class="summary_content border_left">
-        <h2><span class="toto">>>></span>干洗知识</h2>
-        <div style="padding:10px;"><%=image_tag asset_path("7_1.jpg"), :width => "182", :alt =>"关于欧美龙" %></div>
-<!--         <ul>
-        <%# NewsItem.recent(4, @news_cate_ganxizhishi.id).each_with_index do |item, index| %>
-            <li><%#image_tag asset_path("li_sq_black.gif") %>&nbsp;<%#link_to item.title.truncate(14), news_item_path(item.id) %></li>
-        <%# end %>
-        </ul> -->
+ <div style="margin:0; padding: 0;">
+  
+      <table width="670" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="233" align="left" valign="top" class="right_border">
+          <div style="margin:0; padding:0 10px 0 0;">
        
-       <% @news_cate_ganxizhishi.news_items.order("sort_id DESC").limit(1).each_with_index do |item, index| %>
-          <div style="padding: 10px;">
-            <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, ' ')).truncate(140) %><BR/>
-            <span style="float: right;"><%= link_to "查看全文>>", news_item_path(item) %></span>
+           <div class="corner_white">
+           <%=image_tag asset_path("3_07.jpg"), :width => "188", :height => "15"%>
+           <div class="bg_white">
+              <div class="no_border"></div>
+                 <div class="news_list2">
+                   <h2 style="margin:0; padding: 0; color: #cc0000">新闻中心</h2>
+                   <ul>
+                      <% @news_cate_hangye.news_items.order("updated_at DESC").limit(6).each_with_index do |item, index| %>
+                        <li class="square"><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(15), news_item_path(item.id) %></li>
+                      <% end %>
+                    </ul>
+                    <br/>
+                 </div>
+                <!---->
+                <% NewsItem.recent(2, @news_cate_hangye.id, true).each_with_index do |item, index| %>
+                  <div style="margin;0; padding:14px 0; border-top: dotted 1px #ccc;">
+                     <h2 style="margin:0; padding:0;"><%= link_to "#{item.title.truncate(14)}", news_item_path(item), :class=> 'news_title', :style => "color: #cc0000;" %></h2>
+                    <div style="margin:0; padding: 0 0 0 14px">
+                      <%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(64) %>
+                      <%= link_to "查看全文>>", news_item_path(item), :style => "color: #cc0000" %>
+                    </div>
+                  </div>
+                <% end %> 
+                <span class="more_black"><%=link_to "更多>>", news_cate_path(@news_cate_hangye.id), :style => "color:#cc0000" %></span>   
+            
+           <!-- end .white_corner --></div>
+            <div style="margin: -6px 0 0 0;"><%=image_tag asset_path("3_11.jpg"), :width => "181", :height => "12"%></div>
+           </div>
+        </td>
+        <td width="233" align="left" valign="top" class="right_border">
+          <div style="margin:0; padding:0 10px;">
+            <h2><span class="toto">>>></span>洗涤常识</h2>
+            <%=image_tag asset_path("7_0.jpg"), :width => "203", :height => "130"%>
+            <% @news_cate_xiyichangshi.news_items.order("sort_id DESC").limit(2).each_with_index do |item, index| %>
+              <div style="margin;0; padding:10px 0; border-top: dotted 1px #ccc;">
+               <h2 style="margin:0; padding:0;"><%= link_to "#{item.title.truncate(16)}", news_item_path(item), :class=> 'news_title' %></h2>
+               <div style="margin:0; padding:0;">
+                  <%= strip_tags(item.body.to_s).gsub(/　　+| +|\n|\s|\t/, ' ').truncate(100) %><BR/>
+                  <span class="more_black"><%= link_to "查看全文>>", news_item_path(item) %></span>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
+        </td>
+        <td width="233" align="left" valign="top">
+          <div style="margin:0; padding:0 0 0 10px;">
+            <h2><span class="toto">>>></span>洗涤常识</h2>
+            <%=image_tag asset_path("7_1.jpg"), :width => "213", :height => "130"%>
+            <% @news_cate_ganxizhishi.news_items.order("sort_id DESC").limit(2).each_with_index do |item, index| %>
+              <div style="margin;0; padding:10px 0; border-top: dotted 1px #ccc;">
+               <h2 style="margin:0; padding:0;"><%= link_to "#{item.title.truncate(16)}", news_item_path(item), :class=> 'news_title' %></h2>
+               <div style="margin:0; padding:0;">
+                  <%= strip_tags(item.body.to_s).gsub(/　　+| +|\n|\s|\t/, ' ').truncate(100) %><BR/>
+                  <span class="more_black"><%= link_to "查看全文>>", news_item_path(item) %></span>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    </table>
 
-      </div>
-    </td>
-  </tr>
-</table>
-
+      
+     </div>

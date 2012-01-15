@@ -1,3 +1,8 @@
+- 做人
+- 做事 
+- 差异化管理 
+- 投诉电话
+
 ##What Rails on Web
   Rails on Web is a integration rails app which provide you to create a company site at a very short time.
   You only need to do the following steps:
