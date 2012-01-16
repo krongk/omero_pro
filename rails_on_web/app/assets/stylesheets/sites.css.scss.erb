@@ -7,21 +7,47 @@ body {
 	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
 	color: #000000;
 }
-
-/* ~~ 元素/标签选择器 ~~ */
-ul, ol, dl { 
+*{
+	margin: 0; 
 	padding: 0;
+}
+body {
+	margin: 0; 
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #333;
+	font-family: "Microsoft YaHei", "Arial Unicode MS", "微软雅黑";
+	font-size: 12px;
+	background-color: #fff;
+	line-height: 20px;
+}
+form{
+	margin: 0; 
+	padding: 0;
+}
+input{
 	margin: 0;
+	padding: 2px !important;
+	padding: 2px;
+}
+div, p, span{
+	margin: 0; 
+	padding: 0;
+}
+ul, ol, dl { 
+	margin: 0; 
+	padding: 0;
 }
 li {
 	list-style-type: none;
+	line-height: 24px;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-	margin-top: 0;	
-	padding-right: 15px;
-	padding-left: 15px; 
+	margin: 0; 
+	padding: 10px;
 }
+
 a img {
 	border: none;
 }
@@ -31,7 +57,7 @@ a:link {
 	text-decoration: none; 
 }
 a:visited {
-    color: #333;
+    color: #000;
 	text-decoration: none;
 }
 a:hover, a:active, a:focus {
@@ -41,7 +67,18 @@ a:hover, a:active, a:focus {
 .write a{color: #ffffff;}
 .write a:visited {color: #ffffff;}
 .write a:hover, a:active, a:focus{color: #333;}
-
+.right_border {
+	border-right-width: 1px;
+	border-right-style: dashed;
+	border-right-color: #999;
+}
+.red_border {
+	background-color: #cc0000;
+	margin: 0px;
+	padding: 0px;
+	height: 2px;
+	width: 100%;
+}
 .red{color: #f52969;}
 .font18{font-size: 18px;}
 .border_left{
