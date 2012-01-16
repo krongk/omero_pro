@@ -5,12 +5,17 @@
 <% side_news "新闻" %>
 <% side_nav "新闻", 'news' %>
 
-<% if params[:search] %>
-  <div class="news_list corner_box">
-    搜索关键词<span style="color:#cc0000;"><%=params[:search] %></span>的结果显示如下：
-  </div>
-<% end %>
-<div id="news_item" class="corner_box">
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+
+  <div class="content">
+
+   <% if params[:q] %>
+    <div style="background-color: #e6ebef; padding: 4px; border: solid 1px #ddd;">
+      搜索关键词<span style="color:#cc0000;"><%=params[:q] %></span>的结果显示如下：
+    </div>
+  <% end %>
+  
     <ul>
     <% @news_items.each do |news_item| %>
       <li>
@@ -18,13 +23,15 @@
       
       <div class="news_content">
         <%= strip_tags(news_item.body.gsub(/&nbsp;/, '')).truncate(120) %>
-        <%= link_to ">>>查看详情", news_item_path(news_item), :class=> 'news_title' %>
+        <%= link_to ">>>查看详情", news_item_path(news_item)%>
       </div>
       </li>
     <% end %>
     </ul>
-</div>
 
-<div class='apple_pagination'>
-  <%= will_paginate :next_label => "下一页", :prev_label => "上一页" %>
+    <div class='apple_pagination'>
+      <%= will_paginate :next_label => "下一页", :prev_label => "上一页" %>
+    </div>
+  </div>
+  <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
 </div>

@@ -3,8 +3,8 @@ class NewsItemsController < InheritedResourcesBase
 
   def index
   	#for search
-  	if params[:search]
-  	  @news_items = NewsItem.where("title like '%#{params[:search]}%'").paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
+  	if params[:q]
+  	  @news_items = NewsItem.where("title like '%#{params[:q]}%'").paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
   	else
   	  @news_items = NewsItem.paginate :page => params[:page] || 1, :per_page => 20, :order => 'updated_at DESC'
   	end

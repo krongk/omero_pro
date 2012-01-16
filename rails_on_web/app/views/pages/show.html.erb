@@ -1,12 +1,12 @@
 <% title @page.title %>
 <% meta_keywords @page.meta_keywords %>
 <% meta_description @page.meta_description %>
-<% nav_bar [['首页', '/'],[@page.title, '/pages/'+ @page.path_name]] %>
+<% nav_bar [['首页', '/pages'],[@page.title, '/pages/'+ @page.path_name]] %>
 <% side_news @page.title %>
 <% side_nav @page.title, 'page' %>
 
-<div id="page">
-  <%=image_tag asset_path("show_06.jpg") %>
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
   <div class="content">
   	<h2><%= @page.title %></h2>
       <% case @page.path_name%>
@@ -23,5 +23,5 @@
       <% end %>
       <%= @page.body.html_safe unless @page.body.blank?%>
   </div>
-   <%=image_tag asset_path("show_08.jpg") %>
+   <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
 </div>

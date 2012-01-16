@@ -54,7 +54,7 @@ img{border:0px;}
   </UL>
 </DIV>
 <SCRIPT type="text/javascript">
-var $ = function (id) {
+var $$ = function (id) {
     return "string" == typeof id ? document.getElementById(id) : id;
 };
 var Class = {
@@ -75,7 +75,7 @@ TransformView.prototype = {
   //容器对象,滑动对象,切换参数,切换数量
   initialize: function(container, slider, parameter, count, options) {
     if(parameter <= 0 || count <= 0) return;
-    var oContainer = $(container), oSlider = $(slider), oThis = this;
+    var oContainer = $$(container), oSlider = $$(slider), oThis = this;
     this.Index = 0;//当前索引
     
     this._timer = null;//定时器
@@ -158,7 +158,7 @@ window.onload=function(){
     
 ////////////////////////test2
     
-    var objs2 = $("idNum12").getElementsByTagName("li");
+    var objs2 = $$("idNum12").getElementsByTagName("li");
     
     var tv2 = new TransformView("idTransformView2", "idSlider2", 469, 4, {
         onStart: function(){ Each(objs2, function(o, i){ o.className = tv2.Index == i ? "on" : ""; }) },//按钮样式
@@ -181,21 +181,21 @@ window.onload=function(){
         }
     })
     
-    $("idStop1").onclick = function(){ tv2.Auto = false; tv2.Stop(); }
-    $("idStart1").onclick = function(){ tv2.Auto = true; tv2.Start(); }
-    $("idNext1").onclick = function(){ tv2.Index++; tv2.Start(); }
-    $("idPre1").onclick = function(){ tv2.Index--;tv2.Start(); }
-    $("idFast1").onclick = function(){ if(--tv2.Step <= 0){tv2.Step = 1;} }
-    $("idSlow1").onclick = function(){ if(++tv2.Step >= 10){tv2.Step = 10;} }
-    $("idReduce1").onclick = function(){ tv2.Pause-=1000; if(tv2.Pause <= 0){tv2.Pause = 0;} }
-    $("idAdd1").onclick = function(){ tv2.Pause+=1000; if(tv2.Pause >= 2000){tv2.Pause = 2000;} }
+    // $$("idStop1").onclick = function(){ tv2.Auto = false; tv2.Stop(); }
+    // $$("idStart1").onclick = function(){ tv2.Auto = true; tv2.Start(); }
+    // $$("idNext1").onclick = function(){ tv2.Index++; tv2.Start(); }
+    // $$("idPre1").onclick = function(){ tv2.Index--;tv2.Start(); }
+    // $$("idFast1").onclick = function(){ if(--tv2.Step <= 0){tv2.Step = 1;} }
+    // $$("idSlow1").onclick = function(){ if(++tv2.Step >= 10){tv2.Step = 10;} }
+    // $$("idReduce1").onclick = function(){ tv2.Pause-=1000; if(tv2.Pause <= 0){tv2.Pause = 0;} }
+    // $$("idAdd1").onclick = function(){ tv2.Pause+=1000; if(tv2.Pause >= 2000){tv2.Pause = 2000;} }
     
-    $("idReset1").onclick = function(){
-        tv2.Step = Math.abs(tv2.options.Step);
-        tv2.Time = Math.abs(tv2.options.Time);
-        tv2.Auto = !!tv2.options.Auto;
-        tv2.Pause = Math.abs(tv2.options.Pause);
-    }
+    // $$("idReset1").onclick = function(){
+    //     tv2.Step = Math.abs(tv2.options.Step);
+    //     tv2.Time = Math.abs(tv2.options.Time);
+    //     tv2.Auto = !!tv2.options.Auto;
+    //     tv2.Pause = Math.abs(tv2.options.Pause);
+    // }
     
 }
 </SCRIPT>

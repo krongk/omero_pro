@@ -158,7 +158,9 @@ a:hover, a:active, a:focus {
 #top_manu a:hover{
 	padding: 8px 2px;
 	display: block;
-	background-color: #494949;
+	background-image: url("<%=asset_path "current.jpg" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
  	color: #fff;
 }
 
@@ -392,43 +394,40 @@ a:hover, a:active, a:focus {
 	height: 80px;
 	width: 240px;
 }
-//======================pages start===============================
-#page{
+//======================main corner content======================
+.main_corner{
 	margin: 10px 0 0 0;
 	padding: 0;
 }
-#page .content{
+.main_corner .content{
 	margin: -6px 0 0 0;
 	padding: 20px;
-	width: 599px;
+	width: 619px;
 	background-color: #ffffff;
 }
-#page img{
+.main_corner img{
 	overflow: hidden;
 }
-#page h1{
-	font-size: 30px;
-	margin:0;
-	padding: 0;
-}
 
-#page h2{
-	font-size: 20px;
-	margin: 0px;
-	border-bottom-width: 3px;
-	border-bottom-style: dotted;
+.main_corner h1, h2{
+	color: #cc0000;
+	font-size: 18px;
+	letter-spacing: 0.2em;
+	line-height: 25px;
+	margin: 10px 0 0 0;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 	border-bottom-color: #666;
-	padding-top: 6px;
-	padding-right: 6px;
-	padding-bottom: 6px;
-	padding-left: 0px;
+	padding: 10px 0;	
 } 
-
-#page .section {
+.main_corner h2 a{
+	color: #cc0000;
+}
+.main_corner .section {
 	padding: 0px;
 	margin: 0px;
 	}
-#page .section h3 {
+.main_corner .section h3 {
 	color: 888888;
 	font-family: "微软雅黑";
 	letter-spacing: 0.2em;
@@ -439,19 +438,19 @@ a:hover, a:active, a:focus {
 	margin-left: 0px;
 	padding: 0px;
 }
-#page .section .summary {
+.main_corner .section .summary {
 	padding: 0px;
 	font-size: 14px;
 }
-#page .section .left_img{
+.main_corner .section .left_img{
 	padding: 20px;
 }
-#page .section ul, ol {
+.main_corner .section ul, ol {
 	margin: 0;
 	padding: 0px;
 }
 
-#page .section ul li {
+.main_corner .section ul li {
 	list-style-type: square;
 	list-style-position: inside;
 	border-bottom-width: 2px;
@@ -462,11 +461,11 @@ a:hover, a:active, a:focus {
 	margin: 0px;
 	padding: 0px;
 }
-#page .section .question {
+.main_corner .section .question {
 	margin: 10px;
 	color: #f52969;
 	font-size: 120%;
 }
-#page .section .answer {
+.main_corner .section .answer {
 	padding-left: 40px;
 }
