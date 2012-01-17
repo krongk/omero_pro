@@ -26,7 +26,7 @@ RailsOnWeb::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = false
+  config.assets.debug = true
 
   #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
@@ -39,6 +39,5 @@ RailsOnWeb::Application.configure do
     :user_name => "omero.china",
     :password => "inruby.com"
   }
-
 
 end
