@@ -9,6 +9,8 @@
 <title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
 <meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
 <meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
 <!--[if lte IE 7]>
@@ -107,7 +109,7 @@ $(document).ready(function(){
   <%= yield :banner %>
   
   <div id="mainContent">
-   <table width="100%" height="600" bgcolor="#e2ebea" border="0" cellspacing="0" cellpadding="0">
+   <table width="100%" height="600" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="690px" align="left" valign="top">
      <%= yield :nav_bar %>
