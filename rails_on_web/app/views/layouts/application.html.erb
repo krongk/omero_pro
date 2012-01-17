@@ -19,6 +19,36 @@
 <%= csrf_meta_tags %>
 <script type="text/javascript">
 $(document).ready(function(){
+  //兼容性检测
+  //Chrome: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.75 Safari/535.7
+  //Firefox: Mozilla/5.0 (Windows NT 6.1; rv:8.0.1) Gecko/20100101 Firefox/8.0.1 
+  //IE6: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 6.1; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; Tablet PC 2.0; .NET4.0C; InfoPath.3) 
+  // if($.browser.msie) {
+  //   if($.browser.version == "7.0"){
+  //     $("#sub_top_menu").css("margin-top", "50px");
+  //     alert("ie 7");
+  //   }
+  //   if($.browser.version == "8.0"){
+  //     $("#sub_top_menu").css("margin-top", "-50px");
+  //     alert("ie 8");
+  //   }
+
+  // }
+  // else if($.browser.safari){
+  //   alert("this is safari!");
+  //   $("#top_menu").css("margin-top", "-85px")
+  //   //$("#sub_top_menu").css("margin-top", "55px")
+  // }
+  // else if($.browser.mozilla){
+  //   alert("this is mozilla!");
+  // }
+  // else if($.browser.chrome) {
+  //   alert("this is chrome");
+  // }
+  // else {
+  //   alert("i don't konw!");
+  // }
+
   $("#top_banner_flip").mouseover(function(){
     $("#top_banner").slideToggle("slow");
   });
@@ -33,8 +63,13 @@ $(document).ready(function(){
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
 
  //一级菜单不kwicks
-  $("#top_manu a").hover(function(){
-    $("#header_nav").animate({fontsize: "2em"}, "slow")
+  $(".top_menu_link").hover(function(){
+     
+    $("#header_nav").css("height", "120px");
+    $(".sub_kwick").hide();
+    $("#sub_top_menu").slideDown();
+    $("#sub_" + $(this).attr("id")).show();
+
   });
   // $(".top_menu_link").mouseover(function(){
   //   $("#header_nav").height("500");
@@ -46,10 +81,11 @@ $(document).ready(function(){
   // $("#header_nav").mousemove(function(){
   //   $("#sub_top_menu").show();
   // });
-  // $("#header_nav").mouseout(function(){
-  //   //$("#header_nav").height("42");
-  //   $("#sub_top_menu").hide();
-  // });
+  $("#sub_top_menu").mouseout(function(){
+    $("#header_nav").css("height", "42px");
+    $(".sub_kwick").hide();
+    $("#sub_top_menu").hide();
+  });
 
   //use jquery.ae.image.resize plugin to resize img
   $(".content_body img").aeImageResize({ height: 400, width: 500 }); //img show on main body
@@ -69,6 +105,7 @@ $(document).ready(function(){
     </div>
     <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
   <!-- end #top_banner --></div>
+  <%#request.env["HTTP_USER_AGENT"] %>
 
   <div id="header_logo">
      <div class="logo" valign="bottom"><%=image_tag asset_path("logo.png"), :width => "399", :height => "90"%></div>
@@ -94,7 +131,7 @@ $(document).ready(function(){
      </div>
   <!-- end #header_logo --></div>
 
-   <div id="header_nav" style="height: 100px;">
+   <div id="header_nav">
        <%= render :partial => 'layouts/nav' %>
   <!-- end #header_nav --></div>
   
