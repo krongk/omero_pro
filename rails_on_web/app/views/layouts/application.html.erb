@@ -33,32 +33,24 @@ $(document).ready(function(){
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
 
  //一级菜单不kwicks
-  $(".top_menu_link").mouseover(function(){
-    //$("#header_nav").height("10");
-    $("#sub_top_menu").slideDown();
-    $(".sub_kwick").hide();
-     $("#sub_" + $(this).attr("id")).slideDown();
-    //$("#sub_top_menu").slideToggle("slow");
+  $("#top_manu a").hover(function(){
+    $("#header_nav").animate({fontsize: "2em"}, "slow")
   });
-  $("#header_nav").mousemove(function(){
-    $("#sub_top_menu").show();
-  });
-  $("#header_nav").mouseout(function(){
-    //$("#header_nav").height("42");
-    $("#sub_top_menu").hide();
-  });
+  // $(".top_menu_link").mouseover(function(){
+  //   $("#header_nav").height("500");
+  //   // $("#sub_top_menu").slideDown();
+  //   // $(".sub_kwick").hide();
+  //   //  $("#sub_" + $(this).attr("id")).slideDown();
+  //   //$("#sub_top_menu").slideToggle("slow");
+  // });
+  // $("#header_nav").mousemove(function(){
+  //   $("#sub_top_menu").show();
+  // });
+  // $("#header_nav").mouseout(function(){
+  //   //$("#header_nav").height("42");
+  //   $("#sub_top_menu").hide();
+  // });
 
-  // $("#sub_top_menu").hover(function(){
-  //   $(".top_menu_link").mouseover(function(){
-  //     $("#sub_top_menu").show('slow');
-  //   });
-  // });
-  // $(".kwicks > li").each(function(){
-  //   $(this).hover(function(){
-  //     $(".sub_kwicks > li").hide();
-  //     $("li#sub_"+$(this).attr("id")).fadeIn();
-  //   });
-  // });
   //use jquery.ae.image.resize plugin to resize img
   $(".content_body img").aeImageResize({ height: 400, width: 500 }); //img show on main body
   $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
@@ -102,7 +94,7 @@ $(document).ready(function(){
      </div>
   <!-- end #header_logo --></div>
 
-   <div id="header_nav">
+   <div id="header_nav" style="height: 100px;">
        <%= render :partial => 'layouts/nav' %>
   <!-- end #header_nav --></div>
   

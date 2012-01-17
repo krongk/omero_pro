@@ -19,9 +19,9 @@
 	width: 210px;
 	height: 231px;
 	padding: 0 35px 0 0;
-	margin: -232px 0 0 0 !important;
+	margin: -231px 0 0 0 !important;
 	margin: -232px 0 0 0;
-	background-image: url("<%=asset_path "pic-no2.gif" %>");
+	background-image: url("<%=asset_path "pic-no2.jpg" %>");
 	background-repeat: no-repeat;
 	background-position: center center;
 }
@@ -71,6 +71,8 @@
 
 /*****nav*******/
 .omero #header_nav {
+	z-index: 10;
+	position: static;
 	padding: 0;
 	margin: 0;
 	text-align: center;
@@ -113,6 +115,7 @@
 	height: 80px;
 	width: 100%;
 	display: block;
+	position: static;
 }
 .sub_show{
 	display: block;
