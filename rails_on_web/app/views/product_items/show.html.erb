@@ -1,0 +1,18 @@
+<% title @product_item.title %>
+<% meta_keywords @product_item.title %>
+<% nav_bar [['首页', '/'],[@product_item.product_cate.name, '/product_cates/'+ @product_item.product_cate.id.to_s]] %>
+<% side_news @product_item.product_cate.name %>
+<% side_nav @product_item.product_cate.name, 'product' %>
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+  <div class="content">
+
+  <h2><%= @product_item.title %></h2>
+  <hr class="black"/>
+  <div>
+	<%= simple_format @product_item.description %>
+  </div>
+  </div>
+  <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

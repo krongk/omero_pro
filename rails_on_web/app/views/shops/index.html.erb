@@ -1,0 +1,47 @@
+<% title "门店查询" %>
+<% meta_keywords "欧美龙洗衣全国加盟店分布" %>
+<% meta_description "欧美龙洗衣全国加盟店分布"%>
+<% nav_bar [['首页', '/'],['全国加盟店查询', '/shops']] %>
+<% side_news "加盟" %>
+<% side_nav "加盟店分布", 'shop' %>
+
+<div class="corner_box">
+  <div id="search_shop">
+  <%# @location[:region].values.flatten[0] %>
+  <%=link_to "   点此直接进入#{@location[:country]},#{@location[:region].keys[0]} #{@location[:city].keys[0]}的分店", :controller => :shops, :action => :index, 
+  "shop[region_id]" =>@location[:region].values.flatten[0] , 
+  "shop[city_id]" =>@location[:city].values.flatten[0]
+   %>
+  <br/>
+  <ul>
+  <%= form_tag("/shops/", :method => "get") do %>
+    <%=render :partial => "/shops/dropdown_region_city_district", :locals =>{:style => 'ul'} %>
+    <li>
+      <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+    </li>
+  <% end %>
+  </ul>
+  </div>
+
+  <!--查询结果-->
+  <div style="float:left; width: 100%; display: block;">
+    <% if @shops.size > 0 %>
+      <ul>
+      <% @shops.each do |shop| %>
+        <li><%=link_to shop.short_address, shop_path(shop.id) %></li>
+      <% end %>
+      </ul>
+    <% else %>
+     <p> 请选择相关条件查询所有干洗店</p>
+    <% end %>
+  </div>
+
+  <% if @shops.size > 0 %>
+    <iframe src="/home/location?shop_ids=[<%=@shops.map(&:id).join(',')%>]" width="630" height="500px" scrolling="no"></iframe>
+  <% else %>
+    <iframe src="/home/location" width="630" height="500px" scrolling="no"></iframe>
+  <% end %> 
+</div>
+
+
+<%#image_tag asset_path("map.jpg"), :width=> "100%" %>

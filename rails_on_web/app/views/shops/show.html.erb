@@ -1,0 +1,52 @@
+<% title "门店查询" %>
+<% meta_keywords "欧美龙洗衣全国加盟店分布" %>
+<% meta_description "欧美龙洗衣全国加盟店分布"%>
+<% nav_bar [['首页', '/'],['全国加盟店查询', '/shops']] %>
+<% side_news "加盟" %>
+<% side_nav "加盟店分布", 'shop' %>
+
+<div class="content_body corner_box">
+  <h1><%= @shop.name %></h1>
+  <hr class="black"/>
+  <p>
+    <b>地址:</b>
+    <%= @shop.region.name %> <%= @shop.city.name %><%= @shop.district.name %> <%= @shop.short_address %>
+  </p>
+
+  <p>
+    <b>电话:</b>
+    <%= @shop.tel_phone %>
+  </p>
+
+  <p>
+    <b>手机:</b>
+    <%= @shop.mobile_phone %>
+  </p>
+
+  <p>
+    <b>传真:</b>
+    <%= @shop.fax %>
+  </p>
+
+  <p>
+    <b>Email:</b>
+    <%= @shop.email %>
+  </p>
+
+  <p>
+    <b>QQ:</b>
+    <%= @shop.qq %>
+  </p>
+
+  <p>
+    <b>公交路线:</b>
+    <%= @shop.bus_list %>
+  </p>
+
+  <p>
+    <b>分店描述:</b>
+    <%= simple_format @shop.description %>
+  </p>
+
+  <iframe src="/home/location?shop_ids=<%= [@shop.id] %>" width="640px" height="400px" scrolling="no"></iframe>
+</div>

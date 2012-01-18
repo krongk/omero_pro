@@ -1,0 +1,99 @@
+<% title "产品中心" %>
+<% meta_keywords "欧美龙洗衣产品中心" %>
+<% meta_description "欧美龙洗衣产品中心"%>
+<% nav_bar [['首页', '/'],['产品中心', '/product_cates']] %>
+<% side_news "产品中心" %>
+<% side_nav "产品中心", 'product'%>
+
+<%content_for :menu_side do %>
+  <% @product_cates.each do |product_cate| %>
+    <tr>
+      <td><%=link_to "#{product_cate.name}   (#{product_cate.product_items.size}件)", product_cate_path(product_cate)  %></td>
+    </tr>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+// $(document).ready(function(){
+//    //图片大图tips预览效果
+//    $('.tip').mouseover(function(){
+//       var $tip=$('<div id="tip"><div class="t_box"><div><s><i></i></s><img src="'+this.src+'" width="400px"/></div></div></div>');
+//       $('body').append($tip);
+//       $('#tip').show('fast');
+//    }).mouseout(function(){
+//       $('#tip').remove();
+//    }).mousemove(function(e){
+//       $('#tip').css({"top":(e.pageY-60)+"px","left":(e.pageX+30)+"px"})
+//    })
+
+//    //将图片设置为背景，以得到边框圆滑的效果
+//   $("#demo img").load(function() {
+//     $(this).wrap(function(){
+//       return '<span class="image-wrap ' + $(this).attr('class') + '" style="position:relative; display:inline-block; background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
+//     });
+//     $(this).css("opacity","0");
+//   });
+// })
+</script>
+
+<% recent_product_items = ProductCate.recent(24) %>
+<table width="98%" border="0" cellspacing="0" cellpadding="0" background-color = "#fff">
+ <tr>
+   <td width="<%= is_ie? ? '180' : '350'%>" align="left" valign="top">
+<div class="product_list">
+    <h3>+ 洗涤产品列表</h3>
+    <ul>
+    <% recent_product_items.each_with_index do |item, index|%>
+      <% break if index > 19 %>
+      <li class="item_li">
+        <%= link_to image_tag((item.image_path || asset_path("product.jpg")), :class => 'item_img'), product_item_path(item.id)%>
+        
+      </li>
+    <% end %>
+    </ul>
+    <br/><br/>
+</div>    
+   </td>
+   <td width="5">&nbsp;</td>
+   <td align="left" valign="top">
+
+<div id="product_main_show" class="corner_box">
+  <h1>产品中心</h1>
+  <hr class="black"/>
+  <% (0..1).each_with_index do |index| %>
+    <div class="item">
+      <div class="main_product_image" style="width:460px; height: 280px;">
+        <%= link_to image_tag((recent_product_items[index].image_path || asset_path("product.jpg")), :width => "460px"), product_item_path(recent_product_items[index]) %></div>
+      <h4>>><%= link_to recent_product_items[index].title, product_item_path(recent_product_items[index]) %></h4>
+      <div clas="description">
+        <%=recent_product_items[index].description.gsub(/<([^>]+)>/, '').html_safe.truncate(120) %>
+      </div>
+    </div>
+  <% end %>
+
+  <table width="96%">
+  <tr><td width="50%" align="left" valign="top">
+    <div class="main_product_image"  style="width:200px; height: 120px; margin-right: 10px;">
+      <%=link_to image_tag((recent_product_items[2].image_path || asset_path("product.jpg")), :width => "200px"), product_item_path(recent_product_items[2]) %>
+    </div>
+  </td><td align="left" valign="top">
+    <div class="main_product_image" style="width:200px; height: 120px;">
+      <%=link_to image_tag((recent_product_items[3].image_path || asset_path("product.jpg")), :width => "200px"), product_item_path(recent_product_items[3]) %>
+    </div>
+  </td></tr>
+  <tr><td>
+     <h4>>><%=link_to recent_product_items[2].title, product_item_path(recent_product_items[2])%></h4>
+    </td><td>
+     <h4>>><%=link_to recent_product_items[3].title, product_item_path(recent_product_items[3])%></h4>
+  </td></tr>
+  <tr><td>
+      <%= strip_tags(recent_product_items[2].description.gsub(/&nbsp;/, '')).truncate(120) %>
+    </td><td>
+      <%= strip_tags(recent_product_items[3].description.gsub(/&nbsp;/, '')).truncate(120) %>
+  </td></tr>
+
+  </table>
+</div>
+   </td>
+ </tr>
+</table>

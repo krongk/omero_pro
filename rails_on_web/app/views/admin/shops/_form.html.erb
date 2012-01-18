@@ -1,0 +1,68 @@
+<%= stylesheet_link_tag    "active_admin" %>
+<%= form_for(@shop, :class => "formtastic user", :id => "shop_new") do |f| %>
+  <% if @shop.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@shop.errors.count, "error") %> prohibited this shop from being saved:</h2>
+
+      <ul>
+      <% @shop.errors.full_messages.each do |msg| %>
+        <li class="string optional"><%= msg %></li>
+      <% end %>
+      </ul>
+    </li>
+  <% end %>
+<fieldset class="inputs">
+<ol><li class="string optional">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </li>
+  <li class="string optional">
+    <label for="shop_region">选择区域</label>
+<table width="500px"><tr>
+    <%=render :partial => "/shops/dropdown_region_city_district" %>
+</tr></table>
+  </li>
+  <li class="string optional">
+    <%= f.label :short_address %>
+    <%= f.text_field :short_address %>
+  </li>
+  <li class="string optional">
+    <%= f.label :point %>
+    <%= f.text_field :point, :value => @shop.point || '通过百度坐标拾取器获得，如：104.083748,30.614684' %>
+  </li>
+  <li class="string optional">
+    <%= f.label :tel_phone %>
+    <%= f.text_field :tel_phone %>
+  </li>
+  <li class="string optional">
+    <%= f.label :mobile_phone %>
+    <%= f.text_field :mobile_phone %>
+  </li>
+  <li class="string optional">
+    <%= f.label :fax %>
+    <%= f.text_field :fax %>
+  </li>
+  <li class="string optional">
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </li>
+  <li class="string optional">
+    <%= f.label :qq %>
+    <%= f.text_field :qq %>
+  </li>
+  <li class="string optional">
+    <%= f.label :bus_list %>
+    <%= f.text_field :bus_list %>
+  </li>
+  <li class="string optional">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </li>
+</ol></<fieldset>
+<fieldset class="buttons">
+  <ol>
+    <li class="commit"><%= f.submit %></li>
+     <li class="cancel"><%=link_to "取消", admin_shops_path %></li>
+  </ol>
+</fieldset>
+<% end %>

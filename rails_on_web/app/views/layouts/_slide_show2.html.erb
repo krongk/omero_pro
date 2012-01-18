@@ -1,0 +1,105 @@
+<!-- see: http://citrus.github.com/jquery.sliders/-->
+
+
+<style type="text/css">
+      .container {
+        width: 600px;
+        margin: 15px auto;
+      }
+      #slideshow {
+        width: 600px;
+        height: 385px;
+
+      }
+      #slideshow img {
+        display: block;
+        width: 600px;
+        height: 385px;
+      }      
+      .slideshow-controls {
+        margin: 0.5em 0;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #333;
+      }
+      .slideshow-controls a,
+      .slideshow-controls span {
+        display: inline-block;
+        padding: 3px 5px;
+        font-size: 12px;
+        background-color: #333;
+      }
+      .slideshow-controls span {
+        float: right;
+      }
+      .slideshow-controls a:hover {
+        background-color: #efefef;
+        color: #111;
+      }
+      .slideshow-controls a.selected {
+        color: #000;
+      }
+    </style>
+    
+    <script type="text/javascript">
+    
+      $(document).ready(function(evt) {
+        
+        $('#slideshow').sliders({ delay: 2500, speed: 500 });
+        $('a.slideshow-slide:first').addClass('selected')
+        
+        function update(index, status) {
+          var text = status == "paused" ? "play" : "pause";
+          $('#play-pause').removeClass('play pause').addClass(text).text(text);
+          $('#status i').text(status + ', slide: ' + (index + 1));
+        }
+                
+        $('.slideshow-controls a.slideshow-slide').click(function(evt) {
+          evt.preventDefault();
+          var i = parseInt($(this).attr('href').replace('#', '')) - 1;
+          $('#slideshow').sliders('goto', i);
+        });
+        
+        $('#slideshow-previous, #slideshow-next').click(function(evt) {
+          evt.preventDefault();
+          $('#slideshow').sliders($(this).attr('href').replace('#', ''));
+        });
+      
+        $('#play-pause').click(function(evt) {
+          evt.preventDefault();
+          var cmd = this.className;
+          $('#slideshow').sliders(cmd)
+        });
+                
+        $('#slideshow').change(function(evt, index, status) {
+          $('a.slideshow-slide').removeClass('selected').filter(function(i, element) {
+            return index == i;
+          }).addClass('selected');
+          update(index, status);
+        });
+        
+        $('#slideshow').bind('play', function(evt, index, status) {
+          update(index, status);
+        });
+        
+        $('#slideshow').bind('pause', function(evt, index, status) {
+          update(index, status);
+        });
+        
+      });
+
+    </script>
+
+    <div class="container">
+      <div id='slideshow'>
+        <% img_arr.each do |img| %>
+          <%=image_tag asset_path("slider/" + img )%>
+        <% end %>
+      </div>
+
+      <div class='slideshow-controls'>
+       <% img_arr.each do |img| %>
+          <a href="#1" class="slideshow-slide"><%=image_tag asset_path("slider/" + img ), :width => "60px" %></a>
+        <% end %>
+       
+      </div>  
+    </div>   

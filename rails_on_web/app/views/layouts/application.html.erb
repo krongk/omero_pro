@@ -1,0 +1,194 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="zh-cn" />
+<meta name="robots" content="all" />
+<meta name="author" content="omero" />
+<meta name="Copyright" content="Omero Lcd, All Rights Reserved." />
+<title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
+<meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
+<meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
+
+
+<%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "application" %>
+
+<!--hack for IE 7-8-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!--[if IE 7]>
+<link href="/yaml/patches/ie7.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+<%= csrf_meta_tags %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#top_banner_flip").mouseover(function(){
+    $("#top_banner").slideToggle("slow");
+  });
+
+  //corner
+  //$("div.corner_box").corner(); !not valid in IE
+  $("div.side_box").corner();
+  //$("div.black_side_box").corner();
+
+  //slide show 
+  $('#slideshow1').sliders({ delay: 2500, speed: 500 });
+  $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
+
+ //一级菜单不kwicks
+  $(".top_menu_link").hover(function(){
+    $("#header_nav").css("height", '120px');
+    $(".sub_kwick").hide();
+    $("#sub_top_menu").slideDown();
+    $("#sub_" + $(this).attr("id")).show();
+  });
+
+  // $(".top_menu_link").mouseover(function(){
+  //   $("#header_nav").height("500");
+  //   // $("#sub_top_menu").slideDown();
+  //   // $(".sub_kwick").hide();
+  //   //  $("#sub_" + $(this).attr("id")).slideDown();
+  //   //$("#sub_top_menu").slideToggle("slow");
+  // });
+  $("#header_nav").mousemove(function(){
+    $("#header_nav").css("height", '120px');
+    $("#sub_top_menu").show();
+  });
+  // $("#header_nav").mouseout(function(){
+  //   $("#sub_top_menu").hide();
+  //   $("#header_nav").css("height", '42px');
+  // });
+  $("#sub_top_menu").mouseout(function(){
+    $("#sub_top_menu").hide();
+    $("#header_nav").css("height", '42px');
+  });
+  //use jquery.ae.image.resize plugin to resize img
+  $(".content_body img").aeImageResize({ height: 400, width: 500 }); //img show on main body
+  $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
+  $(".product_list_all img").aeImageResize({ height: 100, width: 100 }); //product image
+  $("#page").aeImageResize({ height: 400, width: 500 });
+  //
+});
+</script>
+</head> 
+
+<body class="omero">
+<div id="container">
+  <div id="header_banner">
+    <div id="top_banner" style="height:220px; display:none; overflow:hidden;">
+      <%= play_flash asset_path("flash/top_banner1.swf"), :width => '980', :height => '249' %>
+    </div>
+    <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
+  <!-- end #top_banner --></div>
+
+<div style="background-color: #494949;" class="ie7_bad">
+  <div id="header_logo">
+     <div class="logo" valign="bottom"><%=image_tag asset_path("logo.png"), :width => "399", :height => "90"%></div>
+       <div class="form_logo">
+         <table width="95%" border="0" cellspacing="0" cellpadding="0">
+           <tr>
+             <td height="25"><span style="font-size:14px; color:#000;"><a href="/" style="font-size:14px; color:#222;">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/home/site_map" style="font-size:14px; color:#222;">网站地图</a></span></td>
+           </tr>
+           <tr>
+             <td align="right" valign="top" height="25">
+             <form id="form_search" name="form1" method="get" action="/news_items">
+               <table><tr><td>
+                 <input type="text" name="q" id="q" accesskey="a" size="24" height="30" style="padding: 2px 0;" />
+                 </td><td>
+                   <input type="submit" name="Submit" id="button" value="GO" />
+                 </td></tr></table>
+             </form>             </td>
+           </tr>
+           <tr>
+             <td align="right" valign="bottom" height="30"><div class="login_reg"><a href="/">会员登录</a>&nbsp;&nbsp;<a href="/">我要注册</a>&nbsp;&nbsp;<a href="/pages/about:address">联系我们</a></div></td>
+           </tr>
+         </table>
+     </div>
+  <!-- end #header_logo --></div>
+
+   <div id="header_nav">
+       <%= render :partial => 'layouts/nav' %>
+  <!-- end #header_nav --></div>
+ </div>
+  
+  <%= yield :banner %>
+  
+  <div id="mainContent">
+   <table width="100%" height="600" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="690px" align="left" valign="top">
+     <%= yield :nav_bar %>
+     <%= yield %>
+    </td>
+    <td width="10px" class="right_border">&nbsp;</td>
+    <td align="right" valign="top" width="270">
+      <div id="sidebar">
+         <% if request[:controller] == 'pages' && request[:action] == 'index' %>
+           <%= yield :side_bar %><!--for index page-->
+         <% else %>
+           <div style="margin:0; padding:0; text-align: right;">
+             <%= play_flash asset_path("flash/icon.swf"), :width => '265', :height => '210'%>
+           </div>
+           <div class="corner_white">
+             <%=image_tag asset_path("3_07.jpg"), :width => "250", :height => "14"%>
+              <div class="bg_white">
+               <%= yield :side_nav %><!--for detail page-->
+               <%# render :partial => 'layouts/search_form', :locals => {:css_class => "search1"} %>
+               <%= yield :side_news %><!--for detail page -->
+               <!-- end .bg_white --></div>
+               <%=image_tag asset_path("3_11.jpg"), :width => "250", :height => "14"%>
+          <!-- end .corner_white --></div>
+
+             <div class="side_box">
+              <div id='slideshow1'>
+                <%=image_tag asset_path("slide_b_04.jpg")%>
+                <%=image_tag asset_path("slide_b_02.jpg")%>
+                <%=image_tag asset_path("slide_b_03.jpg")%>
+              </div>
+            </div>
+
+             <div class="side_box">
+              <div id='slideshow2'>
+                <%=image_tag asset_path("side_banner0.jpg")%>
+                <%=image_tag asset_path("side_banner1.jpg")%>
+                <%=image_tag asset_path("side_banner2.jpg")%>
+                <%=image_tag asset_path("side_banner3.jpg")%>
+              </div>
+            </div>
+       
+            <div class="side_box">
+              <table>
+              <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
+              <tr><td>
+              <%= form_tag("/shops/", :method => "get") do %>
+                <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+                <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
+              <% end %>
+              </td><td>
+                <%= image_tag("map_search2.jpg", :width => '140') %>
+              </td></tr>
+              </table>
+            </div>
+            <div class="side_box">
+              <a href="#"><%= image_tag("kefu.gif", :width => '240') %></a>
+            </div>
+          </div>
+         <% end %>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top">&nbsp;</td>
+    <td class="right_border">&nbsp;</td>
+    <td align="right" valign="top">&nbsp;</td>
+  </tr>
+   </table>
+
+  <!-- end #mainContent --></div>
+  <div id="footer">
+    <%= render :partial => 'layouts/site_map' %>
+  <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+
+</html>

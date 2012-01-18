@@ -1,0 +1,31 @@
+<% title @news_cate.name %>
+<% meta_keywords @news_cate.name %>
+<% nav_bar [['首页', '/'],['新闻中心', '/news_items'],[@news_cate.name, '/news_cates/'+ @news_cate.id.to_s]] %>
+<% side_news @news_cate.name %>
+<% side_nav @news_cate.name, 'news' %>
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+  <div class="content">
+    <h1>
+      <%= @news_cate.name %>
+    </h1>
+
+    <div class="news_list">
+        <% @news_items.each do |news_item| %>
+          <h3 style="margin:0; padding: 0;"><%= link_to news_item.title, news_item_path(news_item), :style => "color: #cc0000;" %></h3>
+          <div style="margin:0; padding: 0 0 20px 12px;">
+            <%= strip_tags(news_item.body.gsub(/&nbsp;/, '')).truncate(120) %>
+            <%= link_to ">>>查看详细", news_item_path(news_item) %>
+          </div>
+        <% end %>
+    </div>
+    <br />
+    
+     <div class='apple_pagination'>
+      <%= will_paginate @news_items, :next_label => "下一页", :prev_label => "上一页" %>
+    </div>
+  </div>
+   <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>
+

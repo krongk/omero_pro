@@ -1,0 +1,27 @@
+<% case params[:id].to_i %>
+<% when 1 %>
+ <%= play_flash("http://player.ku6.com/refer/flGJp36zJPvv3kTz/v.swf", :width=> '620', :height => '400') %>
+<% when 2 %>
+ tv2
+<% else %>
+<!-- JoomlaWorks "AllVideos" Plugin (v3.3) starts here -->
+<!-- http://www.drycleanxpress.com/dry-cleaning/how-dry-cleaning-works.html-->
+<span class="avPlayerContainer">
+	<span style="width:600px;" class="avPlayerSubContainer">
+		<span id="AVPlayerID_1d08ad60" class="avPlayerBlock" style="padding-bottom:8px;">
+		<object type="application/x-shockwave-flash" style="width:600px;height:400px;" data="http://www.drycleanxpress.com/plugins/content/jw_allvideos/includes/players/mediaplayer/player.swf" title="JoomlaWorks AllVideos Player">
+			<param name="movie" value="http://www.drycleanxpress.com/plugins/content/jw_allvideos/includes/players/mediaplayer/player.swf" />
+			<param name="quality" value="high" />
+			<param name="wmode" value="transparent" />
+			<param name="bgcolor" value="#010101" />
+			<param name="autoplay" value="false" />
+			<param name="allowfullscreen" value="true" />
+			<param name="allowscriptaccess" value="always" />
+			<param name="flashvars" value="file=http://www.drycleanxpress.com/images/stories/videos/DCX-How-It-Works.flv&amp;image=http://www.drycleanxpress.com/images/stories/videos/DCX-How-It-Works.jpg&amp;autostart=false&amp;fullscreen=true" />
+		</object>
+		</span>				
+	</span>
+</span>
+<!-- JoomlaWorks "AllVideos" Plugin (v3.3) ends here -->
+
+<% end %>

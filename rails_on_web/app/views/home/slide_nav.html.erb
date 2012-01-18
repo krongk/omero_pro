@@ -1,0 +1,138 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<script>
+
+ var counts = 4;
+ //´óÍ¼//
+ img1 = new Image();
+ img1.src = '<%= asset_path("slide_b_01.jpg") %>';
+ img2 = new Image();
+ img2.src = '<%= asset_path("slide_b_02.jpg") %>';
+ img4 = new Image();
+ img4.src = '<%= asset_path("slide_b_03.jpg") %>';
+ img3 = new Image();
+ img3.src = '<%= asset_path("slide_b_04.jpg") %>';
+
+ var smallImg = new Array();
+ //Ð¡Í¼
+ smallImg[0] = '<%= asset_path("slide_b_01.jpg") %>';
+ smallImg[1] = '<%= asset_path("slide_b_02.jpg") %>';
+ smallImg[2] = '<%= asset_path("slide_b_03.jpg") %>';
+ smallImg[3] = '<%= asset_path("slide_b_04.jpg") %>';
+
+ //Á´½ÓµØÖ·
+ url1 = new Image();
+ url1.src = 'http://www.omero-china.com';
+ url2 = new Image();
+ url2.src = 'http://www.omero-china.com';
+ url3 = new Image();
+ url3.src = 'http://www.omero-china.com';
+  url4 = new Image();
+ url4.src = 'http://www.omero-china.com';
+ //altÖµ
+ alt1 = new Image();
+ alt1.alt = '';
+ alt2 = new Image();
+ alt2.alt = '';
+ alt3 = new Image();
+ alt3.alt = '';
+  alt4 = new Image();
+ alt4.alt = '';
+ 
+ var nn = 1;
+ var key = 0;
+ function change_img() { 
+  if (key == 0) {
+   key = 1;
+  } else if (document.all) {
+   document.getElementById("pic").filters[0].Apply();
+   document.getElementById("pic").filters[0].Play(duration = 2);
+  }
+  eval('document.getElementById("pic").src=img' + nn + '.src');
+  eval('document.getElementById("url").href=url' + nn + '.src');
+  eval('document.getElementById("pic").alt=alt' + nn + '.alt');
+  if (nn == 1) {
+   document.getElementById("url").target = "_blank";
+   document.getElementById("url").style.cursor = "pointer";
+  } else {
+   document.getElementById("url").target = "_blank"
+   document.getElementById("url").style.cursor = "pointer"
+  }
+  
+  for ( var i = 1; i <= counts; i++) {
+   document.getElementById("xxjdjj" + i).className = 'axx';
+  }
+  document.getElementById("xxjdjj" + nn).className = 'bxx';
+  nn++;
+  if (nn > counts) {
+   nn = 1;
+  }
+  tt = setTimeout('change_img()', 7000);
+ }
+ function changeimg(n) {
+  nn = n;
+  window.clearInterval(tt);
+  change_img();
+ }
+ function ImageShow() {
+  document.write('<div class="picshow_main">');
+  document.write('<div><a id="url"><img id="pic" class="imgbig" /></a></div>');
+  document.write('<div class="picshow_change">');
+  for ( var i = 0; i < counts; i++) {
+   document.write('<a href="javascript:changeimg(' + (i + 1)
+     + ');" id="xxjdjj' + (i + 1)
+     + '" class="axx" target="_self"><img src="' + smallImg[i]
+     + '"></a>');
+  }
+  document.write('</div></div>');
+  change_img();
+ } 
+ </script>
+<style>
+.picshow {
+    Z-INDEX: 444; WIDTH: 260px; POSITION: relative; HEIGHT: 206px; BACKGROUND-COLOR: #e4f2fa
+}
+.picshow_main {
+    WIDTH: 260px; POSITION: relative; HEIGHT: 206px
+}
+.picshow_main .imgbig {
+    FILTER: progid:dximagetransform.microsoft.wipe(gradientsize=1.0,wipestyle=4, motion=forward); WIDTH: 260px; HEIGHT: 206px
+}
+.picshow_change {
+    RIGHT: 0px; LEFT: 160px; BOTTOM: 0px; POSITION: absolute; HEIGHT: 30px; TEXT-ALIGN: left
+}
+.picshow_change IMG {
+    WIDTH: 15px; HEIGHT: 15px
+}
+.picshow_change A {
+    BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; DISPLAY: block; FLOAT: left; BORDER-LEFT: 1px solid; MARGIN-RIGHT: 5px; BORDER-BOTTOM: 1px solid; -display: inline
+}
+A.axx {
+    BORDER-LEFT-COLOR: #555; BORDER-BOTTOM-COLOR: #555; BORDER-TOP-COLOR: #555; BORDER-RIGHT-COLOR: #555
+}
+A.axx:hover {
+    BORDER-LEFT-COLOR: #000; BORDER-BOTTOM-COLOR: #000; BORDER-TOP-COLOR: #000; BORDER-RIGHT-COLOR: #000
+}
+A.axx IMG {
+    FILTER: alpha(opacity=40); opacity: 0.4; -moz-opacity: 0.4
+}
+A.axx:hover IMG {
+    FILTER: alpha(opacity=100); opacity: 1.0; -moz-opacity: 1.0
+}
+A.bxx {
+    BORDER-LEFT-COLOR: #000; BORDER-BOTTOM-COLOR: #000; BORDER-TOP-COLOR: #000; BORDER-RIGHT-COLOR: #000
+}
+A.bxx:hover {
+    BORDER-LEFT-COLOR: #000; BORDER-BOTTOM-COLOR: #000; BORDER-TOP-COLOR: #000; BORDER-RIGHT-COLOR: #000
+}
+IMG {
+    BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px
+}
+</style>
+</head>
+<body marginwidth="0" marginheight="0">
+
+<div id="cobb_top">
+   <script language="javascript" type="text/javascript">ImageShow();</script>
+</div>
+</body></html>

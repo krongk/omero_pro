@@ -1,0 +1,30 @@
+<% title '新闻中心' %>
+<% meta_keywords '新闻中心' %>
+<% nav_bar [['首页', '/'],['新闻中心', '/news_cates']]%>
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+  <div class="content">
+	<h1>新闻中心</h1>
+	<br/>
+	<hr class="black"/>
+
+	<div class="news_list">
+	<% @news_cates.each do |news_cate| %>
+	  <ul>
+	    <li><b><%= link_to news_cate.name, news_cate_path(news_cate) %></b>
+	      <ul style="margin:0; padding: 10px;">
+	        <% NewsItem.recent(5, news_cate.id).each do |item| %>
+	          <li><%= link_to item.title, news_item_path(item)%></li>
+	        <% end %>
+	      </ul>
+	    </li>
+	  </ul>
+	<% end %>
+	</div>
+
+	<hr class="black"/>
+	<%= link_to '返回', news_items_path %>
+ </div>
+ <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

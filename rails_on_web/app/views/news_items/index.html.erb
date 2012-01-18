@@ -1,0 +1,37 @@
+<% title "新闻中心" %>
+<% meta_keywords "欧美龙洗衣新闻中心" %>
+<% meta_description "欧美龙洗衣新闻中心"%>
+<% nav_bar [['首页', '/'],['新闻中心', '/news_items']] %>
+<% side_news "新闻" %>
+<% side_nav "新闻", 'news' %>
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+
+  <div class="content">
+
+   <% if params[:q] %>
+    <div style="background-color: #e6ebef; padding: 4px; border: solid 1px #ddd;">
+      搜索关键词<span style="color:#cc0000;"><%=params[:q] %></span>的结果显示如下：
+    </div>
+  <% end %>
+  
+    <ul>
+    <% @news_items.each do |news_item| %>
+      <li>
+       <h2><%= link_to news_item.title, news_item_path(news_item), :class=> 'news_title' %></h2>
+      
+      <div class="news_content">
+        <%= strip_tags(news_item.body.gsub(/&nbsp;/, '')).truncate(120) %>
+        <%= link_to ">>>查看详情", news_item_path(news_item)%>
+      </div>
+      </li>
+    <% end %>
+    </ul>
+
+    <div class='apple_pagination'>
+      <%= will_paginate :next_label => "下一页", :prev_label => "上一页" %>
+    </div>
+  </div>
+  <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>
