@@ -1,0 +1,19 @@
+.omero #header_logo {
+    padding: 120px 0;
+}
+.omero #header_nav {
+    margin: 0;
+    padding: 40px 0 0 0;
+    background-position: 0 40px;
+    position: static;
+    border: solid 1px #ffcc00;
+}
+.ie7_bad{
+    clear: both;
+}
+#top_manu a{
+    color: #fff;
+    padding: 10px 2px;
+    margin: 0;
+    display: block;
+}
