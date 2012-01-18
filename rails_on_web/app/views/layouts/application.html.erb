@@ -9,12 +9,15 @@
 <title>欧美龙 - <%= yield(:title) || '最专业的洗涤连锁加盟服务商' %></title>
 <meta name="keywords" content="<%= yield(:meta_keywords) || '加盟,创业,洗衣加盟店,创业加盟,连锁,连锁加盟,招商,干洗,干洗机,干洗店设备,洗衣店设备,干洗店加盟连锁,洗衣店加盟连锁'%>" />
 <meta name="description" content="<%= yield(:meta_description) || '欧美龙洗衣连锁为国际品牌,继承国际先进干洗设备和管理模式,成为目前中国最高端的干洗连锁加盟集团企业！全国加盟分店覆盖23个省市，覆盖互联网加盟干洗连锁创业项目人群的80%'%>" />
-<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+
 
 <%= stylesheet_link_tag "application" %>
 <%= javascript_include_tag "application" %>
-<!--[if lte IE 7]>
-<link href="yaml/patches/ie6.css" rel="stylesheet" type="text/css" />
+
+<!--hack for IE 7-8-->
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!--[if IE 7]>
+<link href="/yaml/patches/ie7.css" rel="stylesheet" type="text/css" />
 <![endif]-->
 <%= csrf_meta_tags %>
 <script type="text/javascript">
@@ -33,9 +36,13 @@ $(document).ready(function(){
   $('#slideshow2').sliders({ delay: 4500, speed: 500,ease: 'swing' });
 
  //一级菜单不kwicks
-  $("#top_manu a").hover(function(){
-    $("#header_nav").animate({fontsize: "2em"}, "slow")
+  $(".top_menu_link").hover(function(){
+    $("#header_nav").css("height", '120px');
+    $(".sub_kwick").hide();
+    $("#sub_top_menu").slideDown();
+    $("#sub_" + $(this).attr("id")).show();
   });
+
   // $(".top_menu_link").mouseover(function(){
   //   $("#header_nav").height("500");
   //   // $("#sub_top_menu").slideDown();
@@ -43,14 +50,18 @@ $(document).ready(function(){
   //   //  $("#sub_" + $(this).attr("id")).slideDown();
   //   //$("#sub_top_menu").slideToggle("slow");
   // });
-  // $("#header_nav").mousemove(function(){
-  //   $("#sub_top_menu").show();
-  // });
+  $("#header_nav").mousemove(function(){
+    $("#header_nav").css("height", '120px');
+    $("#sub_top_menu").show();
+  });
   // $("#header_nav").mouseout(function(){
-  //   //$("#header_nav").height("42");
   //   $("#sub_top_menu").hide();
+  //   $("#header_nav").css("height", '42px');
   // });
-
+  $("#sub_top_menu").mouseout(function(){
+    $("#sub_top_menu").hide();
+    $("#header_nav").css("height", '42px');
+  });
   //use jquery.ae.image.resize plugin to resize img
   $(".content_body img").aeImageResize({ height: 400, width: 500 }); //img show on main body
   $(".item_li img").aeImageResize({ height: 100, width: 100 }); //product image
@@ -70,6 +81,7 @@ $(document).ready(function(){
     <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
   <!-- end #top_banner --></div>
 
+<div style="background-color: #494949;" class="ie7_bad">
   <div id="header_logo">
      <div class="logo" valign="bottom"><%=image_tag asset_path("logo.png"), :width => "399", :height => "90"%></div>
        <div class="form_logo">
@@ -94,9 +106,10 @@ $(document).ready(function(){
      </div>
   <!-- end #header_logo --></div>
 
-   <div id="header_nav" style="height: 100px;">
+   <div id="header_nav">
        <%= render :partial => 'layouts/nav' %>
   <!-- end #header_nav --></div>
+ </div>
   
   <%= yield :banner %>
   

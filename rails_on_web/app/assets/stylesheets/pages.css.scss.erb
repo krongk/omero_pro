@@ -29,7 +29,6 @@
 .omero #header_logo {
 	margin: 0;
 	padding: 70px 0 0 0;
-	height: 160px;
 	background-color: #494949;
 }
 #header_logo .logo {
@@ -50,6 +49,7 @@
 	margin-top: -10px !important;
 	margin-top: 0px;
 	margin-right: 8px;
+	clear: both;
 }
 
 .login_reg a {
@@ -72,14 +72,15 @@
 /*****nav*******/
 .omero #header_nav {
 	z-index: 10;
-	position: static;
 	padding: 0;
-	margin: 0;
+	margin: -60px 0 0 0 !important;
+	margin: -20px 0 0 0;
 	text-align: center;
-	background-color: #cc0000;
+	background-color: #494949;
 	background-image: url("<%=asset_path "1_02.jpg" %>");
 	background-repeat: repeat-x;
 	height: 42px;
+	clear: both;
 }
 #top_manu{
 	margin: 0 auto;
@@ -96,11 +97,11 @@
 }
 #top_manu a{
  	color: #fff;
- 	padding: 8px 2px;
+ 	padding: 10px 2px;
 	display: block;
 }
 #top_manu a:hover{
-	padding: 8px 2px;
+	padding: 10px 2px;
 	display: block;
 	background-image: url("<%=asset_path "current.jpg" %>");
 	background-repeat: no-repeat;
@@ -109,28 +110,31 @@
 }
 
 #sub_top_menu {
+	z-index: 100;
 	background-image: url("<%=asset_path "1_0.jpg" %>");
 	background-repeat: no-repeat;
 	background-position: center center;
 	height: 80px;
 	width: 100%;
-	display: block;
-	position: static;
+	margin: 0;
+	padding: 0;
 }
 .sub_show{
 	display: block;
 }
 .sub_top_menu_ul{
-	margin-top: 20px;
+	margin: 0;
+	padding: 20px 0 0 0;
 }
 .sub_kwick{ display: none;}
 #sub_top_menu a{
 	color: #333;
 }
 .sub_kwick a{
+  margin: 20px 0 0 0;
+  padding: 12px;
   color: #333;
   font-size: 16px;
-  padding: 12px;
 }
 
 /*****nav*******/
@@ -145,14 +149,28 @@
 	margin: 0;
 	padding: 0;
 }
-#index_banner .big_font{
-	font-size: 48px;
-	font-weight: 700;
-	letter-spacing: 0.06em !important;
-	letter-spacing: 0.3em;
+#index_banner .big_font a{
+	background-image: url("<%=asset_path "pic2.gif" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 115px;
+	display: block;
 	padding: 10px;
-	margin: 50px 0 10px 0;
+	margin: 40px 0 20px 0;
+	padding: 0;
+}
+#index_banner .big_font a:hover{
+	background-image: url("<%=asset_path "pic1.gif" %>");
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 100%;
+	height: 115px;
+	display: block;
+	margin: 40px 0 20px 0;
+	padding: 0;
 }  
+
 #index_banner  .small_font{
 	font-size: 28px;
 	font-weight: 500;

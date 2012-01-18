@@ -1,17 +1,70 @@
-<div id="top_manu"><center>
-  <table width="80%" border="0" cellspacing="0" cellpadding="0" align="center" valign="top">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="http://localhost:3300/assets/sites.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="http://localhost:3300/assets/pages.css" media="screen" rel="stylesheet" type="text/css" />
+<script src="http://localhost:3300/assets/jquery.js" type="text/javascript"></script>
+<script src="http://localhost:3300/assets/jquery_ujs.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  
+ //一级菜单不kwicks
+  $(".top_menu_link").mouseover(function(){
+    //$("#header_nav").height("10");
+    $("#sub_top_menu").slideDown();
+    $(".sub_kwick").hide();
+     $("#sub_" + $(this).attr("id")).slideDown();
+    //$("#sub_top_menu").slideToggle("slow");
+  });
+  $("#header_nav").mousemove(function(){
+    $("#sub_top_menu").show();
+  });
+  $("#header_nav").mouseout(function(){
+    //$("#header_nav").height("42");
+    $("#sub_top_menu").hide();
+  });
+
+  // $("#sub_top_menu").hover(function(){
+  //   $(".top_menu_link").mouseover(function(){
+  //     $("#sub_top_menu").show('slow');
+  //   });
+  // });
+  // $(".kwicks > li").each(function(){
+  //   $(this).hover(function(){
+  //     $(".sub_kwicks > li").hide();
+  //     $("li#sub_"+$(this).attr("id")).fadeIn();
+  //   });
+  // });
+});
+</script>
+<style type="text/css">
+#body {
+	background-color: #CFF;
+}
+#header_nav {
+	background-color: #666;
+}
+</style>
+</head>
+
+<body>
+ <div id="header_nav">
+       <div id="top_manu"><center>
+  <table width="80%" border="1" cellspacing="0" cellpadding="0" align="center" valign="top">
     <tr>
       <td>&nbsp;</td>
       <td align="center"><a class="top_menu_link" id="top_menu_1" href="/pages">关于欧美龙</a></td>
-      <td valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td valign="bottom"><img alt="1_05" src="/assets/1_05.jpg" /></td>
       <td align="center"><a class="top_menu_link" id="top_menu_2" href="/pages/join">加盟政策</a></td>
-      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td  valign="bottom"><img alt="1_05" src="/assets/1_05.jpg" /></td>
       <td align="center"><a class="top_menu_link" id="top_menu_3" href="/pages/ensure">保障体系</a></td>
-      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td  valign="bottom"><img alt="1_05" src="/assets/1_05.jpg" /></td>
       <td align="center"><a class="top_menu_link" id="top_menu_4" href="/shops">加盟店分布</a></td>
-      <td valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td valign="bottom"><img alt="1_05" src="/assets/1_05.jpg" /></td>
       <td align="center"><a class="top_menu_link" id="top_menu_5" href="/pages/product">产品中心</a></td>
-      <td  valign="bottom"><%=image_tag asset_path("1_05.jpg") %></td>
+      <td  valign="bottom"><img alt="1_05" src="/assets/1_05.jpg" /></td>
       <td align="center"><a class="top_menu_link" id="top_menu_6" href="/pages/customer">我要洗衣</a></td>
       <td>&nbsp;</td>
     </tr>
@@ -48,7 +101,7 @@
       <a id='sub_a_25_5' class='sub_a' href='/pages/ensure:after_sale_service'>售后服务</a>
       </li>
     <li id="sub_top_menu_4" class="sub_kwick">
-      <a id='sub_a_27_0' class='sub_a' href='/shops'>分店查询</a> <%#pages/stores:store_search%>
+      <a id='sub_a_27_0' class='sub_a' href='/shops'>分店查询</a> 
       <a id='sub_a_28_1' class='sub_a' href='/pages/stores:store_gallery'>分店展示</a>
       </li>
     <li id="sub_top_menu_5" class="sub_kwick">
@@ -62,9 +115,36 @@
     <li id="sub_top_menu_6" class="sub_kwick">
       <a id='sub_a_37_0' class='sub_a' href='/pages/customer:store_search'>分店查询</a>
       <a id='sub_a_38_1' class='sub_a' href='/pages/customer:store_news'>最新活动</a>
-      <a id='sub_a_39_2' class='sub_a' href='/news_cates/10'>日化产品使用常识</a> <%#pages/customer:product_knowledge%>
-      <a id='sub_a_40_3' class='sub_a' href='/news_cates/11'>洗衣常识</a> <%#/pages/customer:laundry_knowledge%>
+      <a id='sub_a_39_2' class='sub_a' href='/news_cates/10'>日化产品使用常识</a> 
+      <a id='sub_a_40_3' class='sub_a' href='/news_cates/11'>洗衣常识</a> 
       <a id='sub_a_41_4' class='sub_a' href='/pages/customer:online_order'>在线洗衣预约</a>
     </li>
   </ul>
 </div>
+  <!-- end #header_nav --></div>
+  
+  
+   <div id="banner_english">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="255" align="left" valign="top">
+            <p>WELCOME TO OMERO<BR/>FULL SERVICE OF DRYERS</P>
+          </td>
+          <td width="705"  align="CENTER" valign="top">
+            <P>OMERO LAUNDRY GROUP SERVE THE DRY-CLEANING MARKET IN CHINA METROPOLITAN AREAS.</P>
+            <P style="font-size:12px;">WE HAVE BUILT HUNDREDS OF DRY-CLEANING STORES AS WELL AS MANY CITIES.</P>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
+    <div class="border_black_2"></div>
+  </div>
+  <div id="banner2">
+    <img alt="欧美龙洗衣连锁" src="/assets/1_10.jpg" width="960" />
+    <div class="border_black_2"></div>
+  </div>
+</div>
+
+</body>
+</html>
