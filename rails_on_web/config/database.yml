@@ -13,8 +13,8 @@ development:
   encoding: utf8
   reconnect: false
   pool: 5
-  host: 127.0.0.1
-  port: 3306
+  host: localhost
+  port: 3303
   username: root
   password: kenrome001
   database: omero_pro_dev
@@ -30,8 +30,8 @@ test:
   host: 127.0.0.1
   port: 3306
   username: root
-  password: kenrome001
-  database: omero_pro_dev
+  password: kenrome
+  database: omero_pro_test
 
 production:
   adapter: mysql2
@@ -41,5 +41,5 @@ production:
   host: 127.0.0.1
   port: 3306
   username: root
-  password: kenrome001
-  database: omero_pro_dev
+  password: dev
+  database: omero_pro

@@ -11,7 +11,7 @@
 	background-color: #333;
 	color: #fff;
 	padding: 2px;
-	margin: 10px 0;
+	margin: 10px 8px 10px 0;
 }
 .product_list ul{
 	padding: 0px;
@@ -38,12 +38,19 @@
 #product_main_show h4{
 	padding: 4px;
 	margin: 0;
+    font-weight: 600;
+}
+#product_main_show .content{
+    background-color: #fff;
+    margin: -6px 0 -6px 0;
+    padding: 20px;
 }
 #product_main_show h1{
-	margin: 0px;
+    padding: 5px;
+	margin: 0;
 }
 #product_main_show .item{
-	margin: 0 0 20px 0;
+	margin: 10px 0 10px 0;
 }
 #product_main_show .description{
 	padding: 0;

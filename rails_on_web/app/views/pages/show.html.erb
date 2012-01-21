@@ -8,17 +8,21 @@
 <div class="main_corner">
   <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
   <div class="content">
-  	<h2><%= @page.title %></h2>
+  	  <h2 style='font-size: 24px; font-weight: 600; padding: 20px 0; border-bottom: dotted 2px #333;'><%=@page.title %></h2>
+      
       <% case @page.path_name%>
       <% when 'about:address' %>
-        <iframe src="/home/location" width="100%" height="500px" scrolling="no"></iframe>
+        <iframe src="/home/location" width="98%" height="500px" scrolling="no"></iframe>
       <% when 'join' %>
         <%= render :partial => "pages/join" %>
       <% when 'ensure' %>
         <%= render :partial => "pages/baozhang" %>
       <% when 'customer' %>
         <%= render :partial => "pages/customer" %>
+      <% when 'stores:store_gallery' %>
+        <%= render :partial => "pages/store_one" %>
       <% else %>
+      
 
       <% end %>
       <%= @page.body.html_safe unless @page.body.blank?%>

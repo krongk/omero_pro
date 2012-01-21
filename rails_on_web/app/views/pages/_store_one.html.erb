@@ -1,0 +1,44 @@
+
+<div id="store_title">
+  <h2>欢迎进入欧美龙洗衣连锁</h2>
+  <h1>成都金沙店欢迎您！</h1>
+  <p>我们将竭诚为您服务！</p>
+</div>
+
+
+<%=render :partial => "layouts/slide_show2", :locals => {:img_arr =>['1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg']} %>
+
+
+<div class="section">
+    <h3><span class="toto">&nbsp;</span>店面介绍</h3>
+    <div class="summary">热烈祝贺四川省成都市金沙加盟店隆重开业！<br/>
+    开业日期：2012年3月28日<br/>
+    营运支持体系和规模化的管理体系，以服务为中心，并配合品牌的规范化管理，贯穿着加盟店的加盟、筹建、开业、正常运营等各个阶段，让加盟商彻底消除后顾之忧，<br/>为每一位优秀人才奠定与国际节拍同步的未来顶级商务平台...
+    </div>
+</div>  
+<br/>
+<div class="section">
+    <h3><span class="toto">&nbsp;</span>近期活动活动介绍</h3>
+    <div class="summary">
+     <ul>
+      <%
+        news_cate = NewsCate.find_by_name("最新活动")
+        cate_id = news_cate.nil? ? 0 : news_cate.id
+        news_items = NewsItem.recent(6, cate_id)
+        news_items.each_with_index do |item, index| %>
+          <li><a class='gray' href='/news_items/<%=item.id%>' target='_blank'><%=item.title.truncate(16)%></a></li>
+      <% end %>
+      </ul>
+    </div>
+</div>  
+<br/>
+<div class="section">
+    <h3><span class="toto">&nbsp;</span>联系方式</h3>
+    <div class="summary">
+    地址： 青羊区清江西路51号中大君悦广场<br/>
+    联系电话： 028-87316888 <br/>
+    开业日期：2012年3月28日<br/>
+    </div>
+    <br/>
+    <%=image_tag asset_path("store_1.jpg") %>
+</div>  

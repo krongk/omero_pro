@@ -1,0 +1,33 @@
+<% title "会员注册" %>
+<% meta_keywords  "会员注册"%>
+<% meta_description "会员注册"%>
+<% nav_bar [['首页', '/pages'],['会员注册', '/users/sign_up']] %>
+<% side_news "加盟商" %>
+<% side_nav 'sign_up', 'user' %>
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+  <div class="content">
+    <h2 style="font-size: 24px; font-weight: 600; padding: 0 0 20px 0; border-bottom: dotted 2px #333;">会员注册</h2>
+    
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
+
+      <div><%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation %></div>
+
+      <div><%= f.submit " 提交 " %></div>
+    <% end %>
+
+    <%# render :partial => "devise/shared/links" %>
+
+  </div>
+   <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>
+

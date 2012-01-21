@@ -100,7 +100,7 @@ $(document).ready(function(){
              </form>             </td>
            </tr>
            <tr>
-             <td align="right" valign="bottom" height="30"><div class="login_reg"><a href="/">会员登录</a>&nbsp;&nbsp;<a href="/">我要注册</a>&nbsp;&nbsp;<a href="/pages/about:address">联系我们</a></div></td>
+             <td align="right" valign="bottom" height="30"><div class="login_reg"><a href="/users/sign_in">会员登录</a>&nbsp;&nbsp;<a href="/users/sign_up">我要注册</a>&nbsp;&nbsp;<a href="/pages/about:address">联系我们</a></div></td>
            </tr>
          </table>
      </div>
@@ -112,8 +112,12 @@ $(document).ready(function(){
  </div>
   
   <%= yield :banner %>
-  
-  <div id="mainContent">
+ 
+ <% if request[:controller] == 'pages' && request[:action] == 'index' %> 
+  <div id="mainContent" style="margin-top: -30px;">
+ <% else %>
+   <div id="mainContent">
+ <% end %>
    <table width="100%" height="600" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="690px" align="left" valign="top">

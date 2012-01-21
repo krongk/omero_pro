@@ -5,8 +5,11 @@ module ApplicationHelper
     request.env["HTTP_USER_AGENT"] =~ /MSIE.*6.*Windows NT/i
   end
 
-  def title(page_title)
-  	content_for(:title){ page_title}
+  def title(title)
+  	content_for(:title){ title}
+  end
+  def page_title(page_title)
+    content_for(:page_title){ page_title}
   end
   def meta_keywords(meta_keywords)
   	content_for(:meta_keywords){ meta_keywords}
@@ -41,6 +44,7 @@ module ApplicationHelper
       page = Page.first if page.nil?
       if page.parent_id == 0
         pages = Page.find_all_by_parent_id(page.id)
+        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>关于欧美龙</h2>"
       else
         pages = Page.find_all_by_parent_id(page.parent_id)
         parent_page = Page.find_by_id(page.parent_id)
@@ -54,6 +58,7 @@ module ApplicationHelper
         end
       end
     when 'news'
+      str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>新闻中心</h2>"
       NewsCate.all.each do |cate|
         if cate.name == cate_name
           str_arr << "<li class='current'><a href='/news_cates/#{cate.id}'>#{cate.name}</a></li>" 
@@ -73,12 +78,14 @@ module ApplicationHelper
       #   end
       # end
       #2.当店铺不多时候，显示省份列表
+      str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>分店信息中心</h2>"
       Region.all.sort{|r1,r2| r1.name.length <=> r2.name.length}.each do |region|
         str_arr << "<li>"
         str_arr << link_to(region.name, :controller => :shops, :action => :index, 'shop[region_id]' => region.id)
         str_arr << "</li>"
       end
     when 'product'
+      str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>产品中心</h2>"
       ProductCate.all.each do |cate|
         if cate.name == cate_name
           str_arr << "<li class='current'><a href='/product_cates/#{cate.id}'>#{cate.name}</a></li>" 
@@ -86,6 +93,10 @@ module ApplicationHelper
           str_arr << "<li><a href='/product_cates/#{cate.id}'>#{cate.name}</a></li>" 
         end
       end
+    when 'user'
+      str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>会员中心</h2>"  
+      str_arr << "<li><a href='/users/sign_up'>会员注册</a></li>"
+      str_arr << "<li><a href='/users/sign_in'>会员登录</a></li>" 
     else
       'other'
     end
@@ -115,7 +126,7 @@ module ApplicationHelper
       news_items = NewsItem.recent(2, cate_id, true)
       news_items.each_with_index do |item, index|
         str_arr << '<div class="news_content">'
-        str_arr << image_tag(asset_path("3200.jpg"), :width => "135", :height => "131")
+        str_arr << image_tag(asset_path("side_news_image#{rand(10)}.jpg"), :width => "130")
         str_arr << strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(120)
         str_arr << '<div class="more_red">'
         str_arr << link_to("查看详细...", news_item_path(item))
@@ -155,5 +166,4 @@ module ApplicationHelper
       </object>"
     return str.html_safe
   end
-
 end

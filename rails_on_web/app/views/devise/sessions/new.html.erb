@@ -1,0 +1,32 @@
+<% title "会员登录" %>
+<% meta_keywords  "会员登录"%>
+<% meta_description "会员登录"%>
+<% nav_bar [['首页', '/pages'],['会员登录', '/users/sign_up']] %>
+<% side_news "加盟商" %>
+<% side_nav 'sign_up', 'user' %>
+
+
+<div class="main_corner">
+  <%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+  <div class="content">
+    <h2 style="font-size: 24px; font-weight: 600; padding: 0 0 20px 0; border-bottom: dotted 2px #333;">会员登录</h2>
+    
+    <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+      <div><%= f.label :email %><br />
+      <%= f.email_field :email %></div>
+
+      <div><%= f.label :password %><br />
+      <%= f.password_field :password %></div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+      <% end -%>
+
+      <div><%= f.submit " 提交 " %></div>
+    <% end %>
+
+    <%# render :partial => "devise/shared/links" %>
+
+  </div>
+   <%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

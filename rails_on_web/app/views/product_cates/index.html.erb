@@ -39,7 +39,7 @@
 <% recent_product_items = ProductCate.recent(24) %>
 <table width="98%" border="0" cellspacing="0" cellpadding="0" background-color = "#fff">
  <tr>
-   <td width="<%= is_ie? ? '180' : '350'%>" align="left" valign="top">
+   <td width="<%= is_ie? ? '180' : '150'%>" align="left" valign="top">
 <div class="product_list">
     <h3>+ 洗涤产品列表</h3>
     <ul>
@@ -54,19 +54,27 @@
     <br/><br/>
 </div>    
    </td>
-   <td width="5">&nbsp;</td>
+   <td width="20">&nbsp;</td>
    <td align="left" valign="top">
 
-<div id="product_main_show" class="corner_box">
+<div id="product_main_show">
+  <% if is_ie? %>
+    <%=image_tag asset_path("show_06.jpg"), :width =>'470px' %>
+  <% else %>
+    <%=image_tag asset_path("show_06.jpg"), :width =>'464px' %>
+  <% end %>
+
+  <div class="content">
   <h1>产品中心</h1>
   <hr class="black"/>
   <% (0..1).each_with_index do |index| %>
     <div class="item">
-      <div class="main_product_image" style="width:460px; height: 280px;">
-        <%= link_to image_tag((recent_product_items[index].image_path || asset_path("product.jpg")), :width => "460px"), product_item_path(recent_product_items[index]) %></div>
-      <h4>>><%= link_to recent_product_items[index].title, product_item_path(recent_product_items[index]) %></h4>
+      <div class="main_product_image" style="width:400px; height: 220px;">
+        <%= link_to image_tag((recent_product_items[index].image_path || asset_path("product.jpg")), :width => "400px"), product_item_path(recent_product_items[index]) %></div>
+      <h4><span class="toto"></span><%= link_to recent_product_items[index].title, product_item_path(recent_product_items[index]) %></h4>
       <div clas="description">
         <%=recent_product_items[index].description.gsub(/<([^>]+)>/, '').html_safe.truncate(120) %>
+        <%=link_to "查看详情>>", product_item_path(recent_product_items[index]) %>
       </div>
     </div>
   <% end %>
@@ -82,18 +90,30 @@
     </div>
   </td></tr>
   <tr><td>
-     <h4>>><%=link_to recent_product_items[2].title, product_item_path(recent_product_items[2])%></h4>
+     <h4><span class="toto"></span><%=link_to recent_product_items[2].title, product_item_path(recent_product_items[2])%></h4>
     </td><td>
-     <h4>>><%=link_to recent_product_items[3].title, product_item_path(recent_product_items[3])%></h4>
+     <h4><span class="toto"></span><%=link_to recent_product_items[3].title, product_item_path(recent_product_items[3])%></h4>
   </td></tr>
   <tr><td>
       <%= strip_tags(recent_product_items[2].description.gsub(/&nbsp;/, '')).truncate(120) %>
+       <%=link_to "查看详情>>>", product_item_path(recent_product_items[2]) %>
     </td><td>
       <%= strip_tags(recent_product_items[3].description.gsub(/&nbsp;/, '')).truncate(120) %>
+       <%=link_to "查看详情>>>", product_item_path(recent_product_items[3]) %>
   </td></tr>
 
   </table>
 </div>
+
+  <% if is_ie? %>
+    <%=image_tag asset_path("show_08.jpg"), :width =>'470px' %>
+  <% else %>
+    <%=image_tag asset_path("show_08.jpg"), :width =>'464px' %>
+  <% end %>
+
+</div>
+
    </td>
+   <td width="10">&nbsp;</td>
  </tr>
 </table>
