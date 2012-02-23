@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<h1>欢迎您！ <%=session[:customer].name %></h1>
+
+<b>您的基本信息：</b>
+<table border="1">
+  <tr>
+    <th align="left" width="80px">姓名</th>
+    <th align="left" width="50px">性别</th>
+    <th align="left" width="120px">出生日期</th>
+    <th align="left" width="120px">联系电话</th>
+    <th align="left" width="120px">电子邮件</th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= session[:customer].name %> </td>
+    <td><%= session[:customer].sex %> </td>
+    <td><%= session[:customer].birth %> </td>
+    <td><%= session[:customer].phone %> </td>
+    <td><%= session[:customer].email %> </td>
+    <td></td>
+  </tr>
+</table>
+
+<br />
+<b>您可以进行一下操作:</b><br/>
+<%= link_to '修改基本信息', edit_customer_path(3) %><br/>
+<%= link_to '在线预约洗衣', new_order_path %><br/>
+<%= link_to '退出系统', '/customer_logout' %>

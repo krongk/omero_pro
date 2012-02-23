@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  sex: MyString
+  birth: 2012-02-23
+  phone: MyString
+  email: MyString
+  password: MyString
+  confirm: MyString
+  captcha: MyString
+  is_deleted: false
+
+two:
+  name: MyString
+  sex: MyString
+  birth: 2012-02-23
+  phone: MyString
+  email: MyString
+  password: MyString
+  confirm: MyString
+  captcha: MyString
+  is_deleted: false

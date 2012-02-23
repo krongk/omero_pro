@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h2>预定成功！</h2>
+<div>工作人员会及时与您联系！请记住您的订单号</div>
+<p>
+  <b>订单号:</b>
+  <%= @order.code %>
+</p>
+
+
+<%= link_to '修改订单', edit_order_path(@order) %> |
+<%= link_to '继续下单', new_order_path %>

@@ -1,0 +1,52 @@
+<%# encoding: utf-8 %>
+<%#参考：http://www.hometexnet.com/jxs.aspx %>
+<%= form_for(@jiameng) do |f| %>
+  <% if @jiameng.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@jiameng.errors.count, "error") %> prohibited this jiameng from being saved:</h2>
+
+      <ul>
+      <% @jiameng.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, "姓名：" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :sex, "性别：" %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, "联系电话：" %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :address, "所在区域：" %><br />
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :jiameng_address, "准备加盟区域：" %><br />
+    <%= f.text_field :jiameng_address %>
+  </div>
+  <div class="field">
+    <%= f.label :zijing, "计划投入资金: " %><br />
+    <%= f.text_field :zijing %>
+  </div>
+  <div class="field">
+    <%= f.label :dianpu, "目前店铺情况：" %><br />
+    <%= f.text_field :dianpu %>
+  </div>
+  <div class="field">
+    <%= f.label :message, "其他信息：" %><br />
+    <%= f.text_area :message %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "提 交"%>
+  </div>
+<% end %>

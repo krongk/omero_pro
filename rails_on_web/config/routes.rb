@@ -1,4 +1,10 @@
 RailsOnWeb::Application.routes.draw do
+  resources :jiamengs
+
+  resources :orders
+
+  resources :customers
+
   resources :regions do
     resources :cities do
       resources :districts
@@ -32,6 +38,9 @@ RailsOnWeb::Application.routes.draw do
   get "home/nav_img_and_jquery2"
   get "home/ad_tv"
   match "upload" => "resource_items#upload"
+  match "customer_login" => "customers#customer_login"
+  match "customer_login_create" => "customers#customer_login_create"
+  match "customer_logout" => "customers#customer_logout"
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config

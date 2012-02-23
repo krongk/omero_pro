@@ -1,0 +1,20 @@
+---
+en:
+  active_record:
+    models:
+      customer: Customer
+    attributes:
+      customer:
+        name: Name
+        sex: Sex
+        birth: Birth
+        phone: Phone
+        email: Email
+        password: Password
+        confirm: Confirm
+        captcha: Captcha
+        is_deleted: Is deleted
+    errors:
+      customer: !!null 
+  helpers:
+    customer: !!null 

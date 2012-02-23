@@ -95,8 +95,12 @@ module ApplicationHelper
       end
     when 'user'
       str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>会员中心</h2>"  
-      str_arr << "<li><a href='/users/sign_up'>会员注册</a></li>"
-      str_arr << "<li><a href='/users/sign_in'>会员登录</a></li>" 
+      str_arr << "<li><a href='/customers/new'>会员注册</a></li>"
+      str_arr << "<li><a href='/customer_login'>会员登录</a></li>" 
+    when 'customer'
+      str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>会员中心</h2>"  
+      str_arr << "<li><a href='/customers/new'>会员注册</a></li>"
+      str_arr << "<li><a href='/customer_login'>会员登录</a></li>" 
     else
       'other'
     end

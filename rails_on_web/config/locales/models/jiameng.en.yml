@@ -1,0 +1,22 @@
+---
+en:
+  active_record:
+    models:
+      jiameng: Jiameng
+    attributes:
+      jiameng:
+        name: Name
+        sex: Sex
+        phone: Phone
+        address: Address
+        jiameng_address: Jiameng address
+        zijing: Zijing
+        dianpu: Dianpu
+        message: Message
+        is_verfied: Is verfied
+        verfied_by: Verfied by
+        note: Note
+    errors:
+      jiameng: !!null 
+  helpers:
+    jiameng: !!null 

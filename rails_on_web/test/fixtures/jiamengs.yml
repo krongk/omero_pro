@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  sex: MyString
+  phone: MyString
+  address: MyString
+  jiameng_address: MyString
+  zijing: MyString
+  dianpu: MyString
+  message: MyText
+  is_verfied: MyString
+  verfied_by: MyString
+  note: MyString
+
+two:
+  name: MyString
+  sex: MyString
+  phone: MyString
+  address: MyString
+  jiameng_address: MyString
+  zijing: MyString
+  dianpu: MyString
+  message: MyText
+  is_verfied: MyString
+  verfied_by: MyString
+  note: MyString

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  customer: 
+  phone: MyString
+  address: MyString
+  order_time: MyString
+  order_count: 1
+  message: MyText
+  is_verfied: MyString
+  verfied_by: MyString
+  note: MyString
+
+two:
+  customer: 
+  phone: MyString
+  address: MyString
+  order_time: MyString
+  order_count: 1
+  message: MyText
+  is_verfied: MyString
+  verfied_by: MyString
+  note: MyString

@@ -1,0 +1,43 @@
+<h1>Listing jiamengs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Sex</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Jiameng address</th>
+    <th>Zijing</th>
+    <th>Dianpu</th>
+    <th>Message</th>
+    <th>Is verfied</th>
+    <th>Verfied by</th>
+    <th>Note</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jiamengs.each do |jiameng| %>
+  <tr>
+    <td><%= jiameng.name %></td>
+    <td><%= jiameng.sex %></td>
+    <td><%= jiameng.phone %></td>
+    <td><%= jiameng.address %></td>
+    <td><%= jiameng.jiameng_address %></td>
+    <td><%= jiameng.zijing %></td>
+    <td><%= jiameng.dianpu %></td>
+    <td><%= jiameng.message %></td>
+    <td><%= jiameng.is_verfied %></td>
+    <td><%= jiameng.verfied_by %></td>
+    <td><%= jiameng.note %></td>
+    <td><%= link_to 'Show', jiameng %></td>
+    <td><%= link_to 'Edit', edit_jiameng_path(jiameng) %></td>
+    <td><%= link_to 'Destroy', jiameng, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jiameng', new_jiameng_path %>

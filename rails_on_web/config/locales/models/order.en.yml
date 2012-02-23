@@ -1,0 +1,20 @@
+---
+en:
+  active_record:
+    models:
+      order: Order
+    attributes:
+      order:
+        customer: Customer
+        phone: Phone
+        address: Address
+        order_time: Order time
+        order_count: Order count
+        message: Message
+        is_verfied: Is verfied
+        verfied_by: Verfied by
+        note: Note
+    errors:
+      order: !!null 
+  helpers:
+    order: !!null 

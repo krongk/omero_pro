@@ -1,0 +1,20 @@
+<h1>Editing customer</h1>
+<%=session[:customer]%>
+<% if flash[:notice] %><div class="notice"><%=flash[:notice] %></div><% end %>
+<%# encoding: utf-8 %>
+<form accept-charset="UTF-8" action="/customer_login_create" class="user_new" id="user_new" method="post">
+	<div style="margin:0;padding:0;display:inline">
+	  <input name="utf8" type="hidden" value="&#x2713;" />
+	  <input name="authenticity_token" type="hidden" value="DuDy+qafcUOf5mqJXWd3KkjUsYoaSJ00h/T9NmcPcMs=" />
+	</div>
+    <div><label for="user_name">用户名</label><br />
+      <input id="user_name" name="name" size="30" type="name" value="" /></div>
+
+    <div><label for="user_password">密码</label><br />
+      <input id="user_password" name="password" size="30" type="password" /></div>
+
+    <div><input name="user[remember_me]" type="hidden" value="0" /><input id="user_remember_me" name="remember_me" type="checkbox" value="1" /> <label for="user_remember_me">记住登录状态</label></div>
+
+    <div><input name="commit" type="submit" value=" 提 交 " /></div>
+    还没有注册?<a href="/customers/new">请点击这里</a>
+</form>

@@ -1,0 +1,57 @@
+<%# encoding: utf-8 %>
+<%= form_for(@customer) do |f| %>
+  <% if @customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+
+      <ul>
+      <% @customer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name,'用户名：*' %><br />
+    <%= f.text_field :name %>
+    <div class="tips">4~16个字符，纯数字用户名无效，推荐使用中文用户名。用户名注册后不可更改。</div>
+  </div>
+  <div class="field">
+    <%= f.label :password,"密码：*" %><br />
+    <%= f.text_field :password %>
+    <div class="tips">密码由6~16位字母、数字、字符组成。</div>
+  </div>
+  <div class="field">
+    <%= f.label :confirm, "确认密码：*" %><br />
+    <%= f.text_field :confirm %>
+  </div>
+  <div class="field">
+    <%= f.label :sex, "性别：" %>
+    <%= f.radio_button :sex, '女'%> 女
+    <%= f.radio_button :sex, '男'%> 男
+  </div>
+  <div class="field">
+    <%= f.label :birth, "出生日期：" %><br />
+    <%= f.date_select :birth %>
+  </div>
+  <div class="field">
+    <%= f.label :phone, "联系电话：" %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :email, "电子邮件：*" %><br />
+    <%= f.text_field :email %>
+    <div class="tips">输入你的电子邮件地址，将方便你在忘记密码时找回密码</div>
+  </div>
+  <div class="field">
+    <%= f.label :captcha, "验证码" %><br />
+    <%= f.text_field :captcha %>
+  </div>
+  <div class="field">
+    <input type="checkbox" id="accept_protocol" checked="">我已经认真阅读并同意《<a href="/pages/xieyi" target="_blank">用户使用协议</a>》。
+  </div>
+  <div class="actions">
+    <%= f.submit "注 册" %>
+  </div>
+<% end %>

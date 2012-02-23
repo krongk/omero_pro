@@ -1,0 +1,39 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :phone, "联系电话：*" %><br />
+    <%= f.text_field :phone %>
+    <div class="tips">请提供目前所使用的电话，方便我们及时与您取得联系！</div>
+  </div>
+  <div class="field">
+    <%= f.label :address, "联系地址：*" %><br />
+    <%= f.text_field :address %>
+    <div class="tips">请详细填写，以方便我们正确取衣、送衣!</div>
+  </div>
+  <div class="field">
+    <%= f.label :order_time, "预定日期：" %><br />
+    <%= f.date_select :order_time %>
+  </div>
+  <div class="field">
+    <%= f.label :order_count, "衣服数量：" %><br />
+    <%= f.number_field :order_count, :value => 2 %>
+  </div>
+  <div class="field">
+    <%= f.label :message, "备注信息：" %><br />
+    <%= f.text_field :message, :height => 100 %>
+  </div>
+  <div class="actions">
+    <%= f.submit "预 订"%>
+  </div>
+<% end %>
