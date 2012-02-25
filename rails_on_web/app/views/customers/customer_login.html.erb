@@ -1,5 +1,12 @@
-<h1>Editing customer</h1>
-<%=session[:customer]%>
+<div class="main_corner">
+<%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+<div class="content">
+<h2 style='font-size: 24px; font-weight: 600; padding: 20px 0; border-bottom: dotted 2px #333;'>
+  会员登录
+</h2>
+
+<% side_nav '会员登录', 'customer' %>
+
 <% if flash[:notice] %><div class="notice"><%=flash[:notice] %></div><% end %>
 <%# encoding: utf-8 %>
 <form accept-charset="UTF-8" action="/customer_login_create" class="user_new" id="user_new" method="post">
@@ -18,3 +25,7 @@
     <div><input name="commit" type="submit" value=" 提 交 " /></div>
     还没有注册?<a href="/customers/new">请点击这里</a>
 </form>
+
+</div>
+<%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

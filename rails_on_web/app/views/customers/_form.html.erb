@@ -1,4 +1,50 @@
 <%# encoding: utf-8 %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  //name require
+  $("#customer_name").blur(function(){
+    if($("#customer_name").val() == ""){
+      $("#customer_name_tp").text("用户名不能为空");
+    }else{
+      $("#customer_name_tp").text("");
+    }
+  });
+  //password require 
+  $("#customer_password").blur(function(){
+    if($("#customer_password").val() == ""){
+      $("#customer_password_tp").text("密码不能为空");
+    }else{
+      $("#customer_password_tp").text("");
+    }
+  });
+  //confirm equal password
+  $("#customer_confirm").blur(function(){
+    if($("#customer_confirm").val() != $("#customer_password").val()){
+      $("#customer_confirm_tp").text("密码前后不一致");
+    }else{
+      $("#customer_confirm_tp").text("");
+    }
+  });
+  //email require
+  $("#customer_email").blur(function(){
+    if($("#customer_email").val() == ""){
+      $("#customer_email_tp").text("邮件不能为空");
+    }else{
+      $("#customer_email_tp").text("");
+    }
+  });
+  //captcha required
+  $("#customer_captcha").blur(function(){
+    if($("#customer_captcha").val() != $("#pc_val").val()){
+      $("#customer_captcha_tp").text("验证码不匹配");
+    }else{
+      $("#customer_captcha_tp").text("");
+    }
+  });
+
+ });
+</script>
 <%= form_for(@customer) do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
@@ -12,46 +58,41 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name,'用户名：*' %><br />
-    <%= f.text_field :name %>
-    <div class="tips">4~16个字符，纯数字用户名无效，推荐使用中文用户名。用户名注册后不可更改。</div>
-  </div>
-  <div class="field">
-    <%= f.label :password,"密码：*" %><br />
+  <table border="0"><tr><td width="240"><br />
+    <%= f.label :name,'用户名：*' %><span id="customer_name_tp" class="error_tp"></span><br />
+    <%= f.text_field :name, :value => '' %>
+    </td><td valign="bottom">4~16个字符，纯数字用户名无效，推荐使用中文用户名。用户名注册后不可更改。</td>
+  </td></tr><tr><td><br />
+    <%= f.label :password,"密码：*" %><span id="customer_password_tp" class="error_tp"></span><br />
     <%= f.text_field :password %>
-    <div class="tips">密码由6~16位字母、数字、字符组成。</div>
-  </div>
-  <div class="field">
-    <%= f.label :confirm, "确认密码：*" %><br />
+    </td><td valign="bottom">密码由6~16位字母、数字、字符组成。</td>
+  </td></tr><tr><td><br />
+    <%= f.label :confirm, "确认密码：*" %><span id="customer_confirm_tp" class="error_tp"></span><br />
     <%= f.text_field :confirm %>
-  </div>
-  <div class="field">
+  </td></tr><tr><td><br />
     <%= f.label :sex, "性别：" %>
-    <%= f.radio_button :sex, '女'%> 女
+    <%= f.radio_button :sex, '女'%> 女 &nbsp;&nbsp;&nbsp;&nbsp;
     <%= f.radio_button :sex, '男'%> 男
-  </div>
-  <div class="field">
+  </td></tr><tr><td><br />
     <%= f.label :birth, "出生日期：" %><br />
-    <%= f.date_select :birth %>
-  </div>
-  <div class="field">
+    <%= f.date_select :birth, :start_year => 1960 %>
+  </td></tr><tr><td><br />
     <%= f.label :phone, "联系电话：" %><br />
     <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :email, "电子邮件：*" %><br />
+  </td></tr><tr><td><br />
+    <%= f.label :email, "电子邮件：*" %><span id="customer_email_tp" class="error_tp"></span><br />
     <%= f.text_field :email %>
-    <div class="tips">输入你的电子邮件地址，将方便你在忘记密码时找回密码</div>
-  </div>
-  <div class="field">
+    </td><td valign="bottom">输入你的电子邮件地址，将方便你在忘记密码时找回密码</td>
+  </td></tr><tr><td colspan="2"><span id="customer_captcha_tp" class="error_tp"></span><br />
     <%= f.label :captcha, "验证码" %><br />
-    <%= f.text_field :captcha %>
-  </div>
-  <div class="field">
+    <%= f.text_field :captcha, :size => 12 %>
+    <%= hidden_field_tag :pc_val, @captcha %>
+    <img src="/assets/captcha/<%=@captcha%>.png" valign="bottom"/>
+    <a href="/customers/new" style="color: #cc0000;">看不清?</a>
+  </td></tr></table><br/>
     <input type="checkbox" id="accept_protocol" checked="">我已经认真阅读并同意《<a href="/pages/xieyi" target="_blank">用户使用协议</a>》。
-  </div>
-  <div class="actions">
+  
+  <div class="actions"><br/>
     <%= f.submit "注 册" %>
   </div>
 <% end %>

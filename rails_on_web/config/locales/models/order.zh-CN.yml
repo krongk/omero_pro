@@ -1,19 +1,23 @@
----
+#encoding: utf-8
 zh-CN:
-  active_record:
+  activerecord:
     models:
-      order: Order
+      order: 在线预约
     attributes:
       order:
-        customer: Customer
-        phone: Phone
-        address: Address
-        order_time: Order time
-        order_count: Order count
-        message: Message
-        is_verfied: Is verfied
-        verfied_by: Verfied by
-        note: Note
+        id: 编号
+        customer: 会员
+        phone: 电话
+        address: 地址
+        order_time: 预约时间
+        order_count: 衣服件数
+        message: 其他信息
+        is_verfied: 是否审核
+        verfied_by: 审核人
+        note: 后台备注
+        code: 订单号
+        created_at: 添加时间
+        updated_at: 更新时间
     errors:
       order: !!null 
   helpers:

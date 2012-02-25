@@ -1,11 +1,20 @@
-<p id="notice"><%= notice %></p>
-<h2>预定成功！</h2>
-<div>工作人员会及时与您联系！请记住您的订单号</div>
+<div class="main_corner">
+<%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+<div class="content">
+<h2 style='font-size: 24px; font-weight: 600; padding: 20px 0; border-bottom: dotted 2px #333;'>
+  	 预定成功！
+</h2>
+
+<div class="notice">工作人员会及时与您联系！请记住您的订单号</div>
 <p>
   <b>订单号:</b>
   <%= @order.code %>
 </p>
 
 
-<%= link_to '修改订单', edit_order_path(@order) %> |
-<%= link_to '继续下单', new_order_path %>
+<h3>你还可以进行以下操作：</h3>
+<p><%= link_to '修改订单', edit_order_path(@order), :class=>'link_btn' %> </p>
+<p><%= link_to '继续下单', new_order_path, :class=>'link_btn'%></p>
+</div>
+<%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

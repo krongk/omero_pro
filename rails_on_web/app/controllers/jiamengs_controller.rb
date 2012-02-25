@@ -7,4 +7,9 @@ class JiamengsController < InheritedResources::Base
   		redirect_to '/users/sign_in'
   	end
   end
+
+  def create
+  	super
+  	flash[:notice] = "提交成功！"
+  end
 end

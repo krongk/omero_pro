@@ -1,5 +1,11 @@
-<p id="notice"><%= notice %></p>
-<h1>欢迎您！ <%=session[:customer].name %></h1>
+<div class="main_corner">
+<%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+<div class="content">
+<h2 style='font-size: 24px; font-weight: 600; padding: 20px 0; border-bottom: dotted 2px #333;'>
+  欢迎您！ <%=session[:customer].name %>
+</h2>
+
+<% side_nav '会员登录', 'customer' %>
 
 <b>您的基本信息：</b>
 <table border="1">
@@ -23,7 +29,11 @@
 </table>
 
 <br />
-<b>您可以进行一下操作:</b><br/>
-<%= link_to '修改基本信息', edit_customer_path(3) %><br/>
-<%= link_to '在线预约洗衣', new_order_path %><br/>
-<%= link_to '退出系统', '/customer_logout' %>
+<h3>您可以进行一下操作:</h3>
+<p><%= link_to '修改基本信息', edit_customer_path(3), :class => 'link_btn' %></p>
+<p><%= link_to '在线预约洗衣', new_order_path, :class => 'link_btn' %></p>
+<p><%= link_to '退出系统', '/customer_logout', :class => 'link_btn' %></p>
+
+</div>
+<%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

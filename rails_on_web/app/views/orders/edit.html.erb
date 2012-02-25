@@ -1,6 +1,18 @@
-<h1>Editing order</h1>
+<div class="main_corner">
+<%=image_tag asset_path("show_06.jpg"), :width =>'660px' %>
+<div class="content">
+<h2 style='font-size: 24px; font-weight: 600; padding: 20px 0; border-bottom: dotted 2px #333;'>
+  修改订单
+</h2>
 
+<% side_nav '在线预约', 'customer' %>
 <%= render 'form' %>
 
-<%= link_to 'Show', @order %> |
-<%= link_to 'Back', orders_path %>
+
+<h3>你还可以进行以下操作：</h3>
+<p><%= link_to '返回', @order, :class=>'link_btn'%></p>
+<p><%= link_to '继续下单', new_order_path, :class=>'link_btn'%></p>
+
+</div>
+<%=image_tag asset_path("show_08.jpg"), :width =>'660px' %>
+</div>

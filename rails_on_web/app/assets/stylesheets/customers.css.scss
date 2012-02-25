@@ -1,3 +1,42 @@
 // Place all the styles related to the customers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notice {
+	border: 1px solid #cc0000;
+	color: #cc0000;
+	font-size: 16px;
+	padding: 10px;
+	background-color: #FFC;
+	font-family: "微软雅黑";
+	font-weight: bold;
+}
+
+.link_btn{
+	background: #999;
+	padding: 6px 10px;
+	margin: 6px;
+	color: #cc0000;
+}
+
+.link_btn {
+	background-image: url(/assets/current.jpg);
+	background-repeat: repeat-x;
+	padding: 6px 10px;
+	margin: 4px;
+	color: #fff;
+}
+
+.actions input{
+	padding: 6px 10px;
+}
+/*the input like text field*/
+input.text{
+	width: 400px;
+	height: 80px;
+}
+
+.error_tp{
+	color: #cc0000;
+	padding: 0 0 0 10px;
+}

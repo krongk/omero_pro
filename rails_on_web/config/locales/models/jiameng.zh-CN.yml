@@ -1,21 +1,24 @@
----
+#encoding: utf-8
 zh-CN:
-  active_record:
+  activerecord:
     models:
-      jiameng: Jiameng
+      jiameng: 加盟咨询
     attributes:
       jiameng:
-        name: Name
-        sex: Sex
-        phone: Phone
-        address: Address
-        jiameng_address: Jiameng address
-        zijing: Zijing
-        dianpu: Dianpu
-        message: Message
-        is_verfied: Is verfied
-        verfied_by: Verfied by
-        note: Note
+        id: 编号
+        name: 姓名
+        sex: 性别
+        phone: 联系电话
+        address: 联系地址
+        jiameng_address: 加盟地址
+        zijing: 资金预算
+        dianpu: 店铺情况
+        message: 其他信息
+        is_verfied: 是否审核
+        verfied_by: 审核人
+        note: 后台备注
+        created_at: 添加时间
+        updated_at: 更新时间
     errors:
       jiameng: !!null 
   helpers:

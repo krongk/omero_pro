@@ -23,6 +23,15 @@ class CustomersController < InheritedResources::Base
   	end
   end
 
+  def new
+    captchs = [
+      '8gk7','42rf','84cm','a699',
+      'nvrk','p64c','tnu7','uzfs',
+      'v5q9','vf53','wewa','wxx3']
+    @captcha = captchs[rand(12)]
+    super
+    flash[:notice] = "会员注册成功！"
+  end
   def create
     super
     session[:customer] = @customer

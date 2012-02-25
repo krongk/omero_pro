@@ -1,5 +1,28 @@
 <%# encoding: utf-8 %>
 <%#参考：http://www.hometexnet.com/jxs.aspx %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  //name require
+  $("#jiameng_name").blur(function(){
+    if($("#jiameng_name").val() == ""){
+      $("#jiameng_name_tp").text("姓名不能为空");
+    }else{
+      $("#jiameng_name_tp").text("");
+    }
+  });
+  //password require 
+  $("#jiameng_phone").blur(function(){
+    if($("#jiameng_phone").val() == ""){
+      $("#jiameng_phone_tp").text("联系电话不能为空");
+    }else{
+      $("#jiameng_phone_tp").text("");
+    }
+  });
+
+ });
+</script>
+
 <%= form_for(@jiameng) do |f| %>
   <% if @jiameng.errors.any? %>
     <div id="error_explanation">
@@ -13,40 +36,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name, "姓名：" %><br />
+<table border="0"><tr><td height="50" width="260">
+    <%= f.label :name, "姓名：*" %><span id="jiameng_name_tp" class="error_tp"></span><br />
     <%= f.text_field :name %>
-  </div>
-  <div class="field">
+    </td><td valign="bottom"> 请输入您的姓名，方便我们的联系</td>
+  </td></tr><tr><td><br />
     <%= f.label :sex, "性别：" %><br />
-    <%= f.text_field :sex %>
-  </div>
-  <div class="field">
-    <%= f.label :phone, "联系电话：" %><br />
+    <%= f.radio_button :sex, '女', :checked => "checked"%> 女 &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.radio_button :sex, '男'%> 男
+  </td></tr><tr><td><br />
+    <%= f.label :phone, "联系电话：*" %><span id="jiameng_phone_tp" class="error_tp"></span><br />
     <%= f.text_field :phone %>
-  </div>
-  <div class="field">
+    </td><td valign="bottom"> 请输入您的联系电话，方便我们的联系</td>
+  </td></tr><tr><td><br />
     <%= f.label :address, "所在区域：" %><br />
     <%= f.text_field :address %>
-  </div>
-  <div class="field">
+    </td><td>&nbsp;
+  </td></tr><tr><td><br />
     <%= f.label :jiameng_address, "准备加盟区域：" %><br />
     <%= f.text_field :jiameng_address %>
-  </div>
-  <div class="field">
+    </td><td>&nbsp;
+  </td></tr><tr><td><br />
     <%= f.label :zijing, "计划投入资金: " %><br />
     <%= f.text_field :zijing %>
-  </div>
-  <div class="field">
+    </td><td valign="bottom">。10万以下 。10-20万  。20-50万  。50万以上</td>
+  </td></tr><tr><td><br />
     <%= f.label :dianpu, "目前店铺情况：" %><br />
     <%= f.text_field :dianpu %>
-  </div>
-  <div class="field">
+    </td><td valign="bottom">。无店铺 。自已的物业 。已经在租用或原有店铺</td>
+  </td></tr><tr><td colspan="2"><br />
     <%= f.label :message, "其他信息：" %><br />
-    <%= f.text_area :message %>
-  </div>
-  
-  <div class="actions">
+    <%= f.text_field :message, :class => 'text' %>
+  </tr></table>
+  <div class="actions"><br/>
     <%= f.submit "提 交"%>
   </div>
 <% end %>

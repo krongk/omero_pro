@@ -101,6 +101,9 @@ rails g controller home index help site_map
   >rails g active_admin:resource product_item
   >rails g active_admin:resource resource_cate
   >rails g active_admin:resource resource_item
+   >rails g active_admin:resource customer
+    >rails g active_admin:resource order
+     >rails g active_admin:resource jiameng
 
 10. integrate WYSWYG editor to ActiveAdmin
    1. add Gemfile

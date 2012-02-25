@@ -1,19 +1,22 @@
----
+#encoding: utf-8
 zh-CN:
-  active_record:
+  activerecord:
     models:
-      customer: Customer
+      customer: 会员
     attributes:
       customer:
-        name: Name
-        sex: Sex
-        birth: Birth
-        phone: Phone
-        email: Email
-        password: Password
-        confirm: Confirm
-        captcha: Captcha
-        is_deleted: Is deleted
+        id: 编号
+        name: 登录名
+        sex: 性别
+        birth: 出生日期
+        phone: 联系电话
+        email: 电子邮件
+        password: 密码
+        confirm: 密码确认
+        captcha: 验证码
+        is_deleted: 是否注销
+        created_at: 添加时间
+        updated_at: 更新时间
     errors:
       customer: !!null 
   helpers:
