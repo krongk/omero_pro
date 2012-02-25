@@ -6,7 +6,7 @@
   </h2>
  
  <br/>
- <div class="notice">信息提交成功！请等待客服与你取得联系。</div>
+ <div style="color: #cc0000; font-size: 16px;">信息提交成功！请等待客服与你取得联系。</div>
   <div class="address">
     <% page = Page.find_by_path_name("about:address") %>
     <%= page.body.html_safe %>
