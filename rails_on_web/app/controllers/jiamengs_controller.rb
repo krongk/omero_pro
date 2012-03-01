@@ -1,5 +1,7 @@
 #encoding: utf-8
 class JiamengsController < InheritedResources::Base
+  include ApplicationHelper
+  
   before_filter :login_required, :except =>[:new, :create, :show]
   def login_required
   	if session[:user].blank?

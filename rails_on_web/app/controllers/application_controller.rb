@@ -1,12 +1,15 @@
 #encoding: utf-8
 class ApplicationController < ActionController::Base
   helper :all
+
   protect_from_forgery
   before_filter :locate
+  
 
   #const
   # $REGIONS = Region.all.map{|r| {r.name => [r.id, r.en_name]}}
   # $CITIES = City.all.map{|r| {r.name => [r.id, r.en_name]}}
+
 
   #返回值
   #@location

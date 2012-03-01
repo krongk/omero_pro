@@ -44,7 +44,7 @@ module ApplicationHelper
       page = Page.first if page.nil?
       if page.parent_id == 0
         pages = Page.find_all_by_parent_id(page.id)
-        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>关于欧美龙</h2>"
+        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{page.title || '关于欧美龙'}</h2>"
       else
         pages = Page.find_all_by_parent_id(page.parent_id)
         parent_page = Page.find_by_id(page.parent_id)
@@ -57,6 +57,7 @@ module ApplicationHelper
           str_arr << "<li><a href='/pages/#{cate.id}'>#{cate.title}</a></li>" 
         end
       end
+      str_arr << "<li><a href='/jiamengs/new'>我要加盟</a></li>"  if page.id == 10 || page.parent_id == 10
     when 'news'
       str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>新闻中心</h2>"
       NewsCate.all.each do |cate|

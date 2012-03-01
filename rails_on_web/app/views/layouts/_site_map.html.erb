@@ -1,6 +1,6 @@
 <div class="footer_phone">
   <table width="100%"><tr><td>
-   24小时加盟热线： 400-600-886
+   24小时加盟热线： <%= Site.find_by_name('site_phone').value %>
    </td><td width="10%">&nbsp;</td><td width="40%" align="right">
      <div class="bshare1"><%= render :partial => 'layouts/bshare' %></div>
   </td></tr>
@@ -33,8 +33,7 @@
 
     </td>
     <td align="left" valign="top">
-    <h3 style="margin:0; padding:0;"><a id='top_a_10_1' class='top_a' href='/pages/join'>加盟政策</a></h3>
-<a id='sub_a_11_0' class='sub_a' href='/pages/join:join_standard'>加盟标准</a><br/>
+    <h3 style="margin:0; padding:0;"><a id='top_a_10_1' class='top_a' href='/pages/join'>加盟合作</a></h3>
 <a id='sub_a_12_1' class='sub_a' href='/pages/join:join_process'>加盟流程</a><br/>
 <a id='sub_a_13_2' class='sub_a' href='/pages/join:join_franchise'>特许经营</a><br/>
 <a id='sub_a_14_3' class='sub_a' href='/pages/join:join_advantage'>特许优势</a><br/>
@@ -45,12 +44,12 @@
     </td>
     <td align="left" valign="top">
     <h3 style="margin:0; padding:0;"><a id='top_a_19_2' class='top_a' href='/pages/ensure'>保障体系</a></h3>
+<a id='sub_a_25_5' class='sub_a' href='/pages/ensure:after_sale_service'>服务体系</a><br/>    
 <a id='sub_a_20_0' class='sub_a' href='/pages/ensure:branch_store_system'>分店形象系统</a><br/>
 <a id='sub_a_21_1' class='sub_a' href='/pages/ensure:join_investment'>投资回报</a><br/>
 <a id='sub_a_22_2' class='sub_a' href='/pages/ensure:training'>技术培训</a><br/>
 <a id='sub_a_23_3' class='sub_a' href='/pages/ensure:download'>资料下载</a><br/>
 <a id='sub_a_24_4' class='sub_a' href='/pages/ensure:join_guide'>运营指导</a><br/>
-<a id='sub_a_25_5' class='sub_a' href='/pages/ensure:after_sale_service'>售后服务</a><br/>
     </td>
     <td align="left" valign="top">
     <h3 style="margin:0; padding:0;"><a id='top_a_26_3' class='top_a' href='/pages/stores'>加盟店分布</a></h3>
