@@ -94,6 +94,8 @@ module ApplicationHelper
           str_arr << "<li><a href='/product_cates/#{cate.id}'>#{cate.name}</a></li>" 
         end
       end
+      str_arr << "<li><a href='/pages/piyibaoyang'>皮衣保养</a></li>" 
+      str_arr << "<li><a href='/pages/fuzhuangjiuzhi'>服装救治</a></li>" 
     when 'user'
       str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>会员中心</h2>"  
       str_arr << "<li><a href='/customers/new'>会员注册</a></li>"
