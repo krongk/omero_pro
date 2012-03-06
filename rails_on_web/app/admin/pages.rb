@@ -16,7 +16,7 @@ ActiveAdmin.register Page do
     end
     column :path_name
     column :updated_at do |item|
-      item.updated_at.strftime("%Y-%m-%d")
+      item.updated_at.strftime("%Y-%m-%d") unless item.updated_at.blank?
     end
     default_actions
   end
