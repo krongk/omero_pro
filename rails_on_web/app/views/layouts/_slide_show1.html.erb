@@ -7,7 +7,7 @@ img{border:0px;}
 .slider{position:absolute;}
 .slider li{ list-style:none;display:inline;}
 .slider img{ width:469px; height:231px; display:block;}
-.slider2{width:2100px;}
+.slider2{width:2570px;}
 .slider2 li{float:left;}
 .num{ position:absolute; right:15px; bottom:5px;}
 .num li{
@@ -39,11 +39,11 @@ img{border:0px;}
 </STYLE>
 <DIV class="container" id="idTransformView2" style="overflow-x: hidden; overflow-y: hidden; position: relative; ">
   <UL class="slider slider2" id="idSlider2" style="position: absolute; top: 0px; left: 0px; ">
-    <LI><A href="hap"><%=image_tag asset_path("qie-pic1.jpg") %></A></LI>
-    <LI><A href="htp"><%=image_tag asset_path("qie-pic2.jpg") %></A></LI>
-    <LI><A href="htp"><%=image_tag asset_path("qie-pic3.jpg") %></A></LI>
-    <LI><A href="htp"><%=image_tag asset_path("qie-pic4.jpg") %></A></LI>
-    <LI><A href="htp"><%=image_tag asset_path("qie-pic3.jpg") %></A></LI>
+    <LI><A href="#"><%=image_tag asset_path("qie-pic1.jpg") %></A></LI>
+    <LI><A href="#"><%=image_tag asset_path("qie-pic2.jpg") %></A></LI>
+    <LI><A href="#"><%=image_tag asset_path("qie-pic3.jpg") %></A></LI>
+    <LI><A href="#"><%=image_tag asset_path("qie-pic4.jpg") %></A></LI>
+    <LI><A href="#"><%=image_tag asset_path("qie-pic5.jpg") %></A></LI>
   </UL>
   <UL class="num" id="idNum12">
     <LI class="on">1</LI>
@@ -160,7 +160,7 @@ window.onload=function(){
     
     var objs2 = $$("idNum12").getElementsByTagName("li");
     
-    var tv2 = new TransformView("idTransformView2", "idSlider2", 469, 4, {
+    var tv2 = new TransformView("idTransformView2", "idSlider2", 469, 5, {
         onStart: function(){ Each(objs2, function(o, i){ o.className = tv2.Index == i ? "on" : ""; }) },//按钮样式
         Up: false
     });

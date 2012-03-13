@@ -48,7 +48,7 @@ module ApplicationHelper
       else
         pages = Page.find_all_by_parent_id(page.parent_id)
         parent_page = Page.find_by_id(page.parent_id)
-        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{parent_page.title}</h2>"
+        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{parent_page.title}</h2>" unless parent_page.nil?
       end
       pages.each do |cate|
         if cate.title == cate_name

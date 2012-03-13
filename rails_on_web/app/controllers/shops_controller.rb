@@ -7,7 +7,7 @@ class ShopsController < InheritedResourcesBase
   	if params[:shop]
   	  @shops = search
   	else
-  	  @shops = []
+  	  @shops = Shop.all
   	end
     @regions     = Region.find(:all)
   end
