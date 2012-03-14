@@ -23,16 +23,6 @@
   <%#image_tag asset_path("index_banner.png"), :width => '960' %>
   <div class = "border_black_1_img" style="margin-top: 10px;">&nbsp;</div>
   <div id="banner_english" style="margin-top: -10px;">
-    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-        <tr>
-          <td width="255" align="left" valign="top">
-            <p>WELCOME TO OMERO<BR/>FULL SERVICE OF DRYERS</P>
-          </td>
-          <td width="705"  align="CENTER" valign="top">
-            <P>OMERO LAUNDRY GROUP SERVE THE DRY-CLEANING MARKET IN CHINA METROPOLITAN AREAS.</P>
-            <P style="font-size:12px;">WE HAVE BUILT HUNDREDS OF DRY-CLEANING STORES AS WELL AS MANY CITIES.</P>
-          </td>
-        </tr>
-    </table>
+   <%=link_to image_tag(asset_path("index_en.png")), "/pages/ensure:after_sale_service", :target => '_blank' %>
   </div>
 </div>
