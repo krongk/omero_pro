@@ -46,7 +46,7 @@
           <div> <br/>
             <div class="side_news_image">
               <h2 style="margin:0; padding: 0;"><span class="toto">&nbsp;</span><%= link_to item.title.truncate(17), news_item_path(item)%></h2>
-              <%=image_tag asset_path("side_news_image1.png"), :width => "135" %> 
+              <%=image_tag asset_path("side_news_image#{index}.jpg"), :width => "135" %> 
               &nbsp;&nbsp;&nbsp;&nbsp;<%= strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(80) %>
             </div>
             <div class="more_red"> <%= link_to "查看全文>>", news_item_path(item), :style => "color: #cc0000" %></div>
