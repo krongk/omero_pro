@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   # GET /pages.json
   def index
     @news_cate_about = NewsCate.find_by_name("关于欧美龙") || NewsCate.find(13)
-    @news_cate_gundong = NewsCate.find_by_name("滚动新闻") || NewsCate.find(1)
+    @news_cate_gundong = NewsCate.find_by_name("滚动新闻") || NewsCate.find(17)
     @news_cate_ganxizhishi = NewsCate.find_by_name("干洗知识") || NewsCate.find(10)
     @news_cate_xiyichangshi = NewsCate.find_by_name("洗衣常识") || NewsCate.find(11)
 
