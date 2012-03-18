@@ -29,11 +29,16 @@
   <!--查询结果-->
   <div style="float:left; width: 98%; display: block;">
     <% if @shops.size > 0 %>
-      <ul>
       <% @shops.each do |shop| %>
-        <li><%=link_to shop.short_address, shop_path(shop.id) %></li>
+        <div class="store_item fl">
+        <div class="store_title">
+          <%= link_to "#{shop.name}(#{City.find(shop.city_id).name} #{District.find(shop.district_id).name})", shop_path(shop.id) %>
+        </div>
+        <div><%= shop.short_address%></div>
+        <div><%= shop.tel_phone || shop.mobile_phone%></div>
+        <div><%= link_to "查看地图", shop_path(shop.id), :style=>'color:blue;' %></div>
+        </div>
       <% end %>
-      </ul>
     <% else %>
      <p> 请选择相关条件查询所有干洗店</p>
     <% end %>
