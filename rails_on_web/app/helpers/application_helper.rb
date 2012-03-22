@@ -42,22 +42,32 @@ module ApplicationHelper
     when 'page'
       page = Page.find_by_title(cate_name)
       page = Page.first if page.nil?
-      if page.parent_id == 0
-        pages = Page.find_all_by_parent_id(page.id)
-        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{page.title || '关于欧美龙'}</h2>"
+      #我要洗衣特殊处理
+      if page.path_name == 'customer'
+        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>我要洗衣</h2>"
+        str_arr << "<li><a href='/news_cates/9'>最新活动</a></li>"
+        str_arr << "<li><a href='/news_cates/11'>洗衣常识</a></li>"
+        str_arr << "<li><a href='/customers/new'>会员注册</a></li>"
+        str_arr << "<li><a href='/customer_login'>会员登录</a></li>" 
+        str_arr << "<li><a href='/orders/new'>在线预约</a></li>" 
       else
-        pages = Page.find_all_by_parent_id(page.parent_id)
-        parent_page = Page.find_by_id(page.parent_id)
-        str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{parent_page.title}</h2>" unless parent_page.nil?
-      end
-      pages.each do |cate|
-        if cate.title == cate_name
-          str_arr << "<li class='current'><a href='/pages/#{cate.id}'>#{cate.title}</a></li>" 
+        if page.parent_id == 0
+          pages = Page.find_all_by_parent_id(page.id)
+          str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{page.title || '关于欧美龙'}</h2>"
         else
-          str_arr << "<li><a href='/pages/#{cate.id}'>#{cate.title}</a></li>" 
+          pages = Page.find_all_by_parent_id(page.parent_id)
+          parent_page = Page.find_by_id(page.parent_id)
+          str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>#{parent_page.title}</h2>" unless parent_page.nil?
         end
+        pages.each do |cate|
+          if cate.title == cate_name
+            str_arr << "<li class='current'><a href='/pages/#{cate.id}'>#{cate.title}</a></li>" 
+          else
+            str_arr << "<li><a href='/pages/#{cate.id}'>#{cate.title}</a></li>" 
+          end
+        end
+        str_arr << "<li><a href='/jiamengs/new'>我要加盟</a></li>"  if page.id == 10 || page.parent_id == 10
       end
-      str_arr << "<li><a href='/jiamengs/new'>我要加盟</a></li>"  if page.id == 10 || page.parent_id == 10
     when 'news'
       str_arr << "<h2 class='parent'><img src='/assets/ico1.jpg'/>新闻中心</h2>"
       NewsCate.all.each do |cate|
@@ -122,7 +132,7 @@ module ApplicationHelper
     
     str_arr = ['<h3 class="title">+ 相关新闻</h3><ul class="side_news_ul">']
     content_for(:side_news) do
-      news_items = NewsItem.recent(6, cate_id)
+      news_items = NewsItem.recent(12, cate_id)
       news_items.each_with_index do |item, index|
         str_arr << "<li><a class='gray2' href='/news_items/#{item.id}' target='_blank'>#{item.title.truncate(16)}</a></li>"
       end
@@ -131,17 +141,17 @@ module ApplicationHelper
       str_arr << link_to("更多>>", news_cate_path(cate_id))
       str_arr << '</div>'
 
-      str_arr << '<div class="side_news_image">'
-      news_items = NewsItem.recent(2, cate_id, true)
-      news_items.each_with_index do |item, index|
-        str_arr << '<div class="news_content">'
-        str_arr << image_tag(asset_path("side_news_image#{rand(10)}.jpg"), :width => "130")
-        str_arr << strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(120)
-        str_arr << '<div class="more_red">'
-        str_arr << link_to("查看详细...", news_item_path(item))
-        str_arr << '</div></div>'
-      end
-      str_arr << '</div>'
+      # str_arr << '<div class="side_news_image">'
+      # news_items = NewsItem.recent(2, cate_id, true)
+      # news_items.each_with_index do |item, index|
+      #   str_arr << '<div class="news_content_img">'
+      #   str_arr << image_tag(asset_path("side_news_image#{rand(10)}.jpg"), :width => "130", :align => "left")
+      #   str_arr << strip_tags(item.body.to_s.gsub(/&nbsp;/, '')).truncate(120)
+      #   str_arr << '<div class="more_red">'
+      #   str_arr << link_to("查看详细...", news_item_path(item))
+      #   str_arr << '</div></div>'
+      # end
+      # str_arr << '</div>'
 
       str_arr.join.html_safe
     end

@@ -69,7 +69,7 @@ $(document).ready(function(){
   $("#page").aeImageResize({ height: 400, width: 500 });
 
   //scroll news on pages/index
-  $("#scrollNews").Scroll({line:4,speed:800,timer:3000});
+  //$("#scrollNews").Scroll({line:4,speed:800,timer:3000});
 });
 </script>
 
@@ -153,9 +153,9 @@ $(document).ready(function(){
 
              <div class="side_box">
               <div id='slideshow1'>
-                <%=image_tag asset_path("slide_b_04.jpg")%>
-                <%=image_tag asset_path("slide_b_02.jpg")%>
-                <%=image_tag asset_path("slide_b_03.jpg")%>
+                <%=image_tag asset_path("slide_b_04.jpg"), :width=>"250px"%>
+                <%=image_tag asset_path("slide_b_02.jpg"), :width=>"250px"%>
+                <%=image_tag asset_path("slide_b_03.jpg"), :width=>"250px"%>
               </div>
             </div>
 
