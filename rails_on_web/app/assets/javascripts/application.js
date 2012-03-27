@@ -52,41 +52,134 @@ function SetHome(obj,vrl)
     }
 }
 
-//滚动插件
-//http://www.cnblogs.com/luluping/archive/2009/04/20/1440061.html
-// 调用：
-//  $(document).ready(function(){
-//        $("#scrollDiv").Scroll({line:4,speed:500,timer:1000});
-//  })
-(function($){
-$.fn.extend({
-        Scroll:function(opt,callback){
-                //参数初始化
-                if(!opt) var opt={};
-                var _this=this.eq(0).find("ul:first");
-                var        lineH=_this.find("li:first").height(), //获取行高
-                        line=opt.line?parseInt(opt.line,10):parseInt(this.height()/lineH,10), //每次滚动的行数，默认为一屏，即父容器高度
-                        speed=opt.speed?parseInt(opt.speed,10):500, //卷动速度，数值越大，速度越慢（毫秒）
-                        timer=opt.timer?parseInt(opt.timer,10):3000; //滚动的时间间隔（毫秒）
-                if(line==0) line=1;
-                var upHeight=0-line*lineH;
-                //滚动函数
-                scrollUp=function(){
-                        _this.animate({
-                                marginTop:upHeight
-                        },speed,function(){
-                                for(i=1;i<=line;i++){
-                                        _this.find("li:first").appendTo(_this);
-                                }
-                                _this.css({marginTop:0});
-                        });
+
+/*滚动插件
+* vertical news ticker
+* Tadas Juozapaitis ( kasp3rito@gmail.com )
+* http://www.jugbit.com/jquery-vticker-vertical-news-ticker/
+*/
+(function( $ ) {
+$.fn.vTicker = function(options) {
+    var defaults = {
+        speed: 700,
+        pause: 4000,
+        showItems: 10,
+        animation: '',
+        mousePause: true,
+        isPaused: false,
+        direction: 'up',
+        height: 0
+    };
+
+    var options = $.extend(defaults, options);
+
+    moveUp = function(obj2, height, options){
+        if(options.isPaused)
+            return;
+        
+        var obj = obj2.children('ul');
+        
+        var clone = obj.children('li:first').clone(true);
+        
+        if(options.height > 0)
+        {
+            height = obj.children('li:first').outerHeight();
+        }       
+        
+        obj.animate({top: '-=' + height + 'px'}, options.speed, function() {
+            $(this).children('li:first').remove();
+            $(this).css('top', '0px');
+        });
+        
+        if(options.animation == 'fade')
+        {
+            obj.children('li:first').fadeOut(options.speed);
+            if(options.height == 0)
+            {
+            obj.children('li:eq(' + options.showItems + ')').hide().fadeIn(options.speed).show();
+            }
+        }
+
+        clone.appendTo(obj);
+    };
+    
+    moveDown = function(obj2, height, options){
+        if(options.isPaused)
+            return;
+        
+        var obj = obj2.children('ul');
+        
+        var clone = obj.children('li:last').clone(true);
+        
+        if(options.height > 0)
+        {
+            height = obj.children('li:first').outerHeight();
+        }
+        
+        obj.css('top', '-' + height + 'px')
+            .prepend(clone);
+            
+        obj.animate({top: 0}, options.speed, function() {
+            $(this).children('li:last').remove();
+        });
+        
+        if(options.animation == 'fade')
+        {
+            if(options.height == 0)
+            {
+                obj.children('li:eq(' + options.showItems + ')').fadeOut(options.speed);
+            }
+            obj.children('li:first').hide().fadeIn(options.speed).show();
+        }
+    };
+    
+    return this.each(function() {
+        var obj = $(this);
+        var maxHeight = 0;
+
+        obj.css({overflow: 'hidden', position: 'relative'})
+            .children('ul').css({position: 'absolute', margin: 0, padding: 0})
+            .children('li').css({margin: 0, padding: 0});
+
+        if(options.height == 0)
+        {
+            obj.children('ul').children('li').each(function(){
+                if($(this).outerHeight() > maxHeight)
+                {
+                    maxHeight = $(this).outerHeight();
                 }
-                //鼠标事件绑定
-                _this.hover(function(){
-                        clearInterval(timerID);
-                },function(){
-                        timerID=setInterval("scrollUp()",timer);
-                }).mouseout();
-        }        
-})
-})(jQuery);
+            });
+
+            obj.children('ul').children('li').each(function(){
+                $(this).height(maxHeight);
+            });
+
+            obj.height(maxHeight * options.showItems);
+        }
+        else
+        {
+            obj.height(options.height);
+        }
+        
+        var interval = setInterval(function(){ 
+            if(options.direction == 'up')
+            { 
+                moveUp(obj, maxHeight, options); 
+            }
+            else
+            { 
+                moveDown(obj, maxHeight, options); 
+            } 
+        }, options.pause);
+        
+        if(options.mousePause)
+        {
+            obj.bind("mouseenter",function(){
+                options.isPaused = true;
+            }).bind("mouseleave",function(){
+                options.isPaused = false;
+            });
+        }
+    });
+};
+})( jQuery );
