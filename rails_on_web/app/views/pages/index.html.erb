@@ -32,7 +32,7 @@
         <div id="side_news_list" class="black_bg_raw">
           <h2 style="margin:0; padding:0;"><span class="toto">&nbsp;</span>公司新闻</h2>
           <ul>
-          <% @news_cate_about.news_items.order("updated_at DESC").limit(6).each_with_index do |item, index| %>
+          <% NewsItem.recent(7, 13, false).each_with_index do |item, index| %>
               <li><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(18), news_item_path(item.id) %></li>
           <% end %>
           </ul>
@@ -92,6 +92,7 @@
                    <h2 style="margin:0; padding: 0; color: #cc0000"><span class="toto">&nbsp;</span>新闻中心</h2>
                    <ul>
                       <% NewsItem.order("updated_at DESC").limit(11).each_with_index do |item, index| %>
+                        <% next if [13,17].include?(item.news_cate_id) %> <%#去掉公司新闻、滚动新闻%>
                         <li class="square"><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(15), news_item_path(item.id) %></li>
                       <% end %>
                     </ul>

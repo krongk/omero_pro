@@ -1,3 +1,7 @@
+<% shop = @shop %>
+<% shop ||= Shop.first %>
+<% shop ||= Shop.new %>
+
 <script type="text/javascript">
 $(document).ready(function() {   
    $('select#regions').change(function(){
@@ -70,6 +74,7 @@ $(document).ready(function() {
 	    <option value="1">请选择省份</option>
 	    <%= options_from_collection_for_select(Region.all, :id, :name) %>
 	  </select>
+	 
 	</td></tr>
 	<tr><td>
 	  <select id="cities" name="shop[city_id]">
@@ -77,13 +82,10 @@ $(document).ready(function() {
 	  </select>
 	</td></tr>
 <% elsif style == 'no' %>
-     <select id="regions" name="shop[region_id]">
-	    <option value="1">请选择省份</option>
-	    <%= options_from_collection_for_select(Region.all, :id, :name) %>
-	  </select>
-     <select id="cities" name="shop[city_id]">
-	    <option value="1">请选择城市</option>
-	  </select>
+ 	  省份：<%= select_tag("shop[region_id]", options_from_collection_for_select(Region.all, :id, :name, shop.region_id || 23), :id => "regions") %>
+  城市：<%= select_tag("shop[city_id]", options_from_collection_for_select(City.all, :id, :name, shop.city_id || 234), :id => "cities") %>
+   区域：<%= select_tag("shop[district_id]", options_from_collection_for_select(District.all, :id, :name, shop.district_id || 3410), :id => "districts") %>
+
 <% else %>
 	<li>选择省份:</li>
 	<li>
