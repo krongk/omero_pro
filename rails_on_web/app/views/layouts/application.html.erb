@@ -170,7 +170,7 @@ $(document).ready(function(){
               <tr><td colspan="2"><h3 class="title">欧美龙洗衣分店查询</h3></td></tr>
               <tr><td>
               <%= form_tag("/shops/", :method => "get") do %>
-                <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => 'no'} %>
+                <%=render :partial => "/shops/dropdown_region_city_district", :locals => {:style => ''} %>
                 <%= image_submit_tag("btn_submit.jpg", :class => 'search_button') %>
               <% end %>
               </td><td>
