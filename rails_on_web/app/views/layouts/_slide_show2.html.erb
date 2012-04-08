@@ -97,8 +97,8 @@
       </div>
 
       <div class='slideshow-controls'>
-       <% img_arr.each do |img| %>
-          <a href="#1" class="slideshow-slide"><%=image_tag asset_path("slider/" + img ), :width => "60px" %></a>
+       <% img_arr.each_with_index do |img, index| %>
+          <a href="#<%=index + 1%>" class="slideshow-slide"><%=image_tag asset_path("slider/" + img ), :width => "60px" %></a>
         <% end %>
        
       </div>  
