@@ -91,14 +91,13 @@
                  <div class="news_list2">
                    <h2 style="margin:0; padding: 0; color: #cc0000"><span class="toto">&nbsp;</span>新闻中心</h2>
                    <ul>
-                      <% NewsItem.order("updated_at DESC").limit(11).each_with_index do |item, index| %>
-                        <% next if [13,17].include?(item.news_cate_id) %> <%#去掉公司新闻、滚动新闻%>
-                        <li class="square"><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(15), news_item_path(item.id) %></li>
+                     <% NewsItem.recent(11, 18).each_with_index do |item, index| %>
+                      <li class="square"><%=image_tag asset_path("li_sq_black.gif") %><%=link_to item.title.truncate(15), news_item_path(item.id) %></li>
                       <% end %>
                     </ul>
                     <br/>
                  </div>
-                <span class="more_black"><%=link_to "更多>>", news_cate_path(@news_cate_about.id), :style => "color:#cc0000" %></span>  
+                <span class="more_black"><%=link_to "更多>>", news_cate_path(18), :style => "color:#cc0000" %></span>  
               <!-- end .white_corner --></div>
             <div style="margin: -6px 0 0 1px;"><%=image_tag asset_path("3_11.jpg"), :width => "220", :height => "14"%></div>
            </div>
