@@ -98,8 +98,7 @@ ActiveRecord::Schema.define(:version => 20111121165600003) do
 
   add_index "news_cates", ["name"], :name => "index_news_cates_on_name", :unique => true
 
-  create_table "news_items", :id => false, :force => true do |t|
-    t.integer  "id",                           :null => false
+  create_table "news_items", :force => true do |t|
     t.integer  "news_cate_id"
     t.integer  "sort_id",       :default => 0, :null => false
     t.string   "title",                        :null => false
@@ -116,9 +115,10 @@ ActiveRecord::Schema.define(:version => 20111121165600003) do
     t.integer  "customer_id"
     t.string   "phone"
     t.string   "address"
-    t.string   "order_time"
+    t.date     "order_time"
     t.integer  "order_count"
     t.text     "message"
+    t.string   "code"
     t.string   "is_verfied",  :default => "n"
     t.string   "verfied_by"
     t.string   "note"
