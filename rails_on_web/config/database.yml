@@ -14,7 +14,7 @@ development:
   reconnect: false
   pool: 5
   host: localhost
-  port: 3303
+  port: 3306
   username: root
   password: kenrome001
   database: omero_pro_dev
@@ -28,7 +28,7 @@ test:
   reconnect: false
   pool: 5
   host: localhost
-  port: 3303
+  port: 3306
   username: root
   password: kenrome001
   database: omero_pro_test
@@ -39,7 +39,7 @@ production:
   reconnect: false
   pool: 5
   host: localhost
-  port: 3303
+  port: 3306
   username: root
   password: kenrome001
   database: omero_pro_dev

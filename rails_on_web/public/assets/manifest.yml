@@ -88,6 +88,7 @@ liucheng2.jpg: liucheng2-0ca201353fc5da7d7b6daaa47967b338.jpg
 liucheng2.png: liucheng2-7c5126cbc255ad225c02ecf608f2034e.png
 logo.jpg: logo-48650a23a94ed503e6ba14e64cbe3204.jpg
 logo.png: logo-fbe67456d82507c7cef89cddb2a18ed2.png
+logo0.png: logo0-92b81cac07aa21ac547fc755b8fe6a51.png
 logo2.png: logo2-637672bd2653499920e3040c3582cd58.png
 logo_footer.jpg: logo_footer-83b2fb83939fd3203c98d727aa8b85f4.jpg
 logo_footer.png: logo_footer-fd039464e015057d411a8ba617cf77b3.png
@@ -277,7 +278,7 @@ active_admin/orderable.png: active_admin/orderable-312cf8ad195f38825b0fb3d7447ae
 jquery-ui.min.js: jquery-ui.min-8dbc9a652528da9eda2c61da31225437.js
 jquery.min.js: jquery.min-b59ecbaab2d6182fe9d8e1bf6b9e7ded.js
 application.js: application-e47ef179fe948268bf22ff9af9fcdcd1.js
-application.css: application-261118d6433d9742ec4ebe3483776491.css
+application.css: application-2e73b25c17a191ab6d614c82f147dd70.css
 tinymce/jquery-tinymce.js: tinymce/jquery-tinymce-35903f8760a7bc4eee13993059ebf46b.js
 tinymce/tiny_mce.js: tinymce/tiny_mce-22fcb158819ecc7f11212e4d57423a14.js
 tinymce/tiny_mce_jquery.js: tinymce/tiny_mce_jquery-cd1b9c48f60103fd6bdc725e5366344a.js
