@@ -78,38 +78,11 @@ $(document).ready(function(){
     <div id="top_banner" style="height:220px; display:none; overflow:hidden;">
       <%= play_flash asset_path("flash/top_banner1.swf"), :width => '980', :height => '249' %>
     </div>
-    <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px;">&nbsp;&nbsp;</div>
+    <div id="top_banner_flip" style="color:#fff;background:#000; padding:5px; text-align: right;">
+24小时加盟热线： 4000-300-389</div>
   <!-- end #top_banner --></div>
 
 <div style="background-color: #494949;" class="ie7_bad">
-  <div id="header_logo">
-     <div class="logo" valign="bottom"><a href="/home/index" target="_blank"><%=image_tag asset_path("logo0.png"), :width => "450"%></a></div>
-       <div class="form_logo">
-         <table width="95%" border="0" cellspacing="0" cellpadding="0">
-           <tr>
-             <td height="25"><span style="font-size:14px; color:#000;">
-             <% if session[:customer]%>
-               欢迎<%=session[:customer].name %>  <a href="/customer_logout" style="font-size:14px; color:#222;">退出</a>&nbsp;&nbsp;&nbsp;&nbsp;
-             <% end %>
-             <a href="/" style="font-size:14px; color:#222;">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/home/site_map" style="font-size:14px; color:#222;">网站地图</a></span></td>
-           </tr>
-           <tr>
-             <td align="right" valign="top" height="25">
-             <form id="form_search" name="form1" method="get" action="/news_items">
-               <table><tr><td>
-                 <input type="text" name="q" id="q" accesskey="a" size="24" height="30" style="padding: 2px 0;" />
-                 </td><td>
-                   <input type="submit" name="Submit" id="button" value="GO" />
-                 </td></tr></table>
-             </form>             </td>
-           </tr>
-           <tr>
-             <td align="right" valign="bottom" height="30"><div class="login_reg"><a href="/customer_login">会员登录</a>&nbsp;&nbsp;<a href="/customers/new">我要注册</a>&nbsp;&nbsp;<a href="/pages/about:address">联系我们</a></div></td>
-           </tr>
-         </table>
-     </div>
-  <!-- end #header_logo --></div>
-
    <div id="header_nav">
        <%= render :partial => 'layouts/nav' %>
   <!-- end #header_nav --></div>
